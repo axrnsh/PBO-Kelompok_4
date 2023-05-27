@@ -5,6 +5,7 @@ public class KeranjangBelanja {
     private double harga;
     private String ukuran;
     private String warna;
+    private ArrayList<KeranjangBelanja> items;
 
     public KeranjangBelanja(String nama, double harga, String ukuran, String warna) {
         this.nama = nama;
@@ -13,7 +14,7 @@ public class KeranjangBelanja {
         this.warna = warna;
     }
 
-    // getter setter atribut
+    // getter setter atribut item fashion
     public String getNama() {
         return nama;
     }
@@ -46,6 +47,8 @@ public class KeranjangBelanja {
         this.warna = warna;
     }
 
+    // class KeranjangBelanjaFashion untuk mempresentasikan keranjang belanja
+    // fashion pengguna
     class KeranjangBelanjaFashion {
         private ArrayList<KeranjangBelanja> items;
 
@@ -53,14 +56,17 @@ public class KeranjangBelanja {
             items = new ArrayList<>();
         }
 
+        // menambahkan item ke dalam keranjang
         public void tambahItem(KeranjangBelanja item) {
             items.add(item);
         }
 
+        // menghapus item dari keranjang
         public void hapusItem(KeranjangBelanja item) {
             items.remove(item);
         }
 
+        // menghitung total harga semua item
         public double getTotalHarga() {
             double TotalHarga = 0;
             for (KeranjangBelanja item : items) {
@@ -70,4 +76,7 @@ public class KeranjangBelanja {
         }
     }
 
+    public ArrayList<KeranjangBelanja> getItems() {
+        return items;
+    }
 }

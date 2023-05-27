@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 /* class ini berisikan getter dari fitur pencarian barang dan filter
@@ -29,11 +28,6 @@ class Produk {
 }
 
 public class SearchFilter {
-    private List<Produk> produkProduk;
-    public SearchFilter(List<Produk>produkProduk) {
-        this.produkProduk = produkProduk;
-    }
-
     // Untuk mencari nama produk berdasarkan kata kunci
     public List<Produk> searchByName(String kataKunci){
         return null;
