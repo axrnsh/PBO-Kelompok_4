@@ -1,5 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
+        System.out.println("Selamat datang di Flava! \n");
         System.out.println("Menu: ");
         System.out.println("1. Rekomendasi");
         System.out.println("2. Search & Filter");
