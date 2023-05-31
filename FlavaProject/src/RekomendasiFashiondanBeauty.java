@@ -1,89 +1,59 @@
-
-
 import java.util.ArrayList;
+
 import java.util.List;
 
-class User{
+public class RekomendasiFashiondanBeauty{
     private String userID;
-    private List <String> fashionPreferences;
-    private List <String> beautyPreferences;
+    private String fashionPreferences;
+    private String BeautyPreferences;
+    private String HargaBarang;
+    private String Promo;
 
-    public User(String userID) {
+
+    public String getUserID() {
+        return this.userID;
+    }
+
+    public void setUserID(String userID) {
         this.userID = userID;
-        this.fashionPreferences = new ArrayList<>();
-        this.beautyPreferences = new ArrayList<>();
     }
 
-    public void updateFashionPreferences(List<String> newPreferences) {
-        fashionPreferences.clear();
-        fashionPreferences.addAll(newPreferences);
+    public String getFashionPreferences() {
+        return this.fashionPreferences;
     }
 
-    public void updateBeautyPreferences(List<String> newPreferences) {
-        beautyPreferences.clear();
-        beautyPreferences.addAll(newPreferences);
+    public void setFashionPreferences(String fashionPreferences) {
+        this.fashionPreferences = fashionPreferences;
     }
 
-    public List<String> getRecommendedFashionItems() {
-        // Implement fashion recommendation logic here
-        // Return a list of recommended fashion items
-        return new ArrayList<>();
+    public String getBeautyPreferences() {
+        return this.BeautyPreferences;
     }
 
-    public List<String> getRecommendedBeautyProducts() {
-        // Implement beauty product recommendation logic here
-        // Return a list of recommended beauty products
-        return new ArrayList<>();
-    }
-}
-
-class FashionItem {
-    private String itemID;
-    private String name;
-
-    public FashionItem(String itemID, String name) {
-        this.itemID = itemID;
-        this.name = name;
+    public void setBeautyPreferences(String BeautyPreferences) {
+        this.BeautyPreferences = BeautyPreferences;
     }
 
-    public String getItemID() {
-        return itemID;
+    public String getHargaBarang() {
+        return this.HargaBarang;
     }
 
-    public String getName() {
-        return name;
-    }
-}
-
-class BeautyProduct {
-    private String productID;
-    private String name;
-
-    public BeautyProduct(String productID, String name) {
-        this.productID = productID;
-        this.name = name;
+    public void setHargaBarang(String HargaBarang) {
+        this.HargaBarang = HargaBarang;
     }
 
-    public String getProductID() {
-        return productID;
+    public String getPromo() {
+        return this.Promo;
     }
 
-    public String getName() {
-        return name;
-    }
-}
-
-class RecommendationEngine {
-    public List<String> generateFashionRecommendations(User user) {
-        // Implement fashion recommendation logic based on user preferences
-        // Return a list of recommended fashion item IDs
-        return new ArrayList<>();
+    public void setPromo(String Promo) {
+        this.Promo = Promo;
     }
 
-    public List<String> generateBeautyRecommendations(User user) {
-        // Implement beauty product recommendation logic based on user preferences
-        // Return a list of recommended beauty product IDs
-        return new ArrayList<>();
-    }
+
+    
+
+
+    
 }
 
