@@ -1,34 +1,39 @@
-import java.util.Scanner;
+/* class ini berisikan halaman promo
+ * dan halaman pembayaran 
+ */
 
 public class PromodanPembayaran {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+    private String keteranganPromo;
+    private int promo;
+    private double bayar;
 
-        // Input total harga
-        System.out.print("Masukkan total harga: ");
-        double totalHarga = input.nextDouble();
+    public PromodanPembayaran(String keteranganPromo, int promo, double bayar) {
+        this.keteranganPromo = keteranganPromo;
+        this.promo = promo;
+        this.bayar = bayar;
+    }
 
-        // Input kode promo (jika ada)
-        System.out.print("Masukkan kode promo (jika ada): ");
-        String kodePromo = input.next();
+    public String getKeteranganPromo() {
+        return this.keteranganPromo;
+    }
 
-        // Menghitung diskon berdasarkan kode promo
-        double diskon = 0;
-        if (kodePromo.equalsIgnoreCase("PROMO123")) {
-            diskon = 0.2 * totalHarga; // Diskon 20% untuk kode promo PROMO123
-        } else if (kodePromo.equalsIgnoreCase("PROMO456")) {
-            diskon = 0.1 * totalHarga; // Diskon 10% untuk kode promo PROMO456
-        }
+    public int getPromo() {
+        return this.promo;
+    }
 
-        // Menghitung total yang harus dibayar
-        double totalBayar = totalHarga - diskon;
+    public double getBayar() {
+        return this.bayar;
+    }
 
-        // Menampilkan informasi pembayaran
-        System.out.println("Total harga: Rp " + totalHarga);
-        System.out.println("Diskon: Rp " + diskon);
-        System.out.println("Total yang harus dibayar: Rp " + totalBayar);
+    public void setKeteranganPromo(String keteranganPromo) {
+        this.keteranganPromo = keteranganPromo;
+    }
 
-        // Menutup scanner
-        input.close();
+    public void setPromo(int promo) {
+        this.promo = promo;
+    }
+
+    public void setBayar(double bayar) {
+        this.bayar = bayar;
     }
 }
