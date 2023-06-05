@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class KeranjangBelanja {
     private String nama;
@@ -45,6 +46,27 @@ public class KeranjangBelanja {
 
     public void setWarna(String warna) {
         this.warna = warna;
+    }
+
+    @Override
+    public String toString() {
+        return "KeranjangBelanja{" +
+                "nama='" + nama + '\'' +
+                ", harga=" + harga +
+                ", ukuran='" + ukuran + '\'' +
+                ", warna='" + warna + '\'' +
+                ", items=" + items +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        KeranjangBelanja keranjang1 = new KeranjangBelanja("Baju", 100000, "M", "Merah");
+        KeranjangBelanja keranjang2 = new KeranjangBelanja("Sepatu", 250000, "42", "Hitam");
+        KeranjangBelanja keranjang3 = new KeranjangBelanja("Celana", 150000, "L", "Biru");
+
+        System.out.println(keranjang1);
+        System.out.println(keranjang2);
+        System.out.println(keranjang3);
     }
 
     // class KeranjangBelanjaFashion untuk mempresentasikan keranjang belanja
