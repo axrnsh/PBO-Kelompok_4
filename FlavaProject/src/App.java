@@ -17,3 +17,4 @@ public class App {
         SearchFilter atasan = new SearchFilter("Kemeja", "Pakaian", 120000);
     }
 }
+
