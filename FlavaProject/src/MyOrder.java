@@ -12,11 +12,15 @@ class MyOrder {
     private String customerName;
     private List<String> items;
 
-    // this untuk mengakses object 
+    // Konstruktor dengan semua field (all field constructor)
     public MyOrder(String orderId, String customerName, List<String> items) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.items = items;
+    }
+
+    // Konstruktor kosong (empty constructor)
+    public MyOrder() {
     }
 
     // mengisi data ke dalam object
@@ -30,6 +34,16 @@ class MyOrder {
 
     public List<String> getItems() {
         return items;
+    }
+
+    // Metode toString()
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId='" + orderId + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", items=" + items +
+                '}';
     }
 }
 
@@ -59,5 +73,7 @@ class OrderTracker {
             System.out.println("Order not found.");
         }
     }
+
+}
 }
  
