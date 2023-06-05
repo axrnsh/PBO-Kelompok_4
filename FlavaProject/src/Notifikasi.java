@@ -1,50 +1,24 @@
-import javax.swing.JOptionPane;
-import java.util.Objects;
-
 public class Notifikasi {
+    private String pesan;
 
-    public Notifikasi() {
+    // Metode setter untuk atribut pesan
+    public void setPesan(String pesan) {
+        this.pesan = pesan;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Notifikasi)) {
-            return false;
-        }
-        Notifikasi notifikasi = (Notifikasi) o;
-        return Objects.equals(this, notifikasi);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-            "}";
+    // Metode getter untuk atribut pesan
+    public String getPesan() {
+        return pesan;
     }
 
     public static void main(String[] args) {
-        // Menampilkan notifikasi dengan pesan sederhana
-        JOptionPane.showMessageDialog(null, "Ini adalah notifikasi sederhana.");
+        Notifikasi notifikasi = new Notifikasi();
 
-        // Menampilkan notifikasi dengan pesan dan judul
-        JOptionPane.showMessageDialog(null, "Ini adalah notifikasi dengan judul.",
-         "Judul Notifikasi", JOptionPane.INFORMATION_MESSAGE);
+        // Menggunakan metode setter untuk mengatur pesan notifikasi
+        notifikasi.setPesan("Ini adalah notifikasi penting!");
 
-        // Menampilkan notifikasi dengan pilihan OK atau Cancel
-        int pilihan = JOptionPane.showConfirmDialog(null, "Apakah Anda ingin melanjutkan?", 
-        "Konfirmasi", JOptionPane.OK_CANCEL_OPTION);
-        if (pilihan == JOptionPane.OK_OPTION) {
-            System.out.println("Anda memilih OK");
-        } else if (pilihan == JOptionPane.CANCEL_OPTION) {
-            System.out.println("Anda memilih Cancel");
-        } else if (pilihan == JOptionPane.CLOSED_OPTION) {
-            System.out.println("Anda menutup notifikasi");
-        }
+        // Menggunakan metode getter untuk mendapatkan pesan notifikasi
+        String pesanNotifikasi = notifikasi.getPesan();
+        System.out.println("Pesan Notifikasi: " + pesanNotifikasi);
     }
 }
