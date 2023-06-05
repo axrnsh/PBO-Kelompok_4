@@ -1,5 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
+        init();
+        
         System.out.println("Selamat datang di Flava! \n");
         System.out.println("Menu: ");
         System.out.println("1. Rekomendasi");
