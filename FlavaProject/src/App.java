@@ -18,6 +18,10 @@ public class App {
         SearchFilter sepatu = new SearchFilter("Sneakers", "Sepatu", 99000);
         SearchFilter atasan = new SearchFilter("Kemeja", "Pakaian", 120000);
 
+        MyOrder order1 = new MyOrder("KD01", "John Doe", "baju");
+        MyOrder order2 = new MyOrder("KD02", "Jane Smith", "celana");
+        MyOrder order3 = new MyOrder("KD03", "John Doe", "sepatu");
+
 <<<<<<< Updated upstream
         KeranjangBelanja keranjang1 = new KeranjangBelanja("Baju", 100000, "M", "Merah");
         KeranjangBelanja keranjang2 = new KeranjangBelanja("Sepatu", 250000, "42", "Hitam");
@@ -48,6 +52,7 @@ public class App {
         System.out.println(rekomendasi2);
         System.out.println(rekomendasi3);
 >>>>>>> Stashed changes
+    
     }
 }
 
