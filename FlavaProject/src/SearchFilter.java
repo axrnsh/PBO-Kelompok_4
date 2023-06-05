@@ -6,6 +6,9 @@ class SearchFilter {
     private String kategoriProduk;
     private double hargaProduk;
 
+    public SearchFilter() {
+    }
+
     public SearchFilter(String namaProduk, String kategoriProduk, double hargaProduk) {
         this.namaProduk = namaProduk;
         this.kategoriProduk = kategoriProduk;
@@ -22,5 +25,12 @@ class SearchFilter {
 
     public double getHargaProduk() {
         return hargaProduk;
+    }
+
+
+    @Override
+    public String toString() {
+        return String.format("Nama produk\t: %s \nKategori produk\t: %s \nHarga produk\t: Rp. %d", 
+        namaProduk, kategoriProduk, hargaProduk);
     }
 }

@@ -9,4 +9,11 @@ public class App {
         System.out.println("5. Promo dan Pembayaran");
         System.out.println("6. Notifikasi");
     }
+
+    public static void init() {
+        SearchFilter celana = new SearchFilter();
+        SearchFilter dress = new SearchFilter("White dress", "Pakaian", 150000);
+        SearchFilter sepatu = new SearchFilter("Sneakers", "Sepatu", 99000);
+        SearchFilter atasan = new SearchFilter("Kemeja", "Pakaian", 120000);
+    }
 }
