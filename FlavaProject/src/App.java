@@ -15,5 +15,9 @@ public class App {
         SearchFilter dress = new SearchFilter("White dress", "Pakaian", 150000);
         SearchFilter sepatu = new SearchFilter("Sneakers", "Sepatu", 99000);
         SearchFilter atasan = new SearchFilter("Kemeja", "Pakaian", 120000);
+
+        KeranjangBelanja keranjang1 = new KeranjangBelanja("Baju", 100000, "M", "Merah");
+        KeranjangBelanja keranjang2 = new KeranjangBelanja("Sepatu", 250000, "42", "Hitam");
+        KeranjangBelanja keranjang3 = new KeranjangBelanja("Celana", 150000, "L", "Biru");
     }
 }
