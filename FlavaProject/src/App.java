@@ -22,6 +22,10 @@ public class App {
         MyOrder order2 = new MyOrder("KD02", "Jane Smith", "celana");
         MyOrder order3 = new MyOrder("KD03", "John Doe", "sepatu");
 
+        Notifikasi notifikasi1 = new Notifikasi("hallo");
+        Notifikasi notifikasi2 = new Notifikasi("selamat datang");
+        Notifikasi notifikasi3 = new Notifikasi("selamat berbelanja");
+
 <<<<<<< Updated upstream
         KeranjangBelanja keranjang1 = new KeranjangBelanja("Baju", 100000, "M", "Merah");
         KeranjangBelanja keranjang2 = new KeranjangBelanja("Sepatu", 250000, "42", "Hitam");
