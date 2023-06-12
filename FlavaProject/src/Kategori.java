@@ -2,14 +2,16 @@ public class Kategori {
     private String kategoriProduk;
     private String subKategoriProduk;
     private String namaProduk;
+    private String namaPenjual;
 
     public Kategori() {
     }
 
-    public Kategori(String kategoriProduk, String subKategoriProduk, String namaProduk) {
+    public Kategori(String kategoriProduk, String subKategoriProduk, String namaProduk, String namaPenjual) {
         this.kategoriProduk = kategoriProduk;
         this.subKategoriProduk = subKategoriProduk;
         this.namaProduk = namaProduk;
+        this.namaPenjual = namaPenjual;
     }
 
     public String getKategoriProduk() {
@@ -36,6 +38,13 @@ public class Kategori {
         this.namaProduk = namaProduk;
     }
 
+    public String getNamaPenjual() {
+        return namaPenjual;
+    }
+
+    public void setNamaPenjual(String namaPenjual) {
+        this.namaPenjual = namaPenjual;
+    }
 
     @Override
     public String toString() {
