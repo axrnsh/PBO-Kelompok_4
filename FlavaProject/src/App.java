@@ -24,6 +24,10 @@ public class App {
         KeranjangBelanja keranjang1 = new KeranjangBelanja("Baju", 100000, "M", "Merah");
         KeranjangBelanja keranjang2 = new KeranjangBelanja("Sepatu", 250000, "42", "Hitam");
         KeranjangBelanja keranjang3 = new KeranjangBelanja("Celana", 150000, "L", "Biru");
+
+        Pembeli pembeli1 = new Pembeli("ayumi", "baju,celana,topi", "jln uph no 21");
+        Pembeli pembeli2 = new Pembeli("destha", "celana 2pcs", "jln uph no 12");
+        Pembeli pembeli3 = new Pembeli("vanessa", "baju, topi", "jln uph no 190");
         
         RekomendasiFashiondanBeauty rekomendasi1 = new RekomendasiFashiondanBeauty();
         rekomendasi1.setUserID("123456");
