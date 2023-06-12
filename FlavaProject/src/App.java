@@ -24,10 +24,7 @@ public class App {
         KeranjangBelanja keranjang1 = new KeranjangBelanja("Baju", 100000, "M", "Merah");
         KeranjangBelanja keranjang2 = new KeranjangBelanja("Sepatu", 250000, "42", "Hitam");
         KeranjangBelanja keranjang3 = new KeranjangBelanja("Celana", 150000, "L", "Biru");
-<<<<<<< Updated upstream
         
-=======
->>>>>>> Stashed changes
         RekomendasiFashiondanBeauty rekomendasi1 = new RekomendasiFashiondanBeauty();
         rekomendasi1.setUserID("123456");
         rekomendasi1.setFashionPreferences("Trendy");
@@ -52,10 +49,6 @@ public class App {
         System.out.println(rekomendasi1);
         System.out.println(rekomendasi2);
         System.out.println(rekomendasi3);
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     
     }
 }
