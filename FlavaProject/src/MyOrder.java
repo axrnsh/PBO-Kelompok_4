@@ -4,16 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 // untuk bagian myorder yang berisi history, pelacakan, dan nama pelanggan
-class MyOrder {
+public class MyOrder {
     // OrderId untuk melacak paket yg dipesan, customername untuk mengidentifikasi nama customer, 
     // dan items untuk histori pesanan
 
     private String orderId;
     private String customerName;
-    private List<String> items;
+    private String items;
 
     // Konstruktor dengan semua field (all field constructor)
-    public MyOrder(String orderId, String customerName, List<String> items) {
+    public MyOrder(String orderId, String customerName, String items) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.items = items;
@@ -32,7 +32,7 @@ class MyOrder {
         return customerName;
     }
 
-    public List<String> getItems() {
+    public String getItems() {
         return items;
     }
 
@@ -75,5 +75,5 @@ class OrderTracker {
     }
 
 }
-}
+
  
