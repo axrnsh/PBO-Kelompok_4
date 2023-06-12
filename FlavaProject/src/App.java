@@ -17,10 +17,6 @@ public class App {
         Kategori kemeja = new Kategori("Pakaian", "Atasan", "Kemeja Olympia Comfease", "DUST");
         Kategori sepatuHeels = new Kategori("Sepatu", "Heels", "Millie Heels", "Billini");
 
-        MyOrder order1 = new MyOrder("KD01", "John Doe", "baju");
-        MyOrder order2 = new MyOrder("KD02", "Jane Smith", "celana");
-        MyOrder order3 = new MyOrder("KD03", "John Doe", "sepatu");
-
         Pembeli pembeli1 = new Pembeli("ayumi", "baju,celana,topi", "jln uph no 21");
         Pembeli pembeli2 = new Pembeli("destha", "celana 2pcs", "jln uph no 12");
         Pembeli pembeli3 = new Pembeli("vanessa", "baju, topi", "jln uph no 190");
