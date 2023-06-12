@@ -1,7 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
         init();
-
+        
         System.out.println("Selamat datang di Flava! \n");
         System.out.println("Menu: ");
         System.out.println("1. Rekomendasi");
@@ -13,23 +13,18 @@ public class App {
     }
 
     public static void init() {
-        SearchFilter celana = new SearchFilter();
-        SearchFilter dress = new SearchFilter("White dress", "Pakaian", 150000);
-        SearchFilter sepatu = new SearchFilter("Sneakers", "Sepatu", 99000);
-        SearchFilter atasan = new SearchFilter("Kemeja", "Pakaian", 120000);
+        Kategori kaos = new Kategori("Pakaian", "Atasan", "Classic Logo Tee", "PUMA");
+        Kategori kemeja = new Kategori("Pakaian", "Atasan", "Kemeja Olympia Comfease", "DUST");
+        Kategori sepatuHeels = new Kategori("Sepatu", "Heels", "Millie Heels", "Billini");
 
         MyOrder order1 = new MyOrder("KD01", "John Doe", "baju");
         MyOrder order2 = new MyOrder("KD02", "Jane Smith", "celana");
         MyOrder order3 = new MyOrder("KD03", "John Doe", "sepatu");
 
-        Notifikasi notifikasi1 = new Notifikasi("hallo");
-        Notifikasi notifikasi2 = new Notifikasi("selamat datang");
-        Notifikasi notifikasi3 = new Notifikasi("selamat berbelanja");
-
-        penjual penjual1 = new penjual("Penjual A", "Produk A, Produk B, Produk C");
-        penjual penjual2 = new penjual("Penjual B", "Produk X, Produk Y, Produk Z");
-        penjual penjual3 = new penjual("Penjual C", "Produk P, Produk Q, Produk R");
-
+        KeranjangBelanja keranjang1 = new KeranjangBelanja("Baju", 100000, "M", "Merah");
+        KeranjangBelanja keranjang2 = new KeranjangBelanja("Sepatu", 250000, "42", "Hitam");
+        KeranjangBelanja keranjang3 = new KeranjangBelanja("Celana", 150000, "L", "Biru");
+        
         RekomendasiFashiondanBeauty rekomendasi1 = new RekomendasiFashiondanBeauty();
         rekomendasi1.setUserID("123456");
         rekomendasi1.setFashionPreferences("Trendy");
@@ -54,7 +49,7 @@ public class App {
         System.out.println(rekomendasi1);
         System.out.println(rekomendasi2);
         System.out.println(rekomendasi3);
->>>>>>> Stashed changes
     
     }
 }
+
