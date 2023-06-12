@@ -17,13 +17,17 @@ public class App {
         Kategori kemeja = new Kategori("Pakaian", "Atasan", "Kemeja Olympia Comfease", "DUST");
         Kategori sepatuHeels = new Kategori("Sepatu", "Heels", "Millie Heels", "Billini");
 
+        Produk blouse = new Produk("White Blouse",  500000, "Baju masih baru");
+        Produk celanabiru = new Produk("Blue Jeans",  400000, "Celana bekas");
+        Produk sepatu = new Produk("Yellow Sun",  600000, "Sepstu masih baru");
+
         Pembeli pembeli1 = new Pembeli("ayumi", "baju,celana,topi", "jln uph no 21");
         Pembeli pembeli2 = new Pembeli("destha", "celana 2pcs", "jln uph no 12");
         Pembeli pembeli3 = new Pembeli("vanessa", "baju, topi", "jln uph no 190");
 
-        penjual penjual1 = new penjual("chris", "topi", 7);
-        penjual penjual2 = new penjual("lisa", "baju", 5);
-        penjual penjual3 = new penjual("Michael", "celana", 6);
+        Penjual penjual1 = new Penjual("chris", "topi", 7);
+        Penjual penjual2 = new Penjual("lisa", "baju", 5);
+        Penjual penjual3 = new Penjual("Michael", "celana", 6);
         
         transaksi transaksi1 = new transaksi("TRX001", "2023-06-12", 500000);
         transaksi transaksi2 = new transaksi("TRX002", "2023-06-15", 750000);
