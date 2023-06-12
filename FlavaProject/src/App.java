@@ -1,7 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
         init();
-        
+
         System.out.println("Selamat datang di Flava! \n");
         System.out.println("Menu: ");
         System.out.println("1. Rekomendasi");
@@ -28,7 +28,11 @@ public class App {
         Pembeli pembeli1 = new Pembeli("ayumi", "baju,celana,topi", "jln uph no 21");
         Pembeli pembeli2 = new Pembeli("destha", "celana 2pcs", "jln uph no 12");
         Pembeli pembeli3 = new Pembeli("vanessa", "baju, topi", "jln uph no 190");
-        
+
+        penjual penjual1 = new penjual("chris", "topi", 7);
+        penjual penjual2 = new penjual("lisa", "baju", 5);
+        penjual penjual3 = new penjual("Michael", "celana", 6);
+
         RekomendasiFashiondanBeauty rekomendasi1 = new RekomendasiFashiondanBeauty();
         rekomendasi1.setUserID("123456");
         rekomendasi1.setFashionPreferences("Trendy");
@@ -53,7 +57,6 @@ public class App {
         System.out.println(rekomendasi1);
         System.out.println(rekomendasi2);
         System.out.println(rekomendasi3);
-    
+
     }
 }
-
