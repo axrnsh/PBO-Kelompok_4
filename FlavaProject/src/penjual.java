@@ -1,4 +1,5 @@
 public class Penjual {
+
     private String namaPenjual;
     private String DaftarProduk;
     private double ratingPenjual;
