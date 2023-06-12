@@ -1,7 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
         init();
-        
+
         System.out.println("Selamat datang di Flava! \n");
         System.out.println("Menu: ");
         System.out.println("1. Rekomendasi");
@@ -26,11 +26,10 @@ public class App {
         Notifikasi notifikasi2 = new Notifikasi("selamat datang");
         Notifikasi notifikasi3 = new Notifikasi("selamat berbelanja");
 
-<<<<<<< Updated upstream
-        KeranjangBelanja keranjang1 = new KeranjangBelanja("Baju", 100000, "M", "Merah");
-        KeranjangBelanja keranjang2 = new KeranjangBelanja("Sepatu", 250000, "42", "Hitam");
-        KeranjangBelanja keranjang3 = new KeranjangBelanja("Celana", 150000, "L", "Biru");
-=======
+        penjual penjual1 = new penjual("Penjual A", "Produk A, Produk B, Produk C");
+        penjual penjual2 = new penjual("Penjual B", "Produk X, Produk Y, Produk Z");
+        penjual penjual3 = new penjual("Penjual C", "Produk P, Produk Q, Produk R");
+
         RekomendasiFashiondanBeauty rekomendasi1 = new RekomendasiFashiondanBeauty();
         rekomendasi1.setUserID("123456");
         rekomendasi1.setFashionPreferences("Trendy");
@@ -59,4 +58,3 @@ public class App {
     
     }
 }
-
