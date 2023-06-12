@@ -9,29 +9,41 @@ public class transaksi {
         this.total = total;
     }
 
-    public void tampilkanInfo() {
-        System.out.println("ID Transaksi: " + idTransaksi);
-        System.out.println("Tanggal: " + tanggal);
-        System.out.println("Total: " + total);
+    // Getter untuk idTransaksi
+    public String getIdTransaksi() {
+        return idTransaksi;
     }
 
-    public void ubahTotal(double totalBaru) {
-        this.total = totalBaru;
-        System.out.println("Total telah diubah menjadi " + total);
+    // Setter untuk idTransaksi
+    public void setIdTransaksi(String idTransaksi) {
+        this.idTransaksi = idTransaksi;
     }
 
-    public static void main(String[] args) {
-        // Membuat objek transaksi1
-        transaksi transaksi1 = new transaksi("TRX001", "2023-06-12", 500000);
-
-        // Menampilkan informasi transaksi1
-        transaksi1.tampilkanInfo();
-
-        // Mengubah total transaksi1
-        transaksi1.ubahTotal(750000);
-
-        // Menampilkan informasi transaksi1 setelah diubah
-        transaksi1.tampilkanInfo();
+    // Getter untuk tanggal
+    public String getTanggal() {
+        return tanggal;
     }
+
+    // Setter untuk tanggal
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    // Getter untuk total
+    public double getTotal() {
+        return total;
+    }
+
+    // Setter untuk total
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    
+    @Override
+    public String toString() {
+        return "ID Transaksi: " + idTransaksi + "\n" +
+               "Tanggal: " + tanggal + "\n" +
+               "Total: " + total;
+    }
+
 }
-
