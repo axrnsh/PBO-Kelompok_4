@@ -1,13 +1,12 @@
-public class penjual {
-
+public class Penjual {
     private String namaPenjual;
     private String DaftarProduk;
     private double ratingPenjual;
 
-    public penjual() {
+    public Penjual() {
     }
 
-    public penjual(String namaPenjual, String DaftarProduk, double ratingPenjual) {
+    public Penjual(String namaPenjual, String DaftarProduk, double ratingPenjual) {
         this.namaPenjual = namaPenjual;
         this.DaftarProduk = DaftarProduk;
         this.ratingPenjual = ratingPenjual;
