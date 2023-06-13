@@ -29,8 +29,8 @@ public class App {
         Penjual penjual2 = new Penjual("lisa", "baju", 5);
         Penjual penjual3 = new Penjual("Michael", "celana", 6);
         
-        transaksi transaksi1 = new transaksi("TRX001", "2023-06-12", 500000);
-        transaksi transaksi2 = new transaksi("TRX002", "2023-06-15", 750000);
-        transaksi transaksi3 = new transaksi("TRX003", "2023-06-20", 1000000);
+        Transaksi transaksi1 = new Transaksi("TRX001", "2023-06-12", 500000);
+        Transaksi transaksi2 = new Transaksi("TRX002", "2023-06-15", 750000);
+        Transaksi transaksi3 = new Transaksi("TRX003", "2023-06-20", 1000000);
     }
 }

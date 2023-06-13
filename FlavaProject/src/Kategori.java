@@ -5,7 +5,7 @@
 
 public class Kategori {
     private String kategoriProduk;
-    private String namaProduk;
+    private String daftarProduk;
     private String namaPenjual;
 
     public Kategori() {
@@ -13,7 +13,7 @@ public class Kategori {
 
     public Kategori(String kategoriProduk, String namaProduk, String namaPenjual) {
         this.kategoriProduk = kategoriProduk;
-        this.namaProduk = namaProduk;
+        this.daftarProduk = namaProduk;
         this.namaPenjual = namaPenjual;
     }
 
@@ -25,12 +25,12 @@ public class Kategori {
         this.kategoriProduk = kategoriProduk;
     }
 
-    public String getNamaProduk() {
-        return this.namaProduk;
+    public String getDaftarProduk() {
+        return this.daftarProduk;
     }
 
-    public void setNamaProduk(String namaProduk) {
-        this.namaProduk = namaProduk;
+    public void setDaftarProduk(String namaProduk) {
+        this.daftarProduk = namaProduk;
     }
 
     public String getNamaPenjual() {
@@ -44,6 +44,6 @@ public class Kategori {
     @Override
     public String toString() {
         return String.format("Kategori produk\t: %s \nNama produk\t: %s \nNama Penjual\t: %s", 
-        kategoriProduk, namaProduk, namaPenjual);
+        kategoriProduk, daftarProduk, namaPenjual);
     }
 }
