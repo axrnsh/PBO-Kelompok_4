@@ -1,4 +1,4 @@
-/*
+/* Devina
  * class ini berfunsi untuk menyimpan informasi transaksi yang terjadi
  */
 

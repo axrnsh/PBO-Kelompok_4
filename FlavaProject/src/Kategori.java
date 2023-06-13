@@ -1,4 +1,4 @@
-/*
+/* Ayumi 
  * class ini berfungsi untuk membagi produk berdasarkan kategori
  * seperti misalnya pakaian, rok, sepatu
  */

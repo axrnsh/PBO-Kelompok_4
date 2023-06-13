@@ -1,4 +1,4 @@
-/* 
+/* Angela
  * class ini berfungsi untuk menyimpan informasi produk
  */
 

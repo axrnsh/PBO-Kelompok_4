@@ -1,4 +1,4 @@
-/* 
+/* Desthacia
  * class ini berfungsi untuk menyimpan identitas pembeli
  */
 

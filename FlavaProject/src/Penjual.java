@@ -1,4 +1,4 @@
-/*
+/* Vanessa
  * class ini berfungsi untuk menyimpan identitas penjual
  */
 
