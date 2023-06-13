@@ -43,7 +43,7 @@ public class Kategori {
 
     @Override
     public String toString() {
-        return String.format("Kategori produk\t: %s \nSub kategori produk\t: %s \nNama Penjual\t: %s", 
+        return String.format("Kategori produk\t: %s \nSub kategori produk\t: %s \nNama Produk\t: %s", 
         kategoriProduk, subKategoriProduk, daftarProduk);
     }
 }
