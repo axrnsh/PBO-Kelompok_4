@@ -4,19 +4,20 @@
 
 public class Transaksi {
     private String idTransaksi;
+    private String namaPembeliProduk;
     private String tanggal;
     private double total;
 
     public Transaksi() {
     }
 
-
-    public Transaksi(String idTransaksi, String tanggal, double total) {
+    public Transaksi(String idTransaksi, String namaPembeliProduk, String tanggal, double total) {
         this.idTransaksi = idTransaksi;
+        this.namaPembeliProduk = namaPembeliProduk;
         this.tanggal = tanggal;
         this.total = total;
     }
-
+    
     // Getter untuk idTransaksi
     public String getIdTransaksi() {
         return idTransaksi;
@@ -25,6 +26,14 @@ public class Transaksi {
     // Setter untuk idTransaksi
     public void setIdTransaksi(String idTransaksi) {
         this.idTransaksi = idTransaksi;
+    }
+
+    public String getNamaPembeliProduk() {
+        return namaPembeliProduk;
+    }
+
+    public void setNamaPembeliProduk(String namaPembeliProduk) {
+        this.namaPembeliProduk = namaPembeliProduk;
     }
 
     // Getter untuk tanggal
@@ -49,9 +58,12 @@ public class Transaksi {
     
     @Override
     public String toString() {
-        return "ID Transaksi: " + idTransaksi + "\n" +
-               "Tanggal: " + tanggal + "\n" +
-               "Total: " + total;
+        return "{" +
+            " idTransaksi='" + getIdTransaksi() + "'" +
+            ", namaPembeliProduk='" + getNamaPembeliProduk() + "'" +
+            ", tanggal='" + getTanggal() + "'" +
+            ", total='" + getTotal() + "'" +
+            "}";
     }
-
+    
 }
