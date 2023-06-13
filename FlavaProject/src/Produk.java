@@ -86,7 +86,7 @@ public class Produk {
     public String toString() {
         return "Produk: " + namaProduk + "\nHarga: " + hargaProduk + "\nDeskripsi: " + deskripsiProduk + 
         "\nnamaPenjual:" + namaPenjual + "\nkategoriProduk" + kategoriProduk + "\nratingProduk" + ratingProduk +
-        "\nulasanProduk" + ulasanProduk ;
+        "\nulasanProduk" + ulasanProduk;
     }
 }
     
