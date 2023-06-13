@@ -2,7 +2,7 @@
  * class ini berfungsi untuk menyimpan informasi pada produk
  */
 
-public class Produk {
+ public class Produk {
     private String namaProduk;
     private double hargaProduk;
     private String deskripsiProduk;
