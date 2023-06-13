@@ -52,16 +52,13 @@ public class App {
         kategori[1] = new Kategori("Pakaian", "Rok", "Olympia Comfease Skirt");
         kategori[2] = new Kategori("Sepatu", "Heels", "Millie Heels");
 
-        produk[0] = new Produk("White Blouse", 500000, "Baju masih baru", "Kiki", "Pakaian", (double) 4,
-                "baju bagus");
-        produk[1] = new Produk("Blue Jeans", 400000, "Celana bekas", "Dono", "celana", (double) 2.5,
-                "Celana sudah usang");
-        produk[2] = new Produk("Yellow Sun", 600000, "Sepatu masih baru", "Axel", "sepatu", (double) 5,
-                "sepatunya keren sekali");
+        produk[0] = new Produk("White Blouse", 500000, "Baju masih baru", "Kiki", "Pakaian");
+        produk[1] = new Produk("Blue Jeans", 400000, "Celana bekas", "Dono", "celana");
+        produk[2] = new Produk("Yellow Sun", 600000, "Sepatu masih baru", "Axel", "sepatu");
 
-        pembeli[0] = new Pembeli("Ayumi", "baju,celana,topi", "jl. uph no 21", 4.5, "bagus");
-        pembeli[1] = new Pembeli("Destha", "celana 2pcss", "jl. uph no 12", 5, "baik");
-        pembeli[2] = new Pembeli("Vanessa", "baju, topi", "jl. uph no 190", 8, "good");
+        pembeli[0] = new Pembeli("Ayumi", "baju,celana,topi", "jl. uph no 21");
+        pembeli[1] = new Pembeli("Destha", "celana 2pcss", "jl. uph no 12");
+        pembeli[2] = new Pembeli("Vanessa", "baju, topi", "jl. uph no 190");
 
         penjual[0] = new Penjual("chris", "topi celine", 7);
         penjual[1] = new Penjual("lisa", "croptop", 5);
@@ -69,6 +66,6 @@ public class App {
 
         transaksi[0] = new Transaksi("TRX001", "White Blouse", "Rene", "2023-06-12", 500000);
         transaksi[1] = new Transaksi("TRX002", "Bllue Jeans", "Moona", "2023-06-15", 400000);
-        transaksi[2] = new Transaksi("TRX003", "Risu", "Yellow Sun", "2023-06-20", 600000);
+        transaksi[2] = new Transaksi("TRX003", "Yellow Sun", "Jisoo", "2023-06-20", 600000);
     }
 }

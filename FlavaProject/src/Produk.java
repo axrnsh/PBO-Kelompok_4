@@ -8,21 +8,17 @@
     private String deskripsiProduk;
     private String namaPenjual;
     private String kategoriProduk;
-    private double ratingProduk; 
-    private String ulasanProduk;
 
     public Produk () {
     }
     
     public Produk(String namaProduk, double hargaProduk, String deskripsiProduk, String namaPenjual, 
-    String kategoriProduk, Double ratingProduk, String ulasanProduk) {
+    String kategoriProduk) {
         this.namaProduk = namaProduk;
         this.hargaProduk = hargaProduk;
         this.deskripsiProduk = deskripsiProduk;
         this.namaPenjual = namaPenjual;
         this.kategoriProduk = kategoriProduk;
-        this.ratingProduk = ratingProduk;
-        this.ulasanProduk = ulasanProduk;
     }
  
     
@@ -66,27 +62,10 @@
         this.kategoriProduk = kategoriProduk;
     }
 
-    public Double getRatingProduk() {
-        return this.ratingProduk;
-    }
-    
-    public void setratingProduk(Double ratingProduk) {
-        this.ratingProduk = ratingProduk;
-    }
-
-    public String getUlasanProduk() {
-        return this.ulasanProduk;
-    }
-    
-    public void setUlasanProduk(String ulasanProduk) {
-        this.ulasanProduk = ulasanProduk;
-    }
-
     @Override
     public String toString() {
         return "Produk: " + namaProduk + "\nHarga: " + hargaProduk + "\nDeskripsi: " + deskripsiProduk + 
-        "\nnamaPenjual:" + namaPenjual + "\nkategoriProduk" + kategoriProduk + "\nratingProduk" + ratingProduk +
-        "\nulasanProduk" + ulasanProduk;
+        "\nnamaPenjual:" + namaPenjual + "\nkategoriProduk" + kategoriProduk;
     }
 }
     
