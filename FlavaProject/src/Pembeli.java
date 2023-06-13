@@ -8,17 +8,17 @@ public class Pembeli {
     private String DaftarProduk;
     private String AlamatPembeli;
     private double ratingProduk;
-    private String ulasan;
+    private String ulasanProduk;
 
     public Pembeli() {
     }
 
-    public Pembeli(String namaPembeli, String daftarProduk, String AlamatPembeli, double ratingProduk, String ulasan) {
+    public Pembeli(String namaPembeli, String daftarProduk, String AlamatPembeli, double ratingProduk, String ulasanProduk) {
         this.namaPembeli = namaPembeli;
         this.DaftarProduk = daftarProduk;
         this.AlamatPembeli = AlamatPembeli;
         this.ratingProduk = ratingProduk;
-        this.ulasan = ulasan;
+        this.ulasanProduk = ulasanProduk;
     }
 
     public String getNamaPembeli() {
@@ -57,12 +57,12 @@ public class Pembeli {
         this.ratingProduk = ratingProduk;
     }
 
-    public String getUlasan() {
-        return this.ulasan;
+    public String getUlasanProduk() {
+        return this.ulasanProduk;
     }
 
-    public void setUlasan(String ulasan) {
-        this.ulasan = ulasan;
+    public void setUlasan(String ulasanProduk) {
+        this.ulasanProduk = ulasanProduk;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Pembeli {
                 ", DaftarProduk='" + getDaftarProduk() + "'" +
                 ", AlamatPembeli='" + getAlamatPembeli() + "'" +
                 ", ratingProduk='" + getRatingProduk() + "'" +
-                ", ulasan='" + getUlasan() + "'" +
+                ", ulasanProduk='" + getUlasanProduk() + "'" +
                 "}";
     }
 
