@@ -5,16 +5,16 @@
 
 public class Kategori {
     private String kategoriProduk;
+    private String subKategoriProduk;
     private String daftarProduk;
-    private String namaPenjualProduk;
 
     public Kategori() {
     }
 
-    public Kategori(String kategoriProduk, String daftarProduk, String namaPenjualProduk) {
+    public Kategori(String kategoriProduk, String subKategoriProduk, String daftarProduk) {
         this.kategoriProduk = kategoriProduk;
+        this.subKategoriProduk = subKategoriProduk;
         this.daftarProduk = daftarProduk;
-        this.namaPenjualProduk = namaPenjualProduk;
     }
 
     public String getKategoriProduk() {
@@ -25,6 +25,14 @@ public class Kategori {
         this.kategoriProduk = kategoriProduk;
     }
 
+    public String getSubKategoriProduk() {
+        return this.subKategoriProduk;
+    }
+
+    public void setSubKategoriProduk(String subKategoriProduk) {
+        this.subKategoriProduk = subKategoriProduk;
+    }
+
     public String getDaftarProduk() {
         return this.daftarProduk;
     }
@@ -33,17 +41,9 @@ public class Kategori {
         this.daftarProduk = daftarProduk;
     }
 
-    public String getNamaPenjualProduk() {
-        return namaPenjualProduk;
-    }
-
-    public void setNamaPenjualProduk(String namaPenjualProduk) {
-        this.namaPenjualProduk = namaPenjualProduk;
-    }
-
     @Override
     public String toString() {
-        return String.format("Kategori produk\t: %s \nNama produk\t: %s \nNama Penjual\t: %s", 
-        kategoriProduk, daftarProduk, namaPenjualProduk);
+        return String.format("Kategori produk\t: %s \nSub kategori produk\t: %s \nNama Penjual\t: %s", 
+        kategoriProduk, subKategoriProduk, daftarProduk);
     }
 }
