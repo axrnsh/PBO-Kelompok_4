@@ -38,11 +38,11 @@ public class Transaksi {
         this.namaPembeliProduk = namaPembeliProduk;
     }
 
-    public String getNamaproduk(){
+    public String getNamaProduk(){
         return namaProduk;
     }
 
-    public void setNamaproduk(String namaProduk){
+    public void setNamaProduk(String namaProduk){
         this.namaProduk = namaProduk;
     } 
 
