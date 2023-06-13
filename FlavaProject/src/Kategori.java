@@ -1,15 +1,18 @@
+/*
+ * class ini berfungsi untuk membagi produk berdasarkan kategori
+ * seperti misalnya pakaian, rok, sepatu
+ */
+
 public class Kategori {
     private String kategoriProduk;
-    private String subKategoriProduk;
     private String namaProduk;
     private String namaPenjual;
 
     public Kategori() {
     }
 
-    public Kategori(String kategoriProduk, String subKategoriProduk, String namaProduk, String namaPenjual) {
+    public Kategori(String kategoriProduk, String namaProduk, String namaPenjual) {
         this.kategoriProduk = kategoriProduk;
-        this.subKategoriProduk = subKategoriProduk;
         this.namaProduk = namaProduk;
         this.namaPenjual = namaPenjual;
     }
@@ -20,14 +23,6 @@ public class Kategori {
 
     public void setKategoriProduk(String kategoriProduk) {
         this.kategoriProduk = kategoriProduk;
-    }
-
-    public String getSubKategoriProduk() {
-        return this.subKategoriProduk;
-    }
-
-    public void setSubKategoriProduk(String subKategoriProduk) {
-        this.subKategoriProduk = subKategoriProduk;
     }
 
     public String getNamaProduk() {
@@ -48,7 +43,7 @@ public class Kategori {
 
     @Override
     public String toString() {
-        return String.format("Nama produk\t: %s \nKategori produk\t: %s \nHarga produk\t: Rp. %d", 
-        kategoriProduk, subKategoriProduk, namaProduk);
+        return String.format("Kategori produk\t: %s \nNama produk\t: %s \nNama Penjual\t: %s", 
+        kategoriProduk, namaProduk, namaPenjual);
     }
 }
