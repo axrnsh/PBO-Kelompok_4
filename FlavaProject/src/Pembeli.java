@@ -5,16 +5,16 @@
 public class Pembeli {
 
     private String namaPembeli;
-    private String DaftarProduk;
-    private String AlamatPembeli;
+    private String daftarTransaksi;
+    private String alamatPembeli;
 
     public Pembeli() {
     }
 
-    public Pembeli(String namaPembeli, String daftarProduk, String AlamatPembeli) {
+    public Pembeli(String namaPembeli, String daftarTransaksi, String alamatPembeli) {
         this.namaPembeli = namaPembeli;
-        this.DaftarProduk = daftarProduk;
-        this.AlamatPembeli = AlamatPembeli;
+        this.daftarTransaksi = daftarTransaksi;
+        this.alamatPembeli = alamatPembeli;
     }
 
     public String getNamaPembeli() {
@@ -25,32 +25,28 @@ public class Pembeli {
         this.namaPembeli = namaPembeli;
     }
 
-    public String getDaftarProduk() {
-        return this.DaftarProduk;
+    public String getDaftarTransaksi() {
+        return this.daftarTransaksi;
     }
 
-    public void setDaftarProduk(String DaftarProduk) {
-        this.DaftarProduk = DaftarProduk;
+    public void setDaftarTransaksi(String daftarTransaksi) {
+        this.daftarTransaksi = daftarTransaksi;
     }
 
-    public String setAlamatPembeli() {
-        return this.AlamatPembeli;
-    }
-
-    public void setAlamatPembeli(String AlamatPembeli) {
-        this.AlamatPembeli = AlamatPembeli;
+    public void setAlamatPembeli(String alamatPembeli) {
+        this.alamatPembeli = alamatPembeli;
     }
 
     public String getAlamatPembeli() {
-        return this.AlamatPembeli;
+        return this.alamatPembeli;
     }
 
     @Override
     public String toString() {
         return "{" +
                 " namaPembeli='" + getNamaPembeli() + "'" +
-                ", DaftarProduk='" + getDaftarProduk() + "'" +
-                ", AlamatPembeli='" + getAlamatPembeli();
+                ", daftarTransaksi='" + getDaftarTransaksi() + "'" +
+                ", alamatPembeli='" + getAlamatPembeli();
     }
 
 }
