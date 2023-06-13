@@ -84,7 +84,9 @@ public class Produk {
 
     @Override
     public String toString() {
-        return "Produk: " + namaProduk + "\nHarga: " + hargaProduk + "\nDeskripsi: " + deskripsiProduk;
+        return "Produk: " + namaProduk + "\nHarga: " + hargaProduk + "\nDeskripsi: " + deskripsiProduk + 
+        "\nnamaPenjual:" + namaPenjual + "\nkategoriProduk" + kategoriProduk + "\nratingProduk" + ratingProduk +
+        "\nulasanProduk" + ulasanProduk ;
     }
 }
     
