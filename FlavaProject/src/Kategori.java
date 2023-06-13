@@ -6,15 +6,15 @@
 public class Kategori {
     private String kategoriProduk;
     private String daftarProduk;
-    private String namaPenjual;
+    private String namaPenjualProduk;
 
     public Kategori() {
     }
 
-    public Kategori(String kategoriProduk, String daftarProduk, String namaPenjual) {
+    public Kategori(String kategoriProduk, String daftarProduk, String namaPenjualProduk) {
         this.kategoriProduk = kategoriProduk;
         this.daftarProduk = daftarProduk;
-        this.namaPenjual = namaPenjual;
+        this.namaPenjualProduk = namaPenjualProduk;
     }
 
     public String getKategoriProduk() {
@@ -33,17 +33,17 @@ public class Kategori {
         this.daftarProduk = daftarProduk;
     }
 
-    public String getNamaPenjual() {
-        return namaPenjual;
+    public String getNamaPenjualProduk() {
+        return namaPenjualProduk;
     }
 
-    public void setNamaPenjual(String namaPenjual) {
-        this.namaPenjual = namaPenjual;
+    public void setNamaPenjualProduk(String namaPenjualProduk) {
+        this.namaPenjualProduk = namaPenjualProduk;
     }
 
     @Override
     public String toString() {
         return String.format("Kategori produk\t: %s \nNama produk\t: %s \nNama Penjual\t: %s", 
-        kategoriProduk, daftarProduk, namaPenjual);
+        kategoriProduk, daftarProduk, namaPenjualProduk);
     }
 }
