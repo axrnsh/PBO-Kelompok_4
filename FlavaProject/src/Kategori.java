@@ -11,9 +11,9 @@ public class Kategori {
     public Kategori() {
     }
 
-    public Kategori(String kategoriProduk, String namaProduk, String namaPenjual) {
+    public Kategori(String kategoriProduk, String daftarProduk, String namaPenjual) {
         this.kategoriProduk = kategoriProduk;
-        this.daftarProduk = namaProduk;
+        this.daftarProduk = daftarProduk;
         this.namaPenjual = namaPenjual;
     }
 
@@ -29,8 +29,8 @@ public class Kategori {
         return this.daftarProduk;
     }
 
-    public void setDaftarProduk(String namaProduk) {
-        this.daftarProduk = namaProduk;
+    public void setDaftarProduk(String daftarProduk) {
+        this.daftarProduk = daftarProduk;
     }
 
     public String getNamaPenjual() {
