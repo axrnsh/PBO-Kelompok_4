@@ -1,9 +1,17 @@
-public class transaksi {
+/*
+ * class ini berfunsi untuk menyimpan informasi transaksi yang terjadi
+ */
+
+public class Transaksi {
     private String idTransaksi;
     private String tanggal;
     private double total;
 
-    public transaksi(String idTransaksi, String tanggal, double total) {
+    public Transaksi() {
+    }
+
+
+    public Transaksi(String idTransaksi, String tanggal, double total) {
         this.idTransaksi = idTransaksi;
         this.tanggal = tanggal;
         this.total = total;
