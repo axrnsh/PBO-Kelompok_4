@@ -13,9 +13,9 @@ public class App {
     }
 
     public static void init() {
-        Kategori kaos = new Kategori("Pakaian", "Atasan", "Classic Logo Tee", "PUMA");
-        Kategori kemeja = new Kategori("Pakaian", "Atasan", "Kemeja Olympia Comfease", "DUST");
-        Kategori sepatuHeels = new Kategori("Sepatu", "Heels", "Millie Heels", "Billini");
+        Kategori kat1 = new Kategori("Pakaian", "Classic Logo Tee", "PUMA");
+        Kategori kat2 = new Kategori("Rok", "Olympia Comfease Skirt", "DUST");
+        Kategori kat3 = new Kategori("Sepatu", "Millie Heels", "Billini");
 
         Produk blouse = new Produk("White Blouse",  500000, "Baju masih baru");
         Produk celanabiru = new Produk("Blue Jeans",  400000, "Celana bekas");
