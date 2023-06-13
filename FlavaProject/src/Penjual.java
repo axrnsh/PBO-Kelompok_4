@@ -2,7 +2,6 @@
  * class ini berfungsi untuk menyimpan identitas penjual
  */
 
-
 public class Penjual {
 
     private String namaPenjual;

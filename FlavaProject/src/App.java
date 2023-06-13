@@ -17,9 +17,9 @@ public class App {
         Kategori kat2 = new Kategori("Pakaian", "Rok", "Olympia Comfease Skirt");
         Kategori kat3 = new Kategori("Sepatu", "Heels", "Millie Heels");
 
-        Produk blouse = new Produk("White Blouse", 500000, "Baju masih baru");
-        Produk celanabiru = new Produk("Blue Jeans", 400000, "Celana bekas");
-        Produk sepatu = new Produk("Yellow Sun", 600000, "Sepstu masih baru");
+        Produk blouseputih = new Produk("White Blouse", 500000, "Baju masih baru", "Kiki", "Baju", (double) 4, "baju bagus");
+        Produk celanabiru = new Produk("Blue Jeans", 400000, "Celana bekas", "Dono", "celana", (double) 2.5 , "Celana sudah usang");
+        Produk sepatupink = new Produk("Yellow Sun", 600000, "Sepstu masih baru", "Axel", "sepatu", (double) 5, "sepatunya keren sekali");
 
         Pembeli pembeli1 = new Pembeli("ayumi", "baju,celana,topi", "jl. uph no 21", 4.5, "bagus");
         Pembeli pembeli2 = new Pembeli("destha", "celana 2pcss", "jl. uph no 12", 5, "baik");
