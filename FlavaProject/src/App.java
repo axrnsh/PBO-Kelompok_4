@@ -137,10 +137,11 @@ public class App {
         System.out.println("Input data berikut");
         System.out.print("Nama penjual \t: ");
         String namaPenjual = scanner.nextLine();
-        System.out.print("Produk \t: ");
+        System.out.print("Produk \t\t: ");
         String produkPenjual = scanner.nextLine();
         System.out.print("Rating penjual \t: ");
         double ratePenjual = scanner.nextDouble();
+        scanner.nextLine();
 
         Penjual penjualBaru = new Penjual(namaPenjual, produkPenjual, ratePenjual);
         for (int i = 0; i < penjual.length; i++) {
@@ -197,8 +198,9 @@ public class App {
         String produkTransaksi = scanner.nextLine();
         System.out.print("Tanggal \t: ");
         String tanggal = scanner.nextLine();
-        System.out.print("Total \t: ");
+        System.out.print("Total \t\t: ");
         Double totalTransaksi = scanner.nextDouble();
+        scanner.nextLine();
 
         Transaksi transaksiBaru = new Transaksi(idTransaksi, pembeliTransaksi, produkTransaksi, tanggal,
                 totalTransaksi);
