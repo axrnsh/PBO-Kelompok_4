@@ -1,174 +1,72 @@
 import java.util.Scanner;
 
 public class App {
-    static Kategori kategori[] = new Kategori[4];
-    static Produk produk[] = new Produk[4];
+
+    static Kategori kategori[] = new Kategori[3];
+    static Produk produk[] = new Produk[3];
     static Pembeli pembeli[] = new Pembeli[3];
     static Penjual penjual[] = new Penjual[3];
     static Transaksi transaksi[] = new Transaksi[3];
-    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
         init();
         boolean selesai = false;
+        System.out.print("\033[H\033[2J");
 
         do {
-            System.out.println("\nSelamat datang di Flava!");
+            System.out.println("Selamat datang di Flava! \n");
             System.out.println("Menu: ");
-            System.out.println(" 1. Input kategori baru");
-            System.out.println(" 2. Input produk baru");
-            System.out.println(" 3. Input penjual ");
-            System.out.println(" 4. Input pembeli");
-            System.out.println(" 5. Input transaksi");
-            System.out.println(" 6. Tampilkan kategori");
-            System.out.println(" 7. Tampilkan produk");
-            System.out.println(" 8. Tampilkan penjual");
-            System.out.println(" 9. Tampilkan pembeli");
-            System.out.println("10. Tampilkan transaksi");
-            System.out.println("11. Keluar");
+            System.out.println("1. Rekomendasi");
+            System.out.println("2. Search & Filter");
+            System.out.println("3. Keranjang Belanja");
+            System.out.println("4. My Order");
+            System.out.println("5. Promo dan Pembayaran");
+            System.out.println("6. Notifikasi");
             System.out.print("\nPilihan: ");
-
-            String pilihan;
-            pilihan = scanner.nextLine();
+            
+            int pilihan;
+            pilihan = scanner.nextInt();
 
             switch (pilihan) {
-                case "1":
-                    inputKategori();
+                case 1:
                     break;
-                case "2":
-                    inputProduk();
+                case 2:
                     break;
-                case "6":
-                    outputKategori();
-                case "11":
+                case 3:
                     System.out.println("Terima kasih sudah menggunakan Flava!");
                     selesai = true;
                     break;
                 default:
+                    System.out.print("\033[H\033[2J");
                     System.out.println("Masukkan angka yang valid");
+                    scanner.nextLine();
                     break;
             }
         } while (!selesai);
         scanner.close();
     }
 
-    public static void inputKategori() {
-        System.out.println("Input data berikut");
-        System.out.print("Kategori produk \t: ");
-        String kat = scanner.nextLine();
-        System.out.print("Sub kategori produk \t: ");
-        String subKat = scanner.nextLine();
-        System.out.print("Produk \t\t\t: ");
-        String produkBarang = scanner.nextLine();
-
-        Kategori kategoriBaru = new Kategori(kat, subKat, produkBarang);
-        for (int i = 0; i < kategori.length; i++) {
-            if (kategori[i] == null) {
-                kategori[i] = kategoriBaru;
-                break;
-            } else if (i == kategori.length - 1) {
-                int lengthPlus = kategori.length + 1;
-                Kategori[] temp = new Kategori[lengthPlus];
-                for (int j = 0; j < kategori.length; j++) {
-                    temp[j] = kategori[j];
-                }
-                temp[i + 1] = kategoriBaru;
-                kategori = temp;
-                break;
-            }
-        }
-    }
-
-    public static void inputProduk() {
-        System.out.println("Input data berikut");
-        System.out.print("Nama produk \t: ");
-        String namaProduk = scanner.nextLine();
-        System.out.print("Harga produk \t: ");
-        int hargaProduk = scanner.nextInt();
-        System.out.print("Deskripsi produk \t: ");
-        String descProduk = scanner.nextLine();
-        System.out.println("Nama penjual \t: ");
-        String namaPenjual = scanner.nextLine();
-        System.out.println("Kategori produk \t: ");
-        String katProduk = scanner.nextLine();
-
-        Produk produkBaru = new Produk(namaProduk, hargaProduk, descProduk, namaPenjual, katProduk);
-        for (int i = 0; i < produk.length; i++) {
-            if (produk[i] == null) {
-                produk[i] = produkBaru;
-                break;
-            } else if (i == produk.length - 1) {
-                int lengthPlus = produk.length + 1;
-                Produk[] temp = new Produk[lengthPlus];
-                for (int j = 0; j < produk.length; j++) {
-                    temp[j] = produk[j];
-                }
-                temp[i + 1] = produkBaru;
-                produk = temp;
-                break;
-            }
-        }
-    }
-
-    public static void inputPenjual() {
-        System.out.println("Input data berikut");
-        System.out.print("Nama penjual \t: ");
-        String namaPenjual = scanner.nextLine();
-        System.out.print("Produk \t: ");
-        String produkPenjual  = scanner.nextLine();
-        System.out.print("Rating penjual \t: ");
-        double ratePenjual = scanner.nextInt();
-
-        Penjual penjualBaru = new Penjual(namaPenjual, produkPenjual, ratePenjual);
-        for (int i = 0; i < penjual.length; i++) {
-            if (penjual[i] == null) {
-                penjual[i] = penjualBaru;
-                break;
-            } else if (i == penjual.length - 1) {
-                int lengthPlus = penjual.length + 1;
-                Penjual[] temp = new Penjual[lengthPlus];
-                for (int j = 0; j < penjual.length; j++) {
-                    temp[j] = penjual[j];
-                }
-                temp[i + 1] = penjualBaru;
-                penjual = temp;
-                break;
-            }
-        }
-    }
-
-
-    public static void outputKategori() {
-        System.out.println("| KATEGORI PRODUK | SUB KATEGORI PRODUK |      PRODUK      |");
-        System.out.println("------------------------------------------------------------");
-        for (Kategori kategori : kategori) {
-            if (kategori != null) {
-                System.out.println(kategori);
-            }
-        }
-    }
-
     public static void init() {
-        kategori[0] = new Kategori("Pakaian", "Atasan", "White Blouse");
-        kategori[1] = new Kategori("Pakaian", "Jeans", "Blue Jeans");
-        kategori[2] = new Kategori("Sepatu", "Flats", "Yellow Sun");
-        kategori[3] = new Kategori("Beauty", "Nail Care", "Nail Polish");
+        kategori[0] = new Kategori("Pakaian", "Atasan", "Classic Logo Tee");
+        kategori[1] = new Kategori("Pakaian", "Rok", "Olympia Comfease Skirt");
+        kategori[2] = new Kategori("Sepatu", "Heels", "Millie Heels");
 
-        produk[0] = new Produk("White Blouse", 500000, "Baju masih baru", "Chris", "Pakaian");
-        produk[1] = new Produk("Blue Jeans", 400000, "Celana bekas", "Lisa", "Pakaian");
-        produk[2] = new Produk("Yellow Sun", 600000, "Sepatu masih baru", "Axel", "Sepatu");
-        produk[3] = new Produk("Nail Polish", 150000, "Glossy", "Axel", "Nail Care");
+        produk[0] = new Produk("White Blouse", 500000, "Baju masih baru", "Kiki", "Pakaian");
+        produk[1] = new Produk("Blue Jeans", 400000, "Celana bekas", "Dono", "celana");
+        produk[2] = new Produk("Yellow Sun", 600000, "Sepatu masih baru", "Axel", "sepatu");
 
-        pembeli[0] = new Pembeli("Reine", "White Blouse", "Jl. Bumi, No: 21");
-        pembeli[1] = new Pembeli("Moona", "Yellow Sun", "Jl. Bulan, No: 12");
-        pembeli[2] = new Pembeli("Jisoo", "Nail Polish", "Jl. Mars, No: 190");
+        pembeli[0] = new Pembeli("Ayumi", "baju,celana,topi", "jl. uph no 21");
+        pembeli[1] = new Pembeli("Destha", "celana 2pcss", "jl. uph no 12");
+        pembeli[2] = new Pembeli("Vanessa", "baju, topi", "jl. uph no 190");
 
-        penjual[0] = new Penjual("Chris", "White Blouse", 4);
-        penjual[1] = new Penjual("Lisa", "Blue Jeans", 5);
-        penjual[2] = new Penjual("Axel", "Yellow Sun", 5);
+        penjual[0] = new Penjual("chris", "topi celine", 7);
+        penjual[1] = new Penjual("lisa", "croptop", 5);
+        penjual[2] = new Penjual("Michael", "celana jeans", 6);
 
-        transaksi[0] = new Transaksi("TRX001", "Reine", "White Blouse", "2023-06-12", 500000);
-        transaksi[1] = new Transaksi("TRX002", "Moona", "Yellow Sun", "2023-06-15", 600000);
-        transaksi[2] = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
+        transaksi[0] = new Transaksi("TRX001", "White Blouse", "Rene", "2023-06-12", 500000);
+        transaksi[1] = new Transaksi("TRX002", "Bllue Jeans", "Moona", "2023-06-15", 400000);
+        transaksi[2] = new Transaksi("TRX003", "Yellow Sun", "Jisoo", "2023-06-20", 600000);
     }
 }
+
