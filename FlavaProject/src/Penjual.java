@@ -44,8 +44,7 @@ public class Penjual {
     // Override metode toString()
     @Override
     public String toString() {
-        return "Nama Penjual: " + namaPenjual + "\n"
-                + "Daftar Produk: " + DaftarProduk + "\n"
-                + "Rating Penjual: " + ratingPenjual;
+        return String.format("| %-16s | %-16s | %-14f |", 
+        namaPenjual, DaftarProduk, ratingPenjual);
     }
 }

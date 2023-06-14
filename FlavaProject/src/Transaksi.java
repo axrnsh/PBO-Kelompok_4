@@ -68,13 +68,8 @@ public class Transaksi {
     
     @Override
     public String toString() {
-        return "{" +
-            " idTransaksi='" + getIdTransaksi() + "'" +
-            ", namaPembeliProduk='" + getNamaPembeliProduk() + "'" +
-            ", namaProduk='" + getNamaProduk() + "'" +
-            ", tanggal='" + getTanggal() + "'" +
-            ", total='" + getTotal() + "'" +
-            "}";
+        return String.format("| %-14s | %-16s | %-16s | %-11s | %-17f |", 
+        idTransaksi, namaPembeliProduk, namaProduk, tanggal, total);
     }
     
 }

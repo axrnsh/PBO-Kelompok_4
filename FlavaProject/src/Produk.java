@@ -64,8 +64,8 @@
 
     @Override
     public String toString() {
-        return "Produk: " + namaProduk + "\nHarga: " + hargaProduk + "\nDeskripsi: " + deskripsiProduk + 
-        "\nnamaPenjual:" + namaPenjual + "\nkategoriProduk" + kategoriProduk;
+        return String.format("| %-15s | %-14f | %-20s | %-16s | %-15s |", 
+        namaProduk, hargaProduk, deskripsiProduk, namaPenjual, kategoriProduk);
     }
 }
     
