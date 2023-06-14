@@ -14,7 +14,7 @@ public class App {
 
         do {
             System.out.println("\nSelamat datang di Flava!");
-            System.out.println("Menu: ");
+            System.out.println("Menu:");
             System.out.println(" 1. Input kategori baru");
             System.out.println(" 2. Input produk baru");
             System.out.println(" 3. Input penjual ");
@@ -75,7 +75,7 @@ public class App {
     }
 
     public static void inputKategori() {
-        System.out.println("Input data berikut");
+        System.out.println("\nInput data berikut!");
         System.out.print("Kategori produk \t: ");
         String kat = scanner.nextLine();
         System.out.print("Sub kategori produk \t: ");
@@ -102,7 +102,7 @@ public class App {
     }
 
     public static void inputProduk() {
-        System.out.println("Input data berikut");
+        System.out.println("\nInput data berikut!");
         System.out.print("Nama produk \t\t: ");
         String namaProduk = scanner.nextLine();
         System.out.print("Harga produk \t\t: ");
@@ -134,7 +134,7 @@ public class App {
     }
 
     public static void inputPenjual() {
-        System.out.println("Input data berikut");
+        System.out.println("\nInput data berikut!");
         System.out.print("Nama penjual \t: ");
         String namaPenjual = scanner.nextLine();
         System.out.print("Produk \t\t: ");
@@ -162,7 +162,7 @@ public class App {
     }
 
     public static void inputPembeli() {
-        System.out.println("Input data berikut");
+        System.out.println("\nInput data berikut!");
         System.out.print("Nama pembeli \t: ");
         String namaPembeli = scanner.nextLine();
         System.out.print("Transaksi \t: ");
@@ -189,7 +189,7 @@ public class App {
     }
 
     public static void inputTransaksi() {
-        System.out.println("Input data berikut");
+        System.out.println("\nInput data berikut!");
         System.out.print("Id transaksi \t: ");
         String idTransaksi = scanner.nextLine();
         System.out.print("Nama pembeli \t: ");
@@ -232,8 +232,10 @@ public class App {
     }
 
     public static void outputProduk() {
-        System.out.println("|   NAMA PRODUK   |  HARGA PRODUK  |   DESKRIPSI PRODUK   |   NAMA PENJUAL   | KATEGORI PRODUK |");
-        System.out.println("------------------------------------------------------------------------------------------------");
+        System.out.println(
+                "|   NAMA PRODUK   |  HARGA PRODUK  |   DESKRIPSI PRODUK   |   NAMA PENJUAL   | KATEGORI PRODUK |");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------");
         for (Produk produk : produk) {
             if (produk != null) {
                 System.out.println(produk);
@@ -262,8 +264,10 @@ public class App {
     }
 
     public static void outputTransaksi() {
-        System.out.println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
-        System.out.println("------------------------------------------------------------------------------------------");
+        System.out
+                .println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
+        System.out
+                .println("------------------------------------------------------------------------------------------");
         for (Transaksi transaksi : transaksi) {
             if (transaksi != null) {
                 System.out.println(transaksi);
