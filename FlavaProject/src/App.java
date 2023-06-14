@@ -168,7 +168,7 @@ public class App {
         penjual[2] = new Penjual("Axel", "Yellow Sun", 5);
 
         transaksi[0] = new Transaksi("TRX001", "Reine", "White Blouse", "2023-06-12", 500000);
-        transaksi[1] = new Transaksi("TRX002", "Moona", "Yellow Sun", "2023-06-15", 600000);
+        transaksi[1] = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
         transaksi[2] = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
     }
 }
