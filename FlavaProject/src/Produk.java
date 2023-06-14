@@ -10,7 +10,7 @@
     private String kategoriProduk;
 
     public Produk () {
-    }
+    }  
     
     public Produk(String namaProduk, double hargaProduk, String deskripsiProduk, String namaPenjual, 
     String kategoriProduk) {
