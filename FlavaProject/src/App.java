@@ -10,6 +10,8 @@ public class App {
 
     public static ArrayList<Kategori> arrayKategori = new ArrayList<Kategori>();
     public static ArrayList<Penjual> arrayPenjual = new ArrayList<Penjual>();
+    public static ArrayList<Pembeli> arrayPembeli = new ArrayList<Pembeli>();
+    
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -162,22 +164,7 @@ public class App {
         System.out.print("Alamat pembeli \t: ");
         String alamatPembeli = scanner.nextLine();
 
-        Pembeli pembeliBaru = new Pembeli(namaPembeli, daftarTransaksi, alamatPembeli);
-        for (int i = 0; i < pembeli.length; i++) {
-            if (pembeli[i] == null) {
-                pembeli[i] = pembeliBaru;
-                break;
-            } else if (i == pembeli.length - 1) {
-                int lengthPlus = pembeli.length + 1;
-                Pembeli[] temp = new Pembeli[lengthPlus];
-                for (int j = 0; j < pembeli.length; j++) {
-                    temp[j] = pembeli[j];
-                }
-                temp[i + 1] = pembeliBaru;
-                pembeli = temp;
-                break;
-            }
-        }
+        arrayPembeli.add(new Pembeli(namaPembeli, daftarTransaksi, alamatPembeli));
     }
 
     public static void inputTransaksi() {
@@ -258,11 +245,17 @@ public class App {
     }
 
     public static void outputPembeli() {
-        System.out.println("|   NAMA PEMBELI   | DAFTAR TRANSAKSI |      ALAMAT PEMBELI     |");
-        System.out.println("-----------------------------------------------------------------");
-        for (Pembeli pembeli : pembeli) {
-            if (pembeli != null) {
-                System.out.println(pembeli);
+        System.out.println("|   NAMA PEMBELI   |      PRODUK DIBELI      | ALAMAT PEMBELI |");
+        System.out.println("--------------------------------------------------------");
+        for (Pembeli pembeliInit : pembeli) {
+            if (pembeliInit != null) {
+                System.out.println(pembeliInit);
+            }
+        }
+
+        for (Pembeli pembeliOutput : arrayPembeli) {
+            if (pembeliOutput != null) {
+                System.out.println(pembeliOutput);
             }
         }
     }
