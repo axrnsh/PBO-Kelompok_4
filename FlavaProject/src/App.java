@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -6,6 +7,9 @@ public class App {
     static Pembeli pembeli[] = new Pembeli[3];
     static Penjual penjual[] = new Penjual[3];
     static Transaksi transaksi[] = new Transaksi[3];
+
+    public static ArrayList<Kategori> arrayKategori = new ArrayList<Kategori>();
+
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
@@ -100,22 +104,7 @@ public class App {
         System.out.print("Produk \t\t\t: ");
         String produkBarang = scanner.nextLine();
 
-        Kategori kategoriBaru = new Kategori(kat, subKat, produkBarang);
-        for (int i = 0; i < kategori.length; i++) {
-            if (kategori[i] == null) {
-                kategori[i] = kategoriBaru;
-                break;
-            } else if (i == kategori.length - 1) {
-                int lengthPlus = kategori.length + 1;
-                Kategori[] temp = new Kategori[lengthPlus];
-                for (int j = 0; j < kategori.length; j++) {
-                    temp[j] = kategori[j];
-                }
-                temp[i + 1] = kategoriBaru;
-                kategori = temp;
-                break;
-            }
-        }
+        arrayKategori.add(new Kategori(kat, subKat, produkBarang));
     }
 
     public static void inputProduk() {
@@ -241,9 +230,15 @@ public class App {
     public static void outputKategori() {
         System.out.println("| KATEGORI PRODUK | SUB KATEGORI PRODUK |      PRODUK      |");
         System.out.println("------------------------------------------------------------");
-        for (Kategori kategori : kategori) {
-            if (kategori != null) {
-                System.out.println(kategori);
+        for (Kategori kategoriInit : kategori) {
+            if (kategoriInit != null) {
+                System.out.println(kategoriInit);
+            }
+        }
+
+        for (Kategori kategoriOutput : arrayKategori) {
+            if (kategoriOutput != null) {
+                System.out.println(kategoriOutput);
             }
         }
     }
