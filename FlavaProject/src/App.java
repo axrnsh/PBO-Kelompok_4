@@ -10,11 +10,28 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         init();
+        boolean loggedIn = false;
         boolean selesai = false;
 
         do {
             System.out.println("\nSelamat datang di Flava!");
-            System.out.println("Menu:");
+
+            if (!loggedIn) {
+                System.out.println("Silakan login untuk melanjutkan:");
+                System.out.print("Username: ");
+                String username = scanner.nextLine();
+                System.out.print("Password: ");
+                String password = scanner.nextLine();
+
+                if (Login.login(username, password)) {
+                    loggedIn = true;
+                } else {
+                    System.out.println("Username atau password salah. Silakan coba lagi.");
+                    continue;
+                }
+            }
+
+            System.out.println("\nMenu:");
             System.out.println(" 1. Input kategori baru");
             System.out.println(" 2. Input produk baru");
             System.out.println(" 3. Input penjual ");
