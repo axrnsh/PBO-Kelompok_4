@@ -11,8 +11,9 @@ public class App {
     public static ArrayList<Kategori> arrayKategori = new ArrayList<Kategori>();
     public static ArrayList<Penjual> arrayPenjual = new ArrayList<Penjual>();
     public static ArrayList<Pembeli> arrayPembeli = new ArrayList<Pembeli>();
-    public static ArrayList<Produk> arrayProduk = new ArrayList<Produk>();
+    public static ArrayList<Transaksi> arrayTransaksi = new ArrayList <Transaksi>();
     
+
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
@@ -106,8 +107,10 @@ public class App {
         String subKat = scanner.nextLine();
         System.out.print("Produk \t\t\t: ");
         String produkBarang = scanner.nextLine();
+        
 
         arrayKategori.add(new Kategori(kat, subKat, produkBarang));
+        
     }
 
     public static void inputProduk() {
@@ -124,9 +127,24 @@ public class App {
         System.out.print("Kategori produk \t: ");
         String katProduk = scanner.nextLine();
 
-        arrayProduk.add(new Produk(namaProduk, hargaProduk, descProduk, namaPenjual, katProduk));
+        Produk produkBaru = new Produk(namaProduk, hargaProduk, descProduk, namaPenjual, katProduk);
+        for (int i = 0; i < produk.length; i++) {
+            if (produk[i] == null) {
+                produk[i] = produkBaru;
+                break;
+            } else if (i == produk.length - 1) {
+                int lengthPlus = produk.length + 1;
+                Produk[] temp = new Produk[lengthPlus];
+                for (int j = 0; j < produk.length; j++) {
+                    temp[j] = produk[j];
+                }
+                temp[i + 1] = produkBaru;
+                produk = temp;
+                break;
+            }
+        }
     }
-    
+
 
     public static void inputPenjual() {
         System.out.println("\nInput data berikut!");
@@ -167,23 +185,8 @@ public class App {
         Double totalTransaksi = scanner.nextDouble();
         scanner.nextLine();
 
-        Transaksi transaksiBaru = new Transaksi(idTransaksi, pembeliTransaksi, produkTransaksi, tanggal,
-                totalTransaksi);
-        for (int i = 0; i < transaksi.length; i++) {
-            if (transaksi[i] == null) {
-                transaksi[i] = transaksiBaru;
-                break;
-            } else if (i == transaksi.length - 1) {
-                int lengthPlus = transaksi.length + 1;
-                Transaksi[] temp = new Transaksi[lengthPlus];
-                for (int j = 0; j < transaksi.length; j++) {
-                    temp[j] = transaksi[j];
-                }
-                temp[i + 1] = transaksiBaru;
-                transaksi = temp;
-                break;
-            }
-        }
+        arrayTransaksi.add (new Transaksi(idTransaksi, pembeliTransaksi,produkTransaksi, tanggal, totalTransaksi));
+        
     }
 
     public static void outputKategori() {
@@ -207,20 +210,12 @@ public class App {
                 "|   NAMA PRODUK   |  HARGA PRODUK  |   DESKRIPSI PRODUK   |   NAMA PENJUAL   | KATEGORI PRODUK |");
         System.out.println(
                 "------------------------------------------------------------------------------------------------");
-        for (Produk produkInit : produk) {
-            if (produkInit != null) {
-                System.out.println(produkInit);
+        for (Produk produk : produk) {
+            if (produk != null) {
+                System.out.println(produk);
             }
-        }
-        
-        for (Produk produkOutput : arrayProduk) {
-            if (produkOutput != null) {
-                System.out.println(produkOutput);
-            }
-            
         }
     }
-
 
     public static void outputPenjual() {
         System.out.println("|   NAMA PENJUAL   |      PRODUK      | RATING PENJUAL |");
@@ -255,16 +250,21 @@ public class App {
     }
 
     public static void outputTransaksi() {
-        System.out
-                .println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
-        System.out
-                .println("------------------------------------------------------------------------------------------");
-        for (Transaksi transaksi : transaksi) {
-            if (transaksi != null) {
-                System.out.println(transaksi);
+        System.out.println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
+        System.out.println("------------------------------------------------------------------------------------------");
+        for (Transaksi transaksiInit : transaksi) {
+            if (transaksiInit != null) {
+                System.out.println(transaksiInit);
+            }
+        }
+        
+        for (Transaksi transaksiOutput : arrayTransaksi) {
+            if (transaksiOutput != null) {
+                System.out.println(transaksiOutput);
             }
         }
     }
+
 
     public static void init() {
         kategori[0] = new Kategori("Pakaian", "Atasan", "White Blouse");
