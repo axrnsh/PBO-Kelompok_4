@@ -9,30 +9,31 @@ public class App {
     static Transaksi transaksi[] = new Transaksi[3];
 
     public static ArrayList<Kategori> arrayKategori = new ArrayList<Kategori>();
+    public static ArrayList<Penjual> arrayPenjual = new ArrayList<Penjual>();
 
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
         init();
-        //boolean loggedIn = false;
+        // boolean loggedIn = false;
         boolean selesai = false;
 
         do {
             System.out.println("\nSelamat datang di Flava!");
 
             // if (!loggedIn) {
-            //     System.out.println("Silakan login untuk melanjutkan:");
-            //     System.out.print("Username: ");
-            //     String username = scanner.nextLine();
-            //     System.out.print("Password: ");
-            //     String password = scanner.nextLine();
+            // System.out.println("Silakan login untuk melanjutkan:");
+            // System.out.print("Username: ");
+            // String username = scanner.nextLine();
+            // System.out.print("Password: ");
+            // String password = scanner.nextLine();
 
-            //     if (Login.login(username, password)) {
-            //         loggedIn = true;
-            //     } else {
-            //         System.out.println("Username atau password salah. Silakan coba lagi.");
-            //         continue;
-            //     }
+            // if (Login.login(username, password)) {
+            // loggedIn = true;
+            // } else {
+            // System.out.println("Username atau password salah. Silakan coba lagi.");
+            // continue;
+            // }
             // }
 
             System.out.println("\nMenu:");
@@ -149,22 +150,7 @@ public class App {
         double ratePenjual = scanner.nextDouble();
         scanner.nextLine();
 
-        Penjual penjualBaru = new Penjual(namaPenjual, produkPenjual, ratePenjual);
-        for (int i = 0; i < penjual.length; i++) {
-            if (penjual[i] == null) {
-                penjual[i] = penjualBaru;
-                break;
-            } else if (i == penjual.length - 1) {
-                int lengthPlus = penjual.length + 1;
-                Penjual[] temp = new Penjual[lengthPlus];
-                for (int j = 0; j < penjual.length; j++) {
-                    temp[j] = penjual[j];
-                }
-                temp[i + 1] = penjualBaru;
-                penjual = temp;
-                break;
-            }
-        }
+        arrayPenjual.add(new Penjual(namaPenjual, produkPenjual, ratePenjual));
     }
 
     public static void inputPembeli() {
@@ -258,9 +244,15 @@ public class App {
     public static void outputPenjual() {
         System.out.println("|   NAMA PENJUAL   |      PRODUK      | RATING PENJUAL |");
         System.out.println("--------------------------------------------------------");
-        for (Penjual penjual : penjual) {
-            if (penjual != null) {
-                System.out.println(penjual);
+        for (Penjual penjualInit : penjual) {
+            if (penjualInit != null) {
+                System.out.println(penjualInit);
+            }
+        }
+
+        for (Penjual penjualOutput : arrayPenjual) {
+            if (penjualOutput != null) {
+                System.out.println(penjualOutput);
             }
         }
     }
