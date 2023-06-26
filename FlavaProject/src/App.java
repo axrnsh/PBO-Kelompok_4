@@ -11,6 +11,7 @@ public class App {
     public static ArrayList<Kategori> arrayKategori = new ArrayList<Kategori>();
     public static ArrayList<Penjual> arrayPenjual = new ArrayList<Penjual>();
     public static ArrayList<Pembeli> arrayPembeli = new ArrayList<Pembeli>();
+    public static ArrayList<Produk> arrayProduk = new ArrayList<Produk>();
     public static ArrayList<Transaksi> arrayTransaksi = new ArrayList <Transaksi>();
     
 
@@ -127,24 +128,9 @@ public class App {
         System.out.print("Kategori produk \t: ");
         String katProduk = scanner.nextLine();
 
-        Produk produkBaru = new Produk(namaProduk, hargaProduk, descProduk, namaPenjual, katProduk);
-        for (int i = 0; i < produk.length; i++) {
-            if (produk[i] == null) {
-                produk[i] = produkBaru;
-                break;
-            } else if (i == produk.length - 1) {
-                int lengthPlus = produk.length + 1;
-                Produk[] temp = new Produk[lengthPlus];
-                for (int j = 0; j < produk.length; j++) {
-                    temp[j] = produk[j];
-                }
-                temp[i + 1] = produkBaru;
-                produk = temp;
-                break;
-            }
-        }
-    }
+        arrayProduk.add(new Produk(namaProduk, hargaProduk, descProduk, namaPenjual, katProduk));
 
+    }
 
     public static void inputPenjual() {
         System.out.println("\nInput data berikut!");
@@ -210,12 +196,19 @@ public class App {
                 "|   NAMA PRODUK   |  HARGA PRODUK  |   DESKRIPSI PRODUK   |   NAMA PENJUAL   | KATEGORI PRODUK |");
         System.out.println(
                 "------------------------------------------------------------------------------------------------");
-        for (Produk produk : produk) {
-            if (produk != null) {
-                System.out.println(produk);
+        for (Produk produkInit : produk) {
+            if (produkInit != null) {
+                System.out.println(produkInit);
+            }
+        }
+
+        for (Produk produkOutput : arrayProduk) {
+            if (produkOutput != null) {
+                System.out.println(produkOutput);
             }
         }
     }
+
 
     public static void outputPenjual() {
         System.out.println("|   NAMA PENJUAL   |      PRODUK      | RATING PENJUAL |");
