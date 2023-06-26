@@ -10,7 +10,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         init();
-        boolean loggedIn = false;
+        //boolean loggedIn = false;
         boolean selesai = false;
 
         do {
