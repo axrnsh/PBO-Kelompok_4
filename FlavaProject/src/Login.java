@@ -15,10 +15,9 @@ public class Login {
 
                 String nama = data[0];
                 String pass = data[1];
-                //String role = data[2];
 
                 if (username.equals(nama) && password.equals(pass)) {
-                    System.out.println("Login berhasil! Selamat datang, " + nama + "!");
+                    System.out.println("\nLogin berhasil! Selamat datang, " + nama + "!");
                     scanner.close();
                     return true;
                 }

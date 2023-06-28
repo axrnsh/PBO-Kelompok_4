@@ -43,7 +43,7 @@ public class Pembeli {
 
     @Override
     public String toString() {
-        return String.format("| %-16s | %-16s | %-23s |", 
+        return String.format("| %-16s | %-17s | %-23s |", 
         namaPembeli, daftarTransaksi, alamatPembeli);
     }
 }

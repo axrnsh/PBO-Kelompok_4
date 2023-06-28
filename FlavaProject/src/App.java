@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
+    // tolong banget kalau mau edit kerapiannya dijaga
     static Kategori kategori[] = new Kategori[4];
     static Produk produk[] = new Produk[4];
     static Pembeli pembeli[] = new Pembeli[3];
@@ -19,26 +20,41 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         init();
-        // boolean loggedIn = false;
+        boolean loggedIn = false;
         boolean selesai = false;
 
         do {
-            System.out.println("\nSelamat datang di Flava!");
+            System.out.println("\nSelamat datang di Flava!\n");
+            System.out.println("1. Login");
+            System.out.println("2. Keluar");
+            System.out.print("Pilihan: ");
 
-            // if (!loggedIn) {
-            // System.out.println("Silakan login untuk melanjutkan:");
-            // System.out.print("Username: ");
-            // String username = scanner.nextLine();
-            // System.out.print("Password: ");
-            // String password = scanner.nextLine();
+            String pilih;
+            pilih = scanner.nextLine();
 
-            // if (Login.login(username, password)) {
-            // loggedIn = true;
-            // } else {
-            // System.out.println("Username atau password salah. Silakan coba lagi.");
-            // continue;
-            // }
-            // }
+            switch (pilih) {
+                case "1":
+                    if (!loggedIn) {
+                        System.out.print("\nUsername: ");
+                        String username = scanner.nextLine();
+                        System.out.print("Password: ");
+                        String password = scanner.nextLine();
+
+                        if (Login.login(username, password)) {
+                            loggedIn = true;
+                        } else {
+                            continue;
+                        }
+                    }
+                    break;
+                case "2":
+                    System.out.println("Terima kasih sudah menggunakan Flava!");
+                    selesai = true;
+                    break;
+                default:
+                    System.out.println("Masukkan angka yang valid");
+                    break;
+            }
 
             System.out.println("\nMenu:");
             System.out.println(" 1. Input kategori baru");
@@ -108,10 +124,9 @@ public class App {
         String subKat = scanner.nextLine();
         System.out.print("Produk \t\t\t: ");
         String produkBarang = scanner.nextLine();
-        
 
         arrayKategori.add(new Kategori(kat, subKat, produkBarang));
-        
+
     }
 
     public static void inputProduk() {
@@ -129,7 +144,6 @@ public class App {
         String katProduk = scanner.nextLine();
 
         arrayProduk.add(new Produk(namaProduk, hargaProduk, descProduk, namaPenjual, katProduk));
-
     }
 
     public static void inputPenjual() {
@@ -171,8 +185,8 @@ public class App {
         Double totalTransaksi = scanner.nextDouble();
         scanner.nextLine();
 
-        arrayTransaksi.add (new Transaksi(idTransaksi, pembeliTransaksi,produkTransaksi, tanggal, totalTransaksi));
-        
+        arrayTransaksi.add(new Transaksi(idTransaksi, pembeliTransaksi, produkTransaksi, tanggal, totalTransaksi));
+
     }
 
     public static void outputKategori() {
@@ -227,8 +241,8 @@ public class App {
     }
 
     public static void outputPembeli() {
-        System.out.println("|   NAMA PEMBELI   |      PRODUK DIBELI      | ALAMAT PEMBELI |");
-        System.out.println("--------------------------------------------------------");
+        System.out.println("|   NAMA PEMBELI   |   PRODUK DIBELI   |      ALAMAT PEMBELI     |");
+        System.out.println("------------------------------------------------------------------");
         for (Pembeli pembeliInit : pembeli) {
             if (pembeliInit != null) {
                 System.out.println(pembeliInit);
@@ -243,21 +257,22 @@ public class App {
     }
 
     public static void outputTransaksi() {
-        System.out.println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
-        System.out.println("------------------------------------------------------------------------------------------");
+        System.out
+                .println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
+        System.out
+                .println("------------------------------------------------------------------------------------------");
         for (Transaksi transaksiInit : transaksi) {
             if (transaksiInit != null) {
                 System.out.println(transaksiInit);
             }
         }
-        
+
         for (Transaksi transaksiOutput : arrayTransaksi) {
             if (transaksiOutput != null) {
                 System.out.println(transaksiOutput);
             }
         }
     }
-
 
     public static void init() {
         kategori[0] = new Kategori("Pakaian", "Atasan", "White Blouse");
