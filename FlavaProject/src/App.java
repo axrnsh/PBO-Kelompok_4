@@ -124,7 +124,6 @@ public class App {
         String subKat = scanner.nextLine();
 
         arrayKategori.add(new Kategori(kat, subKat));
-
     }
 
     public static void inputProduk() {
@@ -184,7 +183,6 @@ public class App {
         scanner.nextLine();
 
         arrayTransaksi.add(new Transaksi(idTransaksi, pembeliTransaksi, produkTransaksi, tanggal, totalTransaksi));
-
     }
 
     public static void outputKategori() {
