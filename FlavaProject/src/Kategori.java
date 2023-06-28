@@ -6,15 +6,13 @@
 public class Kategori {
     private String kategoriProduk;
     private String subKategoriProduk;
-    private String daftarProduk;
 
     public Kategori() {
     }
 
-    public Kategori(String kategoriProduk, String subKategoriProduk, String daftarProduk) {
+    public Kategori(String kategoriProduk, String subKategoriProduk) {
         this.kategoriProduk = kategoriProduk;
         this.subKategoriProduk = subKategoriProduk;
-        this.daftarProduk = daftarProduk;
     }
 
     public String getKategoriProduk() {
@@ -33,17 +31,10 @@ public class Kategori {
         this.subKategoriProduk = subKategoriProduk;
     }
 
-    public String getDaftarProduk() {
-        return this.daftarProduk;
-    }
-
-    public void setDaftarProduk(String daftarProduk) {
-        this.daftarProduk = daftarProduk;
-    }
 
     @Override
     public String toString() {
-        return String.format("| %-15s | %-19s | %-16s |", 
-        kategoriProduk, subKategoriProduk, daftarProduk);
+        return String.format("| %-15s | %-19s |", 
+        kategoriProduk, subKategoriProduk);
     }
 }

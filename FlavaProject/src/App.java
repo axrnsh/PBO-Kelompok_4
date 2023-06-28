@@ -35,15 +35,15 @@ public class App {
             switch (pilih) {
                 case "1":
                     if (!loggedIn) {
-                        System.out.print("\nUsername: ");
+                        System.out.print("\nUsername: "); //USERNAME
                         String username = scanner.nextLine();
-                        System.out.print("Password: ");
+                        System.out.print("Password: "); //PASSWORD
                         String password = scanner.nextLine();
 
                         if (Login.login(username, password)) {
                             loggedIn = true;
                         } else {
-                            continue;
+                            continue;//login masih terbatas
                         }
                     }
                     break;
