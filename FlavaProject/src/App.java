@@ -122,10 +122,8 @@ public class App {
         String kat = scanner.nextLine();
         System.out.print("Sub kategori produk \t: ");
         String subKat = scanner.nextLine();
-        System.out.print("Produk \t\t\t: ");
-        String produkBarang = scanner.nextLine();
 
-        arrayKategori.add(new Kategori(kat, subKat, produkBarang));
+        arrayKategori.add(new Kategori(kat, subKat));
 
     }
 
@@ -190,8 +188,8 @@ public class App {
     }
 
     public static void outputKategori() {
-        System.out.println("| KATEGORI PRODUK | SUB KATEGORI PRODUK |      PRODUK      |");
-        System.out.println("------------------------------------------------------------");
+        System.out.println("| KATEGORI PRODUK | SUB KATEGORI PRODUK |");
+        System.out.println("-----------------------------------------");
         for (Kategori kategoriInit : kategori) {
             if (kategoriInit != null) {
                 System.out.println(kategoriInit);
@@ -275,10 +273,10 @@ public class App {
     }
 
     public static void init() {
-        kategori[0] = new Kategori("Pakaian", "Atasan", "White Blouse");
-        kategori[1] = new Kategori("Pakaian", "Jeans", "Blue Jeans");
-        kategori[2] = new Kategori("Sepatu", "Flats", "Yellow Sun");
-        kategori[3] = new Kategori("Beauty", "Nail Care", "Nail Polish");
+        kategori[0] = new Kategori("Pakaian", "Atasan");
+        kategori[1] = new Kategori("Pakaian", "Jeans");
+        kategori[2] = new Kategori("Sepatu", "Flats");
+        kategori[3] = new Kategori("Beauty", "Nail Care");
 
         produk[0] = new Produk("White Blouse", 500000, "Baju masih baru", "Chris", "Pakaian");
         produk[1] = new Produk("Blue Jeans", 400000, "Celana bekas", "Lisa", "Pakaian");
