@@ -4,15 +4,25 @@
  */
 
 public class Kategori {
+    private String idKategori;
     private String kategoriProduk;
     private String subKategoriProduk;
 
     public Kategori() {
     }
 
-    public Kategori(String kategoriProduk, String subKategoriProduk) {
+    public Kategori(String idKategori, String kategoriProduk, String subKategoriProduk) {
+        this.idKategori = idKategori;
         this.kategoriProduk = kategoriProduk;
         this.subKategoriProduk = subKategoriProduk;
+    }
+
+    public String getIdKategori() {
+        return this.idKategori;
+    }
+
+    public void setIdKategori(String idKategori) {
+        this.idKategori = idKategori;
     }
 
     public String getKategoriProduk() {
@@ -34,7 +44,7 @@ public class Kategori {
 
     @Override
     public String toString() {
-        return String.format("| %-15s | %-19s |", 
-        kategoriProduk, subKategoriProduk);
+        return String.format("| %-11s | %-15s | %-19s |", 
+        idKategori, kategoriProduk, subKategoriProduk);
     }
 }

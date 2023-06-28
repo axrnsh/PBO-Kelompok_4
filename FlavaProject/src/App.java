@@ -13,8 +13,7 @@ public class App {
     public static ArrayList<Penjual> arrayPenjual = new ArrayList<Penjual>();
     public static ArrayList<Pembeli> arrayPembeli = new ArrayList<Pembeli>();
     public static ArrayList<Produk> arrayProduk = new ArrayList<Produk>();
-    public static ArrayList<Transaksi> arrayTransaksi = new ArrayList <Transaksi>();
-    
+    public static ArrayList<Transaksi> arrayTransaksi = new ArrayList<Transaksi>();
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -35,76 +34,73 @@ public class App {
             switch (pilih) {
                 case "1":
                     if (!loggedIn) {
-                        System.out.print("\nUsername: "); //USERNAME
+                        System.out.print("\nUsername: "); // USERNAME
                         String username = scanner.nextLine();
-                        System.out.print("Password: "); //PASSWORD
+                        System.out.print("Password: "); // PASSWORD
                         String password = scanner.nextLine();
 
                         if (Login.login(username, password)) {
                             loggedIn = true;
-                        } else {
-                            continue;//login masih terbatas
-                        }
+                            System.out.println("\nMenu:");
+                            System.out.println(" 1. Input kategori baru");
+                            System.out.println(" 2. Input produk baru");
+                            System.out.println(" 3. Input penjual ");
+                            System.out.println(" 4. Input pembeli");
+                            System.out.println(" 5. Input transaksi");
+                            System.out.println(" 6. Tampilkan kategori");
+                            System.out.println(" 7. Tampilkan produk");
+                            System.out.println(" 8. Tampilkan penjual");
+                            System.out.println(" 9. Tampilkan pembeli");
+                            System.out.println("10. Tampilkan transaksi");
+                            System.out.println("11. Logout");
+                            System.out.print("\nPilihan: ");
+
+                            String pilihan;
+                            pilihan = scanner.nextLine();
+
+                            switch (pilihan) {
+                                case "1":
+                                    inputKategori();
+                                    break;
+                                case "2":
+                                    inputProduk();
+                                    break;
+                                case "3":
+                                    inputPenjual();
+                                    break;
+                                case "4":
+                                    inputPembeli();
+                                    break;
+                                case "5":
+                                    inputTransaksi();
+                                    break;
+                                case "6":
+                                    outputKategori();
+                                    break;
+                                case "7":
+                                    outputProduk();
+                                    break;
+                                case "8":
+                                    outputPenjual();
+                                    break;
+                                case "9":
+                                    outputPembeli();
+                                    break;
+                                case "10":
+                                    outputTransaksi();
+                                    break;
+                                case "11":
+                                    System.out.println("Logout berhasil!");
+                                    loggedIn = false;
+                                    break;
+                                default:
+                                    System.out.println("Masukkan angka yang valid");
+                                    break;
+                            }
+                        } 
+                        break;
                     }
-                    break;
                 case "2":
-                    System.out.println("Terima kasih sudah menggunakan Flava!");
-                    selesai = true;
-                    break;
-                default:
-                    System.out.println("Masukkan angka yang valid");
-                    break;
-            }
-
-            System.out.println("\nMenu:");
-            System.out.println(" 1. Input kategori baru");
-            System.out.println(" 2. Input produk baru");
-            System.out.println(" 3. Input penjual ");
-            System.out.println(" 4. Input pembeli");
-            System.out.println(" 5. Input transaksi");
-            System.out.println(" 6. Tampilkan kategori");
-            System.out.println(" 7. Tampilkan produk");
-            System.out.println(" 8. Tampilkan penjual");
-            System.out.println(" 9. Tampilkan pembeli");
-            System.out.println("10. Tampilkan transaksi");
-            System.out.println("11. Keluar");
-            System.out.print("\nPilihan: ");
-
-            String pilihan;
-            pilihan = scanner.nextLine();
-
-            switch (pilihan) {
-                case "1":
-                    inputKategori();
-                    break;
-                case "2":
-                    inputProduk();
-                    break;
-                case "3":
-                    inputPenjual();
-                    break;
-                case "4":
-                    inputPembeli();
-                    break;
-                case "5":
-                    inputTransaksi();
-                    break;
-                case "6":
-                    outputKategori();
-                    break;
-                case "7":
-                    outputProduk();
-                    break;
-                case "8":
-                    outputPenjual();
-                    break;
-                case "9":
-                    outputPembeli();
-                    break;
-                case "10":
-                    outputTransaksi();
-                    break;
-                case "11":
                     System.out.println("Terima kasih sudah menggunakan Flava!");
                     selesai = true;
                     break;
@@ -118,12 +114,14 @@ public class App {
 
     public static void inputKategori() {
         System.out.println("\nInput data berikut!");
+        System.out.print("ID Kategori produk \t: ");
+        String idkat = scanner.nextLine();
         System.out.print("Kategori produk \t: ");
         String kat = scanner.nextLine();
         System.out.print("Sub kategori produk \t: ");
         String subKat = scanner.nextLine();
 
-        arrayKategori.add(new Kategori(kat, subKat));
+        arrayKategori.add(new Kategori(idkat, kat, subKat));
     }
 
     public static void inputProduk() {
@@ -186,7 +184,7 @@ public class App {
     }
 
     public static void outputKategori() {
-        System.out.println("| KATEGORI PRODUK | SUB KATEGORI PRODUK |");
+        System.out.println("| ID KATEGORI | KATEGORI PRODUK | SUB KATEGORI PRODUK |");
         System.out.println("-----------------------------------------");
         for (Kategori kategoriInit : kategori) {
             if (kategoriInit != null) {
@@ -218,7 +216,6 @@ public class App {
             }
         }
     }
-
 
     public static void outputPenjual() {
         System.out.println("|   NAMA PENJUAL   |      PRODUK      | RATING PENJUAL |");
@@ -271,10 +268,10 @@ public class App {
     }
 
     public static void init() {
-        kategori[0] = new Kategori("Pakaian", "Atasan");
-        kategori[1] = new Kategori("Pakaian", "Jeans");
-        kategori[2] = new Kategori("Sepatu", "Flats");
-        kategori[3] = new Kategori("Beauty", "Nail Care");
+        kategori[0] = new Kategori("KAT0000001", "Pakaian", "Atasan");
+        kategori[1] = new Kategori("KAT0000001", "Pakaian", "Jeans");
+        kategori[2] = new Kategori("KAT0000005", "Sepatu", "Flats");
+        kategori[3] = new Kategori("KAT0000009", "Beauty", "Nail Care");
 
         produk[0] = new Produk("White Blouse", 500000, "Baju masih baru", "Chris", "Pakaian");
         produk[1] = new Produk("Blue Jeans", 400000, "Celana bekas", "Lisa", "Pakaian");
