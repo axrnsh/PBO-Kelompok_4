@@ -2,19 +2,20 @@
  * class ini berfungsi untuk menyimpan identitas penjual
  */
 
+import java.util.ArrayList;
+
 public class Penjual {
 
+    private String idPenjual;
     private String namaPenjual;
-    private String DaftarProduk;
-    private double ratingPenjual;
+    private ArrayList<Produk> daftarProduk;
 
-    public Penjual() {
+    public String getIdPenjual() {
+        return this.idPenjual;
     }
 
-    public Penjual(String namaPenjual, String DaftarProduk, double ratingPenjual) {
-        this.namaPenjual = namaPenjual;
-        this.DaftarProduk = DaftarProduk;
-        this.ratingPenjual = ratingPenjual;
+    public void setIdPenjual(String idPenjual) {
+        this.idPenjual = idPenjual;
     }
 
     public String getNamaPenjual() {
@@ -25,26 +26,22 @@ public class Penjual {
         this.namaPenjual = namaPenjual;
     }
 
-    public String getDaftarProduk() {
-        return this.DaftarProduk;
+    public ArrayList<Produk> getDaftarProduk() {
+        return this.daftarProduk;
     }
 
-    public void setDaftarProduk(String DaftarProduk) {
-        this.DaftarProduk = DaftarProduk;
+    public void setDaftarProduk(ArrayList<Produk> daftarProduk) {
+        this.daftarProduk = daftarProduk;
     }
 
-    public double getRatingPenjual() {
-        return this.ratingPenjual;
-    }
-
-    public void setRatingPenjual(double ratingPenjual) {
-        this.ratingPenjual = ratingPenjual;
+    public Penjual() {
+        daftarProduk = new ArrayList<>();
     }
 
     // Override metode toString()
     @Override
     public String toString() {
-        return String.format("| %-16s | %-16s | %-14f |", 
-        namaPenjual, DaftarProduk, ratingPenjual);
+        return String.format("| %-16s | %-16s | %-14f |",
+                idPenjual, namaPenjual, daftarProduk);
     }
 }
