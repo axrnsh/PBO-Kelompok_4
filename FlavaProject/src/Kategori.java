@@ -5,16 +5,14 @@
 
 public class Kategori {
     private String idKategori;
-    private String kategoriProduk;
-    private String subKategoriProduk;
+    private String kategori;
 
     public Kategori() {
     }
 
-    public Kategori(String idKategori, String kategoriProduk, String subKategoriProduk) {
+    public Kategori(String idKategori, String kategori) {
         this.idKategori = idKategori;
-        this.kategoriProduk = kategoriProduk;
-        this.subKategoriProduk = subKategoriProduk;
+        this.kategori = kategori;
     }
 
     public String getIdKategori() {
@@ -25,26 +23,17 @@ public class Kategori {
         this.idKategori = idKategori;
     }
 
-    public String getKategoriProduk() {
-        return this.kategoriProduk;
+    public String getKategori() {
+        return this.kategori;
     }
 
-    public void setKategoriProduk(String kategoriProduk) {
-        this.kategoriProduk = kategoriProduk;
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
     }
-
-    public String getSubKategoriProduk() {
-        return this.subKategoriProduk;
-    }
-
-    public void setSubKategoriProduk(String subKategoriProduk) {
-        this.subKategoriProduk = subKategoriProduk;
-    }
-
 
     @Override
     public String toString() {
-        return String.format("| %-11s | %-15s | %-19s |", 
-        idKategori, kategoriProduk, subKategoriProduk);
+        return String.format("| %-11s | %-15s |", 
+        idKategori, kategori);
     }
 }

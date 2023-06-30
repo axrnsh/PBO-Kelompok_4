@@ -118,10 +118,8 @@ public class App {
         String idkat = scanner.nextLine();
         System.out.print("Kategori produk \t: ");
         String kat = scanner.nextLine();
-        System.out.print("Sub kategori produk \t: ");
-        String subKat = scanner.nextLine();
 
-        arrayKategori.add(new Kategori(idkat, kat, subKat));
+        arrayKategori.add(new Kategori(idkat, kat));
     }
 
     public static void inputProduk() {
@@ -268,10 +266,10 @@ public class App {
     }
 
     public static void init() {
-        kategori[0] = new Kategori("KAT0000001", "Pakaian", "Atasan");
-        kategori[1] = new Kategori("KAT0000001", "Pakaian", "Jeans");
-        kategori[2] = new Kategori("KAT0000005", "Sepatu", "Flats");
-        kategori[3] = new Kategori("KAT0000009", "Beauty", "Nail Care");
+        kategori[0] = new Kategori("KAT0000001", "Pakaian");
+        kategori[1] = new Kategori("KAT0000001", "Pakaian");
+        kategori[2] = new Kategori("KAT0000005", "Sepatu");
+        kategori[3] = new Kategori("KAT0000009", "Beauty");
 
         produk[0] = new Produk("White Blouse", 500000, "Baju masih baru", "Chris", "Pakaian");
         produk[1] = new Produk("Blue Jeans", 400000, "Celana bekas", "Lisa", "Pakaian");
