@@ -124,20 +124,23 @@ public class App {
 
     public static void inputProduk() {
         System.out.println("\nInput data berikut!");
+        System.out.print("ID Produk \t: ");
+        String idProduk = scanner.nextLine();
         System.out.print("Nama produk \t\t: ");
         String namaProduk = scanner.nextLine();
         System.out.print("Harga produk \t\t: ");
-        Double hargaProduk = scanner.nextDouble();
+        int hargaProduk = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Deskripsi produk \t: ");
         String descProduk = scanner.nextLine();
-        System.out.print("Nama penjual \t\t: ");
-        String namaPenjual = scanner.nextLine();
-        System.out.print("Kategori produk \t: ");
-        String katProduk = scanner.nextLine();
-
-        arrayProduk.add(new Produk(namaProduk, hargaProduk, descProduk, namaPenjual, katProduk));
+        System.out.print("Stok produk \t: ");
+        int stokProduk = scanner.nextInt();
+        scanner.nextLine();
+    
+        Produk produk = new Produk(idProduk, namaProduk, hargaProduk, descProduk, penjual, stokProduk);
+        arrayProduk.add(produk);
     }
+    
 
     public static void inputPenjual() {
         System.out.println("\nInput data berikut!");
@@ -271,11 +274,15 @@ public class App {
         kategori[2] = new Kategori("KAT0000005", "Sepatu");
         kategori[3] = new Kategori("KAT0000009", "Beauty");
 
-        produk[0] = new Produk("White Blouse", 500000, "Baju masih baru", "Chris", "Pakaian");
-        produk[1] = new Produk("Blue Jeans", 400000, "Celana bekas", "Lisa", "Pakaian");
-        produk[2] = new Produk("Yellow Sun", 600000, "Sepatu masih baru", "Axel", "Sepatu");
-        produk[3] = new Produk("Nail Polish", 150000, "Glossy", "Axel", "Nail Care");
-
+        produk[0] = new Produk("PK0002", "White Blouse", 5000000, 
+        "Blouse masih baru", new Penjual("Lisi"), new SubKategori("Blouse"), 20);
+        produk[1] = new Produk("PK0010", "Blue Jeans", 2000000, 
+        "Celana bekas namun masih bagus", new Penjual("Andrew"), new SubKategori("Jeans"), 5);
+        produk[2] = new Produk("PK0018", "Yellow Sun", 6000000, 
+        "Sepatu baru yg cocok dipakai utk hangout", new Penjual("Axel"), new SubKategori("Sneakers"), 20);
+        produk[3] = new Produk("PK0182", "Nail Polish", 300000, 
+        "Glossy tahan lama", new Penjual("Alex"), new SubKategori("Kutek"), 40);
+        
         pembeli[0] = new Pembeli("Reine", "White Blouse", "Jl. Bumi, No: 21");
         pembeli[1] = new Pembeli("Moona", "Yellow Sun", "Jl. Bulan, No: 12");
         pembeli[2] = new Pembeli("Jisoo", "Nail Polish", "Jl. Mars, No: 190");

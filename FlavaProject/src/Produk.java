@@ -3,70 +3,92 @@
  */
 
  public class Produk {
+    private String idProduk;
     private String namaProduk;
-    private double hargaProduk;
+    private int hargaProduk;
     private String deskripsiProduk;
-    private String namaPenjual;
-    private String kategoriProduk;
+    private Penjual penjual;
+    private SubKategori subKategori;
+    private int stokProduk;
 
-    public Produk () {
-    }  
-    
-    public Produk(String namaProduk, double hargaProduk, String deskripsiProduk, String namaPenjual, 
-    String kategoriProduk) {
+    public Produk() {
+    }
+
+    public Produk(String idProduk, String namaProduk, int hargaProduk, String deskripsiProduk, Penjual penjual,
+                  SubKategori subKategori, int stokProduk) {
+        this.idProduk = idProduk;
         this.namaProduk = namaProduk;
         this.hargaProduk = hargaProduk;
         this.deskripsiProduk = deskripsiProduk;
-        this.namaPenjual = namaPenjual;
-        this.kategoriProduk = kategoriProduk;
+        this.penjual = penjual;
+        this.subKategori = subKategori;
+        this.stokProduk = stokProduk;
     }
- 
-    
+
+    public Produk(String idProduk2, String namaProduk2, int hargaProduk2, String descProduk, Penjual[] penjual2,
+            int stokProduk2) {
+    }
+
+    public String getIdProduk() {
+        return idProduk;
+    }
+
+    public void setIdProduk(String idProduk) {
+        this.idProduk = idProduk;
+    }
+
     public String getNamaProduk() {
-        return this.namaProduk;
+        return namaProduk;
     }
-    
+
     public void setNamaProduk(String namaProduk) {
         this.namaProduk = namaProduk;
     }
-    
-    public double getHargaProduk() {
-        return this.hargaProduk;
+
+    public int getHargaProduk() {
+        return hargaProduk;
     }
-    
-    public void setHargaProduk(double hargaProduk) {
+
+    public void setHargaProduk(int hargaProduk) {
         this.hargaProduk = hargaProduk;
     }
-    
+
     public String getDeskripsiProduk() {
         return deskripsiProduk;
     }
-    
-    public void setDeskripsiProduk (String deskripsiProduk) {
+
+    public void setDeskripsiProduk(String deskripsiProduk) {
         this.deskripsiProduk = deskripsiProduk;
     }
-    
-    public String getNamaPenjual() {
-        return this.namaPenjual;
-    }
-    
-    public void setNamaPenjual(String namaPenjual) {
-        this.namaPenjual = namaPenjual;
+
+    public Penjual getPenjual() {
+        return penjual;
     }
 
-    public String getKategoriProduk() {
-        return this.kategoriProduk;
+    public void setPenjual(Penjual penjual) {
+        this.penjual = penjual;
     }
-    
-    public void setKategoriProduk(String kategoriProduk) {
-        this.kategoriProduk = kategoriProduk;
+
+    public SubKategori getSubKategori() {
+        return subKategori;
+    }
+
+    public void setSubKategori(SubKategori subKategori) {
+        this.subKategori = subKategori;
+    }
+
+    public int getStokProduk() {
+        return stokProduk;
+    }
+
+    public void setStokProduk(int stokProduk) {
+        this.stokProduk = stokProduk;
     }
 
     @Override
     public String toString() {
-        return String.format("| %-15s | %-14f | %-20s | %-16s | %-15s |", 
-        namaProduk, hargaProduk, deskripsiProduk, namaPenjual, kategoriProduk);
+        return String.format("| %-15s | %-14f | %-20s | %-16s | %-15s | %-15s |", 
+            idProduk, namaProduk, hargaProduk, deskripsiProduk, penjual.getNamaPenjual(), subKategori.getSubKategori(), stokProduk);
     }
 }
-    
 
