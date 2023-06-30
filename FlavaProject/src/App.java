@@ -147,10 +147,16 @@ public class App {
         String idPenjual = scanner.nextLine();
         System.out.print("Nama Penjual \t\t: ");
         String namaPenjual = scanner.nextLine();
-        System.out.print("Daftar Produk \t: ");
-        int daftarProduk = scanner.nextInt();
-        scanner.nextLine();
 
+        ArrayList<String> daftarProduk = new ArrayList<String>();
+        while (true) {
+            System.out.print("Produk (tekan Enter untuk mengakhiri) \t: ");
+            String produk = scanner.nextLine();
+            if (produk.isEmpty()) {
+                break;
+            }
+            daftarProduk.add(produk);
+        }
         arrayPenjual.add(new Penjual(idPenjual, namaPenjual, daftarProduk));
     }
 
