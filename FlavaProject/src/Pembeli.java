@@ -2,8 +2,11 @@
  * class ini berfungsi untuk menyimpan identitas pembeli
  */
 
+import java.util.ArrayList;
+
 public class Pembeli {
 
+    private String idPembeli;
     private String namaPembeli;
     private String daftarTransaksi;
     private String alamatPembeli;
@@ -15,6 +18,14 @@ public class Pembeli {
         this.namaPembeli = namaPembeli;
         this.daftarTransaksi = daftarTransaksi;
         this.alamatPembeli = alamatPembeli;
+    }
+    
+    public String getIdPembeli() {
+        return this.idPembeli;
+    }
+
+    public void setIdPembeli(String idPembeli) {
+        this.idPembeli = idPembeli;
     }
 
     public String getNamaPembeli() {
