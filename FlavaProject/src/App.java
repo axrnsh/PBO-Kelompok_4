@@ -281,14 +281,13 @@ public class App {
         kategori[2] = new Kategori("KAT0000005", "Sepatu");
         kategori[3] = new Kategori("KAT0000009", "Beauty");
 
-        produk[0] = new Produk("PK0002", "White Blouse", 5000000,
-                "Blouse masih baru", new Penjual("Lisi"), new SubKategori("Blouse"), 20);
+        produk[0] = new Produk("PK0099", "White Blouse", 5000000, "Baju baru yang bagus", null, null, 0);
         produk[1] = new Produk("PK0010", "Blue Jeans", 2000000,
-                "Celana bekas namun masih bagus", new Penjual("Andrew"), new SubKategori("Jeans"), 5);
+                "Celana bekas namun masih bagus", null, null , 50);
         produk[2] = new Produk("PK0018", "Yellow Sun", 6000000,
-                "Sepatu baru yg cocok dipakai utk hangout", new Penjual("Axel"), new SubKategori("Sneakers"), 20);
+                "Sepatu baru yg cocok dipakai utk hangout", null, null, 20);
         produk[3] = new Produk("PK0182", "Nail Polish", 300000,
-                "Glossy tahan lama", new Penjual("Alex"), new SubKategori("Kutek"), 40);
+                "Glossy tahan lama", null, null, 40);
 
         pembeli[0] = new Pembeli("Reine", "White Blouse", "Jl. Bumi, No: 21");
         pembeli[1] = new Pembeli("Moona", "Yellow Sun", "Jl. Bulan, No: 12");
