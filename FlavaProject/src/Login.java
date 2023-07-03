@@ -9,6 +9,10 @@ public class Login {
             Scanner scanner = new Scanner(file);
             scanner.useDelimiter(",");
 
+            if (scanner.hasNextLine()) {
+                scanner.nextLine();
+            }
+
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] data = line.split(",");
@@ -30,5 +34,37 @@ public class Login {
         }
 
         return false;
+    }
+
+    public static String posisi(String username) {
+        try {
+            File file = new File("users.csv");
+            Scanner scanner = new Scanner(file);
+            scanner.useDelimiter(",");
+
+            if (scanner.hasNextLine()) {
+                scanner.nextLine();
+            }
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] data = line.split(",");
+
+                String nama = data[0];
+                String posisi = data[2];
+
+                if (username.equals(nama)) {
+                    scanner.close();
+                    return posisi;
+                }
+            }
+
+            System.out.println("Username tidak ditemukan.");
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File users.csv tidak ditemukan.");
+        }
+
+        return null;
     }
 }

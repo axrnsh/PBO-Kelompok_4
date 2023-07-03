@@ -34,13 +34,15 @@ public class App {
             switch (pilih) {
                 case "1":
                     if (!loggedIn) {
-                        System.out.print("\nUsername: "); // USERNAME
+                        System.out.print("\nUsername: "); 
                         String username = scanner.nextLine();
-                        System.out.print("Password: "); // PASSWORD
+                        System.out.print("Password: "); 
                         String password = scanner.nextLine();
 
                         if (Login.login(username, password)) {
                             loggedIn = true;
+                            String role = Login.posisi(username);
+                            //role atau posisi akan diimplementasikan nanti 
                             System.out.println("\nMenu:");
                             System.out.println(" 1. Input kategori baru");
                             System.out.println(" 2. Input produk baru");
