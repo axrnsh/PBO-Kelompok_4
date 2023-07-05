@@ -17,10 +17,11 @@ public class Login {
                 String line = scanner.nextLine();
                 String[] data = line.split(",");
 
-                String nama = data[0];
+                String usernm = data[0];
                 String pass = data[1];
+                String nama = data[3];
 
-                if (username.equals(nama) && password.equals(pass)) {
+                if (username.equals(usernm) && password.equals(pass)) {
                     System.out.println("\nLogin berhasil! Selamat datang, " + nama + "!");
                     scanner.close();
                     return true;
