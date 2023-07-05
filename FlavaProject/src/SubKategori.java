@@ -1,28 +1,26 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class SubKategori extends Kategori {
     private String idSubKategori;
     private String subKategori;
-    private List<Produk> daftarProduk;
+    private ArrayList<Produk> produk = new ArrayList<Produk>();
 
     public SubKategori() {
-        daftarProduk = new ArrayList<>();
     }
 
-    public SubKategori(String idKategori, String kategori, String idSubKategori, String subKategori) {
-        super(idKategori, kategori);
+
+    public SubKategori(String idSubKategori, String subKategori, ArrayList<Produk> produk) {
         this.idSubKategori = idSubKategori;
         this.subKategori = subKategori;
-        daftarProduk = new ArrayList<>();
+        this.produk = produk;
     }
-
+    
     public void tambahProduk(Produk produk) {
-        daftarProduk.add(produk);
+        this.produk.add(produk);
     }
 
     public void hapusProduk(Produk produk) {
-        daftarProduk.remove(produk);
+        this.produk.remove(produk);
     }
 
     public String getIdSubKategori() {
@@ -41,19 +39,13 @@ public class SubKategori extends Kategori {
         this.subKategori = subKategori;
     }
 
-    public List<Produk> getDaftarProduk() {
-        return daftarProduk;
+    public ArrayList<Produk> getDaftarProduk() {
+        return produk;
     }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(super.toString());
-        builder.append(String.format("| %-10s | %-15s | %-19s |", getIdSubKategori(), getKategori(), getSubKategori()));
-        builder.append("\nDaftar Produk:\n");
-        for (Produk produk : daftarProduk) {
-            builder.append(produk.toString()).append("\n");
-        }
-        return builder.toString();
+        return String.format("| %-15s | %-19s | %-16s |", 
+        idSubKategori, subKategori, produk);
     }
 }
