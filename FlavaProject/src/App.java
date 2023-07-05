@@ -182,17 +182,27 @@ public class App {
         System.out.print("Nama Penjual \t\t: ");
         String namaPenjual = scanner.nextLine();
 
-        ArrayList<String> daftarProduk = new ArrayList<String>();
+        ArrayList<Produk> daftarProduk = new ArrayList<Produk>();
         while (true) {
             System.out.print("Produk (tekan Enter untuk mengakhiri) \t: ");
             String produk = scanner.nextLine();
             if (produk.isEmpty()) {
                 break;
             }
-            daftarProduk.add(produk);
+            daftarProduk.add(cariProduk(produk));
         }
-        // arrayPenjual.add(new Penjual(idPenjual, namaPenjual, daftarProduk));
+        //Penjual(String idPenjual, String namaPenjual, ArrayList<Produk> daftarProduk) 
+        arrayPenjual.add(new Penjual(idPenjual, namaPenjual, daftarProduk));
     }
+    public static Produk cariProduk(String namaProduk){
+        for (Produk produk : arrayProduk) {
+            if(produk.getNamaProduk().equals(namaProduk)){
+                return produk;
+            }
+        }
+        return null;
+    }
+    // dari pak ade tadi jam 8
 
     public static void inputPembeli() {
         System.out.println("\nInput data berikut!");
