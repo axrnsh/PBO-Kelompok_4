@@ -7,19 +7,19 @@ public class Transaksi {
     private String namaPembeliProduk;
     private String namaProduk;
     private String tanggal;
-    private double total;
+    private double harga;
 
     public Transaksi() {
     }
 
-    public Transaksi(String idTransaksi, String namaPembeliProduk, String namaProduk, String tanggal, double total) {
+    public Transaksi(String idTransaksi, String namaPembeliProduk, String namaProduk, String tanggal, double harga) {
         this.idTransaksi = idTransaksi;
         this.namaPembeliProduk = namaPembeliProduk;
         this.namaProduk = namaProduk;
         this.tanggal = tanggal;
-        this.total = total;
+        this.harga = harga;
     }
-    
+
     // Getter untuk idTransaksi
     public String getIdTransaksi() {
         return idTransaksi;
@@ -38,13 +38,13 @@ public class Transaksi {
         this.namaPembeliProduk = namaPembeliProduk;
     }
 
-    public String getNamaProduk(){
+    public String getNamaProduk() {
         return namaProduk;
     }
 
-    public void setNamaProduk(String namaProduk){
+    public void setNamaProduk(String namaProduk) {
         this.namaProduk = namaProduk;
-    } 
+    }
 
     // Getter untuk tanggal
     public String getTanggal() {
@@ -56,20 +56,20 @@ public class Transaksi {
         this.tanggal = tanggal;
     }
 
-    // Getter untuk total
-    public double getTotal() {
-        return total;
+    // Getter untuk harga
+    public double getHarga() {
+        return harga;
     }
 
-    // Setter untuk total
-    public void setTotal(double total) {
-        this.total = total;
+    // Setter untuk harga
+    public void setHarga(double harga) {
+        this.harga = harga;
     }
-    
+
     @Override
     public String toString() {
-        return String.format("| %-14s | %-16s | %-16s | %-11s | %-17f |", 
-        idTransaksi, namaPembeliProduk, namaProduk, tanggal, total);
+        return String.format("| %-14s | %-16s | %-16s | %-11s | %-17f |",
+                idTransaksi, namaPembeliProduk, namaProduk, tanggal, harga);
     }
-    
+
 }
