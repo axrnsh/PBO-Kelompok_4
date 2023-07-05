@@ -10,6 +10,12 @@ public class Penjual {
     private String namaPenjual;
     private ArrayList<Produk> daftarProduk;
 
+    public Penjual(String idPenjual, String namaPenjual, ArrayList<Produk> daftarProduk) {
+        this.idPenjual = idPenjual;
+        this.namaPenjual = namaPenjual;
+        this.daftarProduk = daftarProduk;
+    }
+
     public String getIdPenjual() {
         return this.idPenjual;
     }
