@@ -8,13 +8,12 @@ public class SubKategori extends Kategori {
     public SubKategori() {
     }
 
-
-    public SubKategori(String idSubKategori, String subKategori, ArrayList<Produk> produk) {
+    public SubKategori(String idKategori, String kategori, String idSubKategori, String subKategori) {
+        super(idKategori, kategori);
         this.idSubKategori = idSubKategori;
         this.subKategori = subKategori;
-        this.produk = produk;
     }
-    
+
     public void tambahProduk(Produk produk) {
         this.produk.add(produk);
     }
@@ -45,7 +44,7 @@ public class SubKategori extends Kategori {
 
     @Override
     public String toString() {
-        return String.format("| %-15s | %-19s | %-16s |", 
-        idSubKategori, subKategori, produk);
+        return String.format("| %-11s | %-15s | %-19s |", 
+        getIdKategori(), getKategori(), getSubKategori());
     }
 }
