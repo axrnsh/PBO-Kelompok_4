@@ -44,10 +44,22 @@ public class Penjual {
         daftarProduk = new ArrayList<>();
     }
 
-    // Override metode toString()
     @Override
     public String toString() {
-        return String.format("| %-16s | %-16s | %-14f |",
-                idPenjual, namaPenjual, daftarProduk);
+        StringBuilder sb = new StringBuilder();
+        sb.append("| ").append(String.format("%-10s", idPenjual)).append(" | ")
+                .append(String.format("%-10s", namaPenjual)).append("   ");
+
+        if (daftarProduk.isEmpty()) {
+            sb.append("<Tidak ada produk>");
+        } else {
+            sb.append("|");
+            for (Produk produk : daftarProduk) {
+                sb.append(" ").append(produk.getNamaProduk()).append(" |");
+            }
+        }
+
+        return sb.toString();
     }
+
 }
