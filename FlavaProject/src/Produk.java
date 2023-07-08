@@ -11,17 +11,22 @@ public class Produk {
     private String deskripsiProduk;
     private SubKategori subKategori;
     private int stokProduk;
-    private ArrayList<Penjual> daftarPenjual;
+    private ArrayList<Penjual> penjual = new ArrayList<Penjual>();
 
-    public Produk(String idProduk, String namaProduk, int hargaProduk, String deskripsiProduk,
-            SubKategori subKategori, int stokProduk, ArrayList<Penjual> daftarPenjual) {
+    public Produk() {
+    }
+
+    public Produk(String idProduk, String namaProduk, int hargaProduk, String deskripsiProduk, Penjual penjual,
+            SubKategori subKategori, int stokProduk) {
         this.idProduk = idProduk;
         this.namaProduk = namaProduk;
         this.hargaProduk = hargaProduk;
         this.deskripsiProduk = deskripsiProduk;
         this.subKategori = subKategori;
         this.stokProduk = stokProduk;
-        this.daftarPenjual = daftarPenjual;
+    }
+
+    public Produk(String string) {
     }
 
     public String getIdProduk() {
@@ -73,39 +78,12 @@ public class Produk {
     }
 
     public ArrayList<Penjual> getDaftarPenjual() {
-        return this.daftarPenjual;
-    }
-
-    public void setDaftarPenjual (ArrayList<Penjual> daftarPenjual) {
-        this.daftarPenjual = daftarPenjual;
-    }
-
-    public Produk() {
-        daftarPenjual = new ArrayList<>();
+        return penjual;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("| ").append(String.format("%-10s", idProduk)).append(" | ")
-                .append(String.format("%-12s", namaProduk)).append(" | ")
-                .append(String.format("%-12s", hargaProduk)).append(" | ")
-                .append(String.format("%-12s", deskripsiProduk)).append(" | ")
-                .append(String.format("%-12s", subKategori)).append(" | ")
-                .append(String.format("%-12s", stokProduk)).append(" | ");
-
-
-        if (daftarPenjual.isEmpty()) {
-            sb.append(String.format("%-17s", "<Tidak ada produk>"));
-        } else {
-            for (Penjual penjual : daftarPenjual) {
-                if (penjual != null) {
-                    sb.append(String.format("%-17s", penjual.getNamaPenjual()));
-                }
-            }
-        }
-        sb.append("|");
-        return sb.toString();
+        return String.format("| %-15s | %-14f | %-20s | %-16s | %-15s | %-15s |",
+                idProduk, namaProduk, hargaProduk, deskripsiProduk, subKategori, stokProduk);
     }
 }
-        
