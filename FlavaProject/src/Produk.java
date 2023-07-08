@@ -2,9 +2,9 @@
  * class ini berfungsi untuk menyimpan informasi pada produk
  */
 
- import java.util.ArrayList;
+import java.util.ArrayList;
 
- public class Produk {
+public class Produk {
     private String idProduk;
     private String namaProduk;
     private int hargaProduk;
@@ -17,13 +17,16 @@
     }
 
     public Produk(String idProduk, String namaProduk, int hargaProduk, String deskripsiProduk, Penjual penjual,
-                  SubKategori subKategori, int stokProduk) {
+            SubKategori subKategori, int stokProduk) {
         this.idProduk = idProduk;
         this.namaProduk = namaProduk;
         this.hargaProduk = hargaProduk;
         this.deskripsiProduk = deskripsiProduk;
         this.subKategori = subKategori;
         this.stokProduk = stokProduk;
+    }
+
+    public Produk(String string) {
     }
 
     public String getIdProduk() {
@@ -79,9 +82,8 @@
     }
 
     @Override
-     public String toString() {
-         return String.format("| %-15s | %-14f | %-20s | %-16s | %-15s | %-15s |",
-             idProduk, namaProduk, hargaProduk, deskripsiProduk, subKategori, stokProduk);
-     }
- }
-
+    public String toString() {
+        return String.format("| %-15s | %-14f | %-20s | %-16s | %-15s | %-15s |",
+                idProduk, namaProduk, hargaProduk, deskripsiProduk, subKategori, stokProduk);
+    }
+}
