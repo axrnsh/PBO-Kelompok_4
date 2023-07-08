@@ -48,18 +48,17 @@ public class Penjual {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("| ").append(String.format("%-10s", idPenjual)).append(" | ")
-                .append(String.format("%-10s", namaPenjual)).append("   ");
+                .append(String.format("%-13s", namaPenjual)).append(" | ");
 
         if (daftarProduk.isEmpty()) {
             sb.append("<Tidak ada produk>");
         } else {
-            sb.append("|");
             for (Produk produk : daftarProduk) {
-                sb.append(" ").append(produk.getNamaProduk()).append(" |");
+                sb.append(String.format("%-17s", produk.getNamaProduk()));
             }
         }
+        sb.append("|");
 
         return sb.toString();
     }
-
 }

@@ -523,13 +523,13 @@ public class App {
         // pembeli[2] = new Pembeli("Jisoo", "Nail Polish", "Jl. Mars, No: 190");
 
         Penjual penSatu = new Penjual("P001", "Chris", new ArrayList<Produk>());
-        penSatu.getDaftarProduk().add(new Produk("White Blouse"));
+        penSatu.getDaftarProduk().add(WhiteB);
         arrayPenjual.add(penSatu);
         Penjual penDua = new Penjual("P002", "Lisa", new ArrayList<Produk>());
-        penDua.getDaftarProduk().add(new Produk("Blue Jeans"));
+        penDua.getDaftarProduk().add(BlueJ);
         arrayPenjual.add(penDua);
         Penjual penTiga = new Penjual("P003", "Axel", new ArrayList<Produk>());
-        penTiga.getDaftarProduk().add(new Produk("Yellow Sun"));
+        penTiga.getDaftarProduk().add(YellowS);
         arrayPenjual.add(penTiga);
 
         transaksi[0] = new Transaksi("TRX001", "Reine", "White Blouse", "2023-06-12", 500000);
