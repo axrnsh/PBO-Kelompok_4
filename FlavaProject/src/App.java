@@ -204,7 +204,7 @@ public class App {
 
     public static void outputPenjual() {
         System.out.println("| ID PENJUAL | NAMA PENJUAL |      PRODUK       |");
-        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------");
         for (Penjual penjual : arrayPenjual) {
             System.out.println(penjual.toString());
         }
