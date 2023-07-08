@@ -332,12 +332,15 @@ public class App {
         pembeli[1] = new Pembeli("Moona", "Yellow Sun", "Jl. Bulan, No: 12");
         pembeli[2] = new Pembeli("Jisoo", "Nail Polish", "Jl. Mars, No: 190");
 
-        // Penjual penSatu = new Penjual("P001", "Chris", "White Blouse");
-        // arrayPenjual.add(penSatu);
-        // Penjual penDua = new Penjual("P002", "Lisa", "Blue Jeans");
-        // arrayPenjual.add(penDua);
-        // Penjual penTiga = new Penjual("P003", "Axel", "Yellow Sun");
-        // arrayPenjual.add(penTiga);
+        Penjual penSatu = new Penjual("P001", "Chris", new ArrayList<Produk>());
+        penSatu.getDaftarProduk().add(new Produk("White Blouse"));
+        arrayPenjual.add(penSatu);
+        Penjual penDua = new Penjual("P002", "Lisa", new ArrayList<Produk>());
+        penDua.getDaftarProduk().add(new Produk("Blue Jeans"));
+        arrayPenjual.add(penDua);
+        Penjual penTiga = new Penjual("P003", "Axel", new ArrayList<Produk>());
+        penTiga.getDaftarProduk().add(new Produk("Yellow Sun"));
+        arrayPenjual.add(penTiga);
 
         transaksi[0] = new Transaksi("TRX001", "Reine", "White Blouse", "2023-06-12", 500000);
         transaksi[1] = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
