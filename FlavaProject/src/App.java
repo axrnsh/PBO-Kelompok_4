@@ -32,9 +32,9 @@ public class App {
             pilih = scanner.nextLine();
 
             switch (pilih) {
-                case "1": 
+                case "1":
                     if (!loggedIn) {
-                        //cuma bisa login sebagai admin untuk saat ini
+                        // cuma bisa login sebagai admin untuk saat ini
                         System.out.print("\nUsername: ");
                         String username = scanner.nextLine();
                         System.out.print("Password: ");
@@ -43,7 +43,7 @@ public class App {
                         if (Login.login(username, password)) {
                             loggedIn = true;
                             String role = Login.posisi(username);
-                            
+
                             do {
                                 if (role.equals("admin")) {
                                     UserAdmin adminLogin = new UserAdmin();
@@ -147,7 +147,7 @@ public class App {
         arraySubKategori.add(new SubKategori(idkat, kat, idskt, skt));
     }
 
-    public static void outputKategori() { 
+    public static void outputKategori() {
         System.out.println("| ID KATEGORI | KATEGORI PRODUK | SUB KATEGORI PRODUK |      PRODUK       |");
         System.out.println("---------------------------------------------------------------------------");
         for (SubKategori subkategori : arraySubKategori) {
@@ -183,13 +183,11 @@ public class App {
         arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, null, null, stokProduk));
     }
 
-        
-
     public static void inputPenjual() {
-        System.out.println("\nInput data berikut!");
-        System.out.print("ID Penjual \t: ");
+        System.out.println("\nSilakan input data berikut!");
+        System.out.println("ID Penjual \t:");
         String idPenjual = scanner.nextLine();
-        System.out.print("Nama Penjual \t\t: ");
+        System.out.println("Nama Penjual \t:");
         String namaPenjual = scanner.nextLine();
 
         ArrayList<Produk> daftarProduk = new ArrayList<Produk>();
@@ -201,12 +199,20 @@ public class App {
             }
             daftarProduk.add(cariProduk(produk));
         }
-        //Penjual(String idPenjual, String namaPenjual, ArrayList<Produk> daftarProduk) 
         arrayPenjual.add(new Penjual(idPenjual, namaPenjual, daftarProduk));
     }
-    public static Produk cariProduk(String namaProduk){
+
+    public static void outputPenjual() {
+        System.out.println("| ID PENJUAL | NAMA PENJUAL |      PRODUK       |");
+        System.out.println("---------------------------------------------------------------------------");
+        for (Penjual penjual : arrayPenjual) {
+            System.out.println(penjual.toString());
+        }
+    }
+
+    public static Produk cariProduk(String namaProduk) {
         for (Produk produk : arrayProduk) {
-            if(produk.getNamaProduk().equals(namaProduk)){
+            if (produk.getNamaProduk().equals(namaProduk)) {
                 return produk;
             }
         }
@@ -257,22 +263,6 @@ public class App {
         for (Produk produkOutput : arrayProduk) {
             if (produkOutput != null) {
                 System.out.println(produkOutput);
-            }
-        }
-    }
-
-    public static void outputPenjual() {
-        System.out.println("|   ID PENJUAL   |      NAMA PENJUAL      |     PRODUK     |");
-        System.out.println("--------------------------------------------------------");
-        for (Penjual penjualInit : penjual) {
-            if (penjualInit != null) {
-                System.out.println(penjualInit);
-            }
-        }
-
-        for (Penjual penjualOutput : arrayPenjual) {
-            if (penjualOutput != null) {
-                System.out.println(penjualOutput);
             }
         }
     }
@@ -342,9 +332,12 @@ public class App {
         pembeli[1] = new Pembeli("Moona", "Yellow Sun", "Jl. Bulan, No: 12");
         pembeli[2] = new Pembeli("Jisoo", "Nail Polish", "Jl. Mars, No: 190");
 
-        penjual[0] = new Penjual("P001", "Chris", "White Blouse");
-        penjual[1] = new Penjual("P002", "Lisa", "Blue Jeans");
-        penjual[2] = new Penjual("P003", "Axel", "Yellow Sun");
+        // Penjual penSatu = new Penjual("P001", "Chris", "White Blouse");
+        // arrayPenjual.add(penSatu);
+        // Penjual penDua = new Penjual("P002", "Lisa", "Blue Jeans");
+        // arrayPenjual.add(penDua);
+        // Penjual penTiga = new Penjual("P003", "Axel", "Yellow Sun");
+        // arrayPenjual.add(penTiga);
 
         transaksi[0] = new Transaksi("TRX001", "Reine", "White Blouse", "2023-06-12", 500000);
         transaksi[1] = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
