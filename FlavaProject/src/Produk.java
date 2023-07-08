@@ -21,7 +21,9 @@ public class Produk {
         this.deskripsiProduk = deskripsiProduk;
         this.subKategori = subKategori;
         this.stokProduk = stokProduk;
-    }
+        this.daftarPenjual = daftarPenjual != null ? daftarPenjual : new ArrayList<>();
+}
+
 
     public Produk(String string) {
     }
