@@ -3,14 +3,13 @@ import java.util.Scanner;
 
 public class App {
     // tolong banget kalau mau edit kerapiannya dijaga
-    static Kategori kategori[] = new Kategori[4];
-    static SubKategori subKategori[] = new SubKategori[4];
     static Produk produk[] = new Produk[4];
     static Pembeli pembeli[] = new Pembeli[3];
     static Penjual penjual[] = new Penjual[3];
     static Transaksi transaksi[] = new Transaksi[3];
 
     public static ArrayList<Kategori> arrayKategori = new ArrayList<Kategori>();
+    public static ArrayList<SubKategori> arraySubKategori = new ArrayList<SubKategori>();
     public static ArrayList<Penjual> arrayPenjual = new ArrayList<Penjual>();
     public static ArrayList<Pembeli> arrayPembeli = new ArrayList<Pembeli>();
     public static ArrayList<Produk> arrayProduk = new ArrayList<Produk>();
@@ -132,27 +131,27 @@ public class App {
 
     public static void inputKategori() {
         System.out.println("\nInput data berikut!");
-        System.out.print("ID Kategori produk \t: ");
+        System.out.print("ID kategori produk \t: ");
         String idkat = scanner.nextLine();
         System.out.print("Kategori produk \t: ");
         String kat = scanner.nextLine();
 
         arrayKategori.add(new Kategori(idkat, kat));
+
+        System.out.println("\nSilakan input sub kategori");
+        System.out.println("ID sub kategori produk \t:");
+        String idskt = scanner.nextLine();
+        System.out.println("Sub kategori produk \t:");
+        String skt = scanner.nextLine();
+
+        arraySubKategori.add(new SubKategori(idkat, kat, idskt, skt));
     }
 
-    public static void outputKategori() { //tampilan akan diperbaiki nanti
-        System.out.println("| ID KATEGORI | KATEGORI PRODUK | SUB KATEGORI PRODUK |");
-        System.out.println("-----------------------------------------");
-        for (Kategori kategoriInit : kategori) {
-            if (kategoriInit != null) {
-                System.out.println(kategoriInit);
-            }
-        }
-
-        for (Kategori kategoriOutput : arrayKategori) {
-            if (kategoriOutput != null) {
-                System.out.println(kategoriOutput);
-            }
+    public static void outputKategori() { 
+        System.out.println("| ID KATEGORI | KATEGORI PRODUK | SUB KATEGORI PRODUK |      PRODUK       |");
+        System.out.println("---------------------------------------------------------------------------");
+        for (SubKategori subkategori : arraySubKategori) {
+            System.out.println(subkategori.toString());
         }
     }
 
@@ -313,12 +312,23 @@ public class App {
     }
 
     public static void init() {
-        kategori[0] = new Kategori("KATJK00001", "Pakaian");
-        kategori[1] = new Kategori("KATJK000001", "Pakaian");
-        kategori[2] = new Kategori("KATQW000005", "Sepatu");
-        kategori[3] = new Kategori("KATAB000009", "Beauty");
+        Kategori katSatu = new Kategori("KATJK00001", "Pakaian");
+        arrayKategori.add(katSatu);
+        Kategori katDua = new Kategori("KATJK00001", "Pakaian");
+        arrayKategori.add(katDua);
+        Kategori katTiga = new Kategori("KATQW00005", "Sepatu");
+        arrayKategori.add(katTiga);
+        Kategori katEmpat = new Kategori("KATAB00009", "Beauty");
+        arrayKategori.add(katEmpat);
 
-        subKategori[0] = new SubKategori("KATJK00001", "Pakaian", "SKTJK00002", "Atasan");
+        SubKategori sktSatu = new SubKategori("KATJK00001", "Pakaian", "SKTJK00002", "Atasan");
+        arraySubKategori.add(sktSatu);
+        SubKategori sktDua = new SubKategori("KATJK00001", "Pakaian", "SKTJK00004", "Celana");
+        arraySubKategori.add(sktDua);
+        SubKategori sktTiga = new SubKategori("KATQW00005", "Sepatu", "SKTQW00001", "Sneakers");
+        arraySubKategori.add(sktTiga);
+        SubKategori sktEmpat = new SubKategori("KATAB00001", "Beauty", "SKTAB00005", "Nail Care");
+        arraySubKategori.add(sktEmpat);
 
         produk[0] = new Produk("PK0099", "White Blouse", 5000000, "Baju baru yang bagus", null, null, 0);
         produk[1] = new Produk("PK0010", "Blue Jeans", 2000000,
