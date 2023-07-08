@@ -61,8 +61,10 @@ public class App {
                                             outputKategori();
                                             break;
                                         case "3":
+                                            editKategori();
                                             break;
                                         case "4":
+                                            deleteKategori();
                                             break;
                                         case "5":
                                             inputProduk();
@@ -219,6 +221,71 @@ public class App {
         System.out.println("--------------------------------------------------------------------------------------------");
         for (SubKategori subkategori : arraySubKategori) {
             System.out.println(subkategori.toString());
+        }
+    }
+
+    public static void editKategori() {
+        outputKategori();
+        System.out.print("Masukkan ID Kategori yang akan diedit: ");
+        String idKategori = scanner.nextLine();
+    
+        Kategori targetKategori = null;
+        ArrayList<SubKategori> subKategoriToUpdate = new ArrayList<>();
+    
+        for (Kategori kategori : arrayKategori) {
+            if (kategori.getIdKategori().equals(idKategori)) {
+                targetKategori = kategori;
+                break;
+            }
+        }
+        if (targetKategori != null) {
+            System.out.print("Masukkan nama Kategori baru: ");
+            String newNamaKategori = scanner.nextLine();
+            targetKategori.setKategori(newNamaKategori);
+            for (SubKategori subKategori : arraySubKategori) {
+                if (subKategori.getIdKategori().equals(idKategori)) {
+                    subKategoriToUpdate.add(subKategori);
+                }
+            }
+            for (SubKategori subKategori : subKategoriToUpdate) {
+                System.out.print("Masukkan nama Sub Kategori baru untuk " + subKategori.getSubKategori() + ": ");
+                String newNamaSubKategori = scanner.nextLine();
+                subKategori.setSubKategori(newNamaSubKategori);
+            }
+            System.out.println("Kategori dan subkategori berhasil diubah!");
+        } else {
+            System.out.println("Kategori tidak ditemukan!");
+        }
+    }
+
+    public static void deleteKategori() {
+        outputKategori();
+        System.out.println("Warning: Menghapus kategori akan menghapus sub kategori di dalamnya juga");
+        System.out.print("Masukkan ID Kategori yang akan dihapus: ");
+        String idKategori = scanner.nextLine();
+
+        Kategori targetKategori = null;
+        ArrayList<SubKategori> subKategoriToDelete = new ArrayList<>();
+
+        for (Kategori kategori : arrayKategori) {
+            if (kategori.getIdKategori().equals(idKategori)) {
+                targetKategori = kategori;
+                break;
+            }
+        }
+        if (targetKategori != null) {
+            for (SubKategori subKategori : arraySubKategori) {
+                if (subKategori.getIdKategori().equals(idKategori)) {
+                    subKategoriToDelete.add(subKategori);
+                }
+            }
+            for (SubKategori subKategori : subKategoriToDelete) {
+                arraySubKategori.remove(subKategori);
+            }
+            arrayKategori.remove(targetKategori);
+            System.out.println("Kategori dan subkategori berhasil dihapus!");
+        } else {
+            System.out.println("Kategori tidak ditemukan!");
         }
     }
 
