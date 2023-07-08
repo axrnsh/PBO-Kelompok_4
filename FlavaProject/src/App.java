@@ -171,9 +171,20 @@ public class App {
         int stokProduk = scanner.nextInt();
         scanner.nextLine();
 
-        Produk produk = new Produk(idProduk, namaProduk, hargaProduk, descProduk, penjual, stokProduk);
-        arrayProduk.add(produk);
+        ArrayList<String> daftarPenjual = new ArrayList<String>();
+        while (true) {
+            System.out.print("Produk (tekan Enter untuk mengakhiri) \t: ");
+            String penjual = scanner.nextLine();
+            if (penjual.isEmpty()) {
+                break;
+            }
+            daftarPenjual.add(penjual);
+        }
+
+        arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, null, null, stokProduk));
     }
+
+        
 
     public static void inputPenjual() {
         System.out.println("\nInput data berikut!");
