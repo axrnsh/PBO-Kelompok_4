@@ -185,14 +185,14 @@ public class App {
 
     public static void inputPenjual() {
         System.out.println("\nSilakan input data berikut!");
-        System.out.println("ID Penjual \t:");
+        System.out.print("ID Penjual \t:");
         String idPenjual = scanner.nextLine();
-        System.out.println("Nama Penjual \t:");
+        System.out.print("Nama Penjual \t:");
         String namaPenjual = scanner.nextLine();
 
         ArrayList<Produk> daftarProduk = new ArrayList<Produk>();
         while (true) {
-            System.out.print("Produk (tekan Enter untuk mengakhiri) \t: ");
+            System.out.print("Produk (tekan Enter untuk mengakhiri) : ");
             String produk = scanner.nextLine();
             if (produk.isEmpty()) {
                 break;
@@ -229,7 +229,7 @@ public class App {
         System.out.print("Alamat pembeli \t: ");
         String alamatPembeli = scanner.nextLine();
 
-        arrayPembeli.add(new Pembeli(namaPembeli, daftarTransaksi, alamatPembeli));
+        // arrayPembeli.add(new Pembeli(namaPembeli, daftarTransaksi, alamatPembeli));
     }
 
     public static void inputTransaksi() {
@@ -328,9 +328,9 @@ public class App {
         produk[3] = new Produk("PK0182", "Nail Polish", 300000,
                 "Glossy tahan lama", null, null, 40);
 
-        pembeli[0] = new Pembeli("Reine", "White Blouse", "Jl. Bumi, No: 21");
-        pembeli[1] = new Pembeli("Moona", "Yellow Sun", "Jl. Bulan, No: 12");
-        pembeli[2] = new Pembeli("Jisoo", "Nail Polish", "Jl. Mars, No: 190");
+        // pembeli[0] = new Pembeli("Reine", "White Blouse", "Jl. Bumi, No: 21");
+        // pembeli[1] = new Pembeli("Moona", "Yellow Sun", "Jl. Bulan, No: 12");
+        // pembeli[2] = new Pembeli("Jisoo", "Nail Polish", "Jl. Mars, No: 190");
 
         Penjual penSatu = new Penjual("P001", "Chris", new ArrayList<Produk>());
         penSatu.getDaftarProduk().add(new Produk("White Blouse"));
