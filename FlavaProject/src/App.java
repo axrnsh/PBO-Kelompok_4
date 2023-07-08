@@ -55,7 +55,7 @@ public class App {
 
                                     switch (pilihanLagi) {
                                         case "1":
-                                            inputKategori();
+                                            inputKat();
                                             break;
                                         case "2":
                                             outputKategori();
@@ -129,6 +129,29 @@ public class App {
         scanner.close();
     }
 
+    public static void inputKat() {
+        IKategori newKategori = new IKategori();
+        newKategori.showMenu();
+        System.out.print("\nPilihan: ");
+
+        String pilihlah;
+        pilihlah = scanner.nextLine();
+
+        switch (pilihlah) {
+            case "1":
+                inputKategori();
+                break;
+            case "2":
+                produkKeKat();
+                break;
+            case "0":
+                break;
+            default:
+                System.out.println("Masukkan angka yang valid");
+                break;
+        }
+    }
+
     public static void inputKategori() {
         System.out.println("\nInput data berikut!");
         System.out.print("ID kategori produk \t: ");
@@ -138,18 +161,62 @@ public class App {
 
         arrayKategori.add(new Kategori(idkat, kat));
 
-        System.out.println("\nSilakan input sub kategori");
-        System.out.println("ID sub kategori produk \t:");
+        System.out.print("ID sub kategori produk \t: ");
         String idskt = scanner.nextLine();
-        System.out.println("Sub kategori produk \t:");
+        System.out.print("Sub kategori produk \t: ");
         String skt = scanner.nextLine();
 
         arraySubKategori.add(new SubKategori(idkat, kat, idskt, skt));
+
+        System.out.println("Input berhasil!");
     }
 
+    public static void produkKeKat() {
+        outputKategori();
+        System.out.print("\nMasukkan ID Kategori \t: ");
+        String idKategori = scanner.nextLine();
+        System.out.print("Masukkan ID Sub Kategori: ");
+        String idSubKategori = scanner.nextLine();
+        System.out.print("Masukkan ID Produk \t: ");
+        String idProduk = scanner.nextLine();
+    
+        Kategori targetKategori = null;
+        SubKategori targetSubKategori = null;
+        Produk targetProduk = null;
+    
+        for (Kategori kategori : arrayKategori) {
+            if (kategori.getIdKategori().equals(idKategori)) {
+                targetKategori = kategori;
+                break;
+            }
+        }
+        if (targetKategori != null) {
+            for (SubKategori subKategori : arraySubKategori) {
+                if (subKategori.getIdSubKategori().equals(idSubKategori) && subKategori.getIdKategori().equals(idKategori)) {
+                    targetSubKategori = subKategori;
+                    break;
+                }
+            }
+        }
+        if (targetSubKategori != null) {
+            for (Produk produk : arrayProduk) {
+                if (produk.getIdProduk().equals(idProduk)) {
+                    targetProduk = produk;
+                    break;
+                }
+            }
+        }
+        if (targetKategori != null && targetSubKategori != null && targetProduk != null) {
+            targetSubKategori.tambahProduk(targetProduk);
+            System.out.println("Produk berhasil ditambahkan ke sub kategori!");
+        } else {
+            System.out.println("Kategori, sub kategori, atau produk tidak ditemukan!");
+        }
+    }    
+    
     public static void outputKategori() {
-        System.out.println("| ID KATEGORI | KATEGORI PRODUK | SUB KATEGORI PRODUK |      PRODUK       |");
-        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("| ID KATEGORI | KATEGORI PRODUK | ID SUB KATE | SUB KATEGORI PRODUK |        PRODUK        |");
+        System.out.println("--------------------------------------------------------------------------------------------");
         for (SubKategori subkategori : arraySubKategori) {
             System.out.println(subkategori.toString());
         }
@@ -302,32 +369,35 @@ public class App {
     }
 
     public static void init() {
-        Kategori katSatu = new Kategori("KATJK00001", "Pakaian");
-        arrayKategori.add(katSatu);
-        Kategori katDua = new Kategori("KATJK00001", "Pakaian");
-        arrayKategori.add(katDua);
-        Kategori katTiga = new Kategori("KATQW00005", "Sepatu");
-        arrayKategori.add(katTiga);
-        Kategori katEmpat = new Kategori("KATAB00009", "Beauty");
-        arrayKategori.add(katEmpat);
+        Kategori katPakaian = new Kategori("KATJK00001", "Pakaian");
+        arrayKategori.add(katPakaian);
+        Kategori katSepatu = new Kategori("KATQW00005", "Sepatu");
+        arrayKategori.add(katSepatu);
+        Kategori katBeauty = new Kategori("KATAB00009", "Beauty");
+        arrayKategori.add(katBeauty);
 
-        SubKategori sktSatu = new SubKategori("KATJK00001", "Pakaian", "SKTJK00002", "Atasan");
+        SubKategori sktSatu = new SubKategori(katPakaian.getIdKategori(), katPakaian.getKategori(), "SKTJK00002", "Atasan");
         arraySubKategori.add(sktSatu);
-        SubKategori sktDua = new SubKategori("KATJK00001", "Pakaian", "SKTJK00004", "Celana");
+        SubKategori sktDua = new SubKategori(katPakaian.getIdKategori(), katPakaian.getKategori(), "SKTJK00004", "Celana");
         arraySubKategori.add(sktDua);
-        SubKategori sktTiga = new SubKategori("KATQW00005", "Sepatu", "SKTQW00001", "Sneakers");
+        SubKategori sktTiga = new SubKategori(katSepatu.getIdKategori(), katSepatu.getKategori(), "SKTQW00001", "Sneakers");
         arraySubKategori.add(sktTiga);
-        SubKategori sktEmpat = new SubKategori("KATAB00001", "Beauty", "SKTAB00005", "Nail Care");
+        SubKategori sktEmpat = new SubKategori(katBeauty.getIdKategori(), katBeauty.getKategori(), "SKTAB00005", "Nail Care");
         arraySubKategori.add(sktEmpat);
 
-        produk[0] = new Produk("PK0099", "White Blouse", 5000000, "Baju baru yang bagus", null, null, 0);
-        produk[1] = new Produk("PK0010", "Blue Jeans", 2000000,
-                "Celana bekas namun masih bagus", null, null, 50);
-        produk[2] = new Produk("PK0018", "Yellow Sun", 6000000,
-                "Sepatu baru yg cocok dipakai utk hangout", null, null, 20);
-        produk[3] = new Produk("PK0182", "Nail Polish", 300000,
-                "Glossy tahan lama", null, null, 40);
-
+        Produk WhiteB = new Produk("PK0099", "White Blouse", 5000000, "Baju baru yang bagus", null, sktSatu, 0);
+        arrayProduk.add(WhiteB);
+        sktSatu.tambahProduk(WhiteB);
+        Produk BlueJ = new Produk("PK0010", "Blue Jeans", 2000000, "Celana bekas namun masih bagus", null, sktDua, 50);
+        arrayProduk.add(BlueJ);
+        sktDua.tambahProduk(BlueJ);
+        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru yg cocok dipakai utk hangout", null, sktTiga, 20);
+        arrayProduk.add(YellowS);
+        sktTiga.tambahProduk(YellowS);
+        Produk NailP = new Produk("PK0182", "Nail Polish", 300000, "Glossy tahan lama", null, sktEmpat, 40);
+        arrayProduk.add(NailP);
+        sktEmpat.tambahProduk(NailP);
+        
         // pembeli[0] = new Pembeli("Reine", "White Blouse", "Jl. Bumi, No: 21");
         // pembeli[1] = new Pembeli("Moona", "Yellow Sun", "Jl. Bulan, No: 12");
         // pembeli[2] = new Pembeli("Jisoo", "Nail Polish", "Jl. Mars, No: 190");

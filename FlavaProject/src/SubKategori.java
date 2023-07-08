@@ -44,7 +44,13 @@ public class SubKategori extends Kategori {
 
     @Override
     public String toString() {
-        return String.format("| %-11s | %-15s | %-19s |", 
-        getIdKategori(), getKategori(), getSubKategori());
+        StringBuilder produkString = new StringBuilder();
+        for (Produk produk : getDaftarProduk()) {
+            produkString.append(produk.getNamaProduk()).append(", ");
+        }
+        String produkList = produkString.length() > 0 ? produkString.substring(0, produkString.length() - 2) : "";
+        return String.format("| %-11s | %-15s | %-11s | %-19s | %-20s |",
+                getIdKategori(), getKategori(), getIdSubKategori(), getSubKategori(), produkList);
     }
+
 }
