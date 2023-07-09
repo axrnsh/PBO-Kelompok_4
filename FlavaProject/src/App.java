@@ -449,8 +449,8 @@ public class App {
     }
 
     public static void outputProduk() {
-        System.out.println("|   NAMA PRODUK   |  HARGA PRODUK  |   DESKRIPSI PRODUK   |   NAMA PENJUAL   | KATEGORI PRODUK |");
-        System.out.println("------------------------------------------------------------------------------------------------");
+        System.out.println("|   ID PRODUK   |   NAMA PRODUK   |   HARGA PRODUK   |    DESKRIPSI PRODUK   |   SUBKATEGORI PRODUK   |   STOK PRODUK   |   DAFTARPENJUAL   |");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------");
         for (Produk produkOutput : arrayProduk) {
             System.out.println(produkOutput);
         }
