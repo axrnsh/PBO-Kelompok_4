@@ -310,7 +310,7 @@ public class App {
         System.out.print("Stok produk \t: ");
         int stokProduk = scanner.nextInt();
         scanner.nextLine();
-    
+
         ArrayList<Penjual> daftarPenjual = new ArrayList<Penjual>();
         while (true) {
             System.out.print("ID Penjual (tekan Enter untuk mengakhiri) \t: ");
@@ -325,10 +325,10 @@ public class App {
                 System.out.println("Penjual dengan ID tersebut tidak ditemukan!");
             }
         }
-    
+
         arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, null, stokProduk, daftarPenjual));
     }
-    
+
     public static Penjual cariPenjual(String idPenjual) {
         for (Penjual penjual : arrayPenjual) {
             if (penjual.getIdPenjual().equals(idPenjual)) {
@@ -337,23 +337,23 @@ public class App {
         }
         return null;
     }
-    
 
     public static void inputPenjual() {
         System.out.println("\nSilakan input data berikut!");
-        System.out.print("ID Penjual \t:");
+        System.out.print("ID Penjual \t: ");
         String idPenjual = scanner.nextLine();
-        System.out.print("Nama Penjual \t:");
+        System.out.print("Nama Penjual \t: ");
         String namaPenjual = scanner.nextLine();
 
         ArrayList<Produk> daftarProduk = new ArrayList<Produk>();
         while (true) {
-            System.out.print("Produk (tekan Enter untuk mengakhiri) : ");
+            System.out.print("Produk \t\t: ");
             String produk = scanner.nextLine();
             if (produk.isEmpty()) {
                 break;
             }
             daftarProduk.add(cariProduk(produk));
+            System.out.println("(Tekan ENTER untuk mengakhiri)\n");
         }
         arrayPenjual.add(new Penjual(idPenjual, namaPenjual, daftarProduk));
     }
@@ -417,7 +417,6 @@ public class App {
         }
         return null;
     }
-    // dari pak ade tadi jam 8
 
     public static void inputPembeli() {
         System.out.println("\nInput data berikut!");
@@ -449,18 +448,20 @@ public class App {
     }
 
     public static void outputProduk() {
-        System.out.println("|   ID PRODUK   |   NAMA PRODUK   |   HARGA PRODUK   |    DESKRIPSI PRODUK   |   SUBKATEGORI PRODUK   |   STOK PRODUK   |   DAFTARPENJUAL   |");
-        System.out.println("------------------------------------------------------------------------------------------------------------------------");
+        System.out.println(
+                "|   ID PRODUK   |   NAMA PRODUK   |   HARGA PRODUK   |    DESKRIPSI PRODUK   |   SUBKATEGORI PRODUK   |   STOK PRODUK   |   DAFTARPENJUAL   |");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------");
         for (Produk produkOutput : arrayProduk) {
             System.out.println(produkOutput);
         }
     }
-    
+
     public static void editProduk() {
         outputProduk();
         System.out.print("\nMasukkan ID Produk yang akan diedit: ");
         String idProduk = scanner.nextLine();
-    
+
         Produk targetProduk = null;
         for (Produk produk : arrayProduk) {
             if (produk.getIdProduk().equals(idProduk)) {
@@ -468,7 +469,7 @@ public class App {
                 break;
             }
         }
-    
+
         if (targetProduk != null) {
             System.out.println("\nEdit data produk:");
             System.out.print("Nama produk \t\t: ");
@@ -481,23 +482,23 @@ public class App {
             System.out.print("Stok produk \t: ");
             int stokProduk = scanner.nextInt();
             scanner.nextLine();
-    
+
             targetProduk.setNamaProduk(namaProduk);
             targetProduk.setHargaProduk(hargaProduk);
             targetProduk.setDeskripsiProduk(descProduk);
             targetProduk.setStokProduk(stokProduk);
-    
+
             System.out.println("Produk berhasil diubah!");
         } else {
             System.out.println("Produk tidak ditemukan!");
         }
     }
-    
+
     public static void deleteProduk() {
         outputProduk();
         System.out.print("\nMasukkan ID Produk yang akan dihapus: ");
         String idProduk = scanner.nextLine();
-    
+
         Produk targetProduk = null;
         for (Produk produk : arrayProduk) {
             if (produk.getIdProduk().equals(idProduk)) {
@@ -505,7 +506,7 @@ public class App {
                 break;
             }
         }
-    
+
         if (targetProduk != null) {
             // Remove the target product from the arrayProduk ArrayList
             arrayProduk.remove(targetProduk);
@@ -514,8 +515,7 @@ public class App {
             System.out.println("Produk tidak ditemukan!");
         }
     }
-    
-     
+
     public static void outputPembeli() {
         System.out.println("|   NAMA PEMBELI   |   PRODUK DIBELI   |      ALAMAT PEMBELI     |");
         System.out.println("------------------------------------------------------------------");
@@ -571,16 +571,20 @@ public class App {
                 "Nail Care");
         arraySubKategori.add(sktEmpat);
 
-        Produk WhiteB = new Produk("PK0099", "White Blouse", 5000000, "Baju baru yang bagus", sktSatu, 0, new ArrayList<Penjual>());
+        Produk WhiteB = new Produk("PK0099", "White Blouse", 5000000, "Baju baru yang bagus", sktSatu, 0,
+                new ArrayList<Penjual>());
         arrayProduk.add(WhiteB);
         sktSatu.tambahProduk(WhiteB);
-        Produk BlueJ = new Produk("PK0010", "Blue Jeans", 2000000, "Celana bekas namun masih bagus", sktDua, 50, new ArrayList<Penjual>());
+        Produk BlueJ = new Produk("PK0010", "Blue Jeans", 2000000, "Celana bekas namun masih bagus", sktDua, 50,
+                new ArrayList<Penjual>());
         arrayProduk.add(BlueJ);
         sktDua.tambahProduk(BlueJ);
-        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru yang cocok dipakai untuk hangout", sktTiga, 20, new ArrayList<Penjual>());
+        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru yang cocok dipakai untuk hangout",
+                sktTiga, 20, new ArrayList<Penjual>());
         arrayProduk.add(YellowS);
         sktTiga.tambahProduk(YellowS);
-        Produk NailP = new Produk("PK0182", "Nail Polish", 300000, "Glossy tahan lama", sktEmpat, 40, new ArrayList<Penjual>());
+        Produk NailP = new Produk("PK0182", "Nail Polish", 300000, "Glossy tahan lama", sktEmpat, 40,
+                new ArrayList<Penjual>());
         arrayProduk.add(NailP);
         sktEmpat.tambahProduk(NailP);
 
@@ -602,5 +606,5 @@ public class App {
         transaksi[1] = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
         transaksi[2] = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
 
-    } 
+    }
 }
