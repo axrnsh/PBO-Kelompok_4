@@ -88,22 +88,28 @@ public class Produk {
     }
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("| ").append(String.format("%-9s", idProduk)).append(" | ")
-                .append(String.format("%-13s", namaProduk)).append(" | ")
-                .append(String.format("%,12d", hargaProduk)).append(" | ")
-                .append(String.format("%-24s", deskripsiProduk)).append(" | ")
-                .append(String.format("%-18s", subKategori.getSubKategori())).append(" | ")
-                .append(String.format("%-11s", stokProduk)).append(" | ");
-    
-        if (daftarPenjual.isEmpty()) {
-            sb.append(String.format("%-24s", "<Tidak ada nama penjual>"));
-        } else {
-            sb.append(String.format("%-24s", daftarPenjual.get(0).getNamaPenjual()));
-        }
-    
-        sb.append("|\n");
-        return sb.toString();
+public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("| ").append(String.format("%-9s", idProduk)).append(" | ")
+            .append(String.format("%-13s", namaProduk)).append(" | ")
+            .append(String.format("%,12d", hargaProduk)).append(" | ")
+            .append(String.format("%-24s", deskripsiProduk)).append(" | ");
+
+    if (subKategori != null) {
+        sb.append(String.format("%-18s", subKategori.getSubKategori())).append(" | ");
+    } else {
+        sb.append(String.format("%-18s", "<Tidak ada sub kategori>")).append(" | ");
     }
+
+    sb.append(String.format("%-11s", stokProduk)).append(" | ");
+
+    if (daftarPenjual.isEmpty()) {
+        sb.append(String.format("%-24s", "<Tidak ada nama penjual>"));
+    } else {
+        sb.append(String.format("%-24s", daftarPenjual.get(0).getNamaPenjual()));
+    }
+
+    sb.append("|\n");
+    return sb.toString();
+}
 }

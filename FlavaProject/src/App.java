@@ -397,7 +397,16 @@ public class App {
         System.out.print("Stok produk  \t: ");
         int stokProduk = scanner.nextInt();
         scanner.nextLine();
-
+        
+        // Prompt for sub kategori
+        System.out.print("ID Sub Kategori \t: ");
+        String idSubKategori = scanner.nextLine();
+        SubKategori subKategori = cariSubKategori(idSubKategori);
+        if (subKategori == null) {
+            System.out.println("Sub kategori dengan ID tersebut tidak ditemukan!");
+            return;
+        }
+    
         ArrayList<Penjual> daftarPenjual = new ArrayList<Penjual>();
         while (true) {
             System.out.print("ID Penjual (tekan Enter untuk mengakhiri) \t: ");
@@ -412,9 +421,19 @@ public class App {
                 System.out.println("Penjual dengan ID tersebut tidak ditemukan!");
             }
         }
-
-        arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, null, stokProduk, daftarPenjual));
+    
+        arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, subKategori, stokProduk, daftarPenjual));
     }
+    
+    public static SubKategori cariSubKategori(String idSubKategori) {
+        for (SubKategori subKategori : arraySubKategori) {
+            if (subKategori.getIdSubKategori().equals(idSubKategori)) {
+                return subKategori;
+            }
+        }
+        return null;
+    }
+    
 
     public static Penjual cariPenjual(String idPenjual) {
         for (Penjual penjual : arrayPenjual) {
