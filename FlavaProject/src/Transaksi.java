@@ -7,12 +7,12 @@ public class Transaksi {
     private String namaPembeliProduk;
     private String namaProduk;
     private String tanggal;
-    private double harga;
+    private int harga;
 
     public Transaksi() {
     }
 
-    public Transaksi(String idTransaksi, String namaPembeliProduk, String namaProduk, String tanggal, double harga) {
+    public Transaksi(String idTransaksi, String namaPembeliProduk, String namaProduk, String tanggal, int harga) {
         this.idTransaksi = idTransaksi;
         this.namaPembeliProduk = namaPembeliProduk;
         this.namaProduk = namaProduk;
@@ -57,18 +57,18 @@ public class Transaksi {
     }
 
     // Getter untuk harga
-    public double getHarga() {
+    public int getHarga() {
         return harga;
     }
 
     // Setter untuk harga
-    public void setHarga(double harga) {
+    public void setHarga(int harga) {
         this.harga = harga;
     }
 
     @Override
     public String toString() {
-        return String.format("| %-14s | %-16s | %-16s | %-11s | %-17f |",
+        return String.format("| %-14s | %-16s | %-16s | %-11s | %-17d |",
                 idTransaksi, namaPembeliProduk, namaProduk, tanggal, harga);
     }
 

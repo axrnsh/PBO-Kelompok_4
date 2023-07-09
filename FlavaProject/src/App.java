@@ -439,16 +439,85 @@ public class App {
         System.out.print("Tanggal \t: ");
         String tanggal = scanner.nextLine();
         System.out.print("Total \t\t: ");
-        Double totalTransaksi = scanner.nextDouble();
+        int totalTransaksi = scanner.nextInt();
         scanner.nextLine();
 
         arrayTransaksi.add(new Transaksi(idTransaksi, pembeliTransaksi, produkTransaksi, tanggal, totalTransaksi));
     }
 
+    public static void outputTransaksi() {
+        System.out
+                .println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
+        System.out
+                .println("------------------------------------------------------------------------------------------");
+        for (Transaksi transaksi : arrayTransaksi) {
+            System.out.println(transaksi.toString());
+        }
+    }
+
+    public static void editTransaksi() {
+        outputTransaksi();
+        System.out.print("\nMasukkan ID Transaksi yang akan diedit: ");
+        String idTransaksi = scanner.nextLine();
+
+        Transaksi targetTransaksi = null;
+        for (Transaksi transaksi : arrayTransaksi) {
+            if (transaksi.getIdTransaksi().equals(idTransaksi)) {
+                targetTransaksi = transaksi;
+                break;
+            }
+        }
+
+        if (targetTransaksi != null) {
+            System.out.println("\nEdit data transaksi:");
+            System.out.print("Nama pembeli produk \t: ");
+            String namaPembeliProduk = scanner.nextLine();
+            System.out.print("Nama produk \t\t: ");
+            String namaProduk = scanner.nextLine();
+            System.out.print("Tanggal \t\t: ");
+            String tanggal = scanner.nextLine();
+            System.out.print("Harga \t\t\t: ");
+            int harga = scanner.nextInt();
+            scanner.nextLine();
+
+            targetTransaksi.setNamaPembeliProduk(namaPembeliProduk);
+            targetTransaksi.setNamaProduk(namaProduk);
+            targetTransaksi.setTanggal(tanggal);
+            targetTransaksi.setHarga(harga);
+
+            System.out.println("Transaksi berhasil diubah!");
+        } else {
+            System.out.println("Transaksi tidak ditemukan!");
+        }
+    }
+
+    public static void hapusDataTransaksi() {
+        outputTransaksi();
+        System.out.print("\nMasukkan ID Transaksi yang akan dihapus: ");
+        String idTransaksi = scanner.nextLine();
+
+        Transaksi targetTransaksi = null;
+        for (Transaksi transaksi : arrayTransaksi) {
+            if (transaksi.getIdTransaksi().equals(idTransaksi)) {
+                targetTransaksi = transaksi;
+                break;
+            }
+        }
+
+        if (targetTransaksi != null) {
+            arrayTransaksi.remove(targetTransaksi);
+            System.out.println("Data Transaksi berhasil dihapus!");
+        } else {
+            System.out.println("Transaksi tidak ditemukan!");
+        }
+    }
+
     public static void outputProduk() {
-        System.out.println("| ID PRODUK |  NAMA PRODUK  | HARGA PRODUK |     DESKRIPSI PRODUK     | SUBKATEGORI PRODUK | STOK PRODUK |      DAFTARPENJUAL      |");
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
-        
+        System.out.println(
+                "| ID PRODUK |  NAMA PRODUK  | HARGA PRODUK |     DESKRIPSI PRODUK     | SUBKATEGORI PRODUK | STOK PRODUK |      DAFTARPENJUAL      |");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------------");
+
         for (Produk produkOutput : arrayProduk) {
             System.out.print(produkOutput);
         }
@@ -484,7 +553,6 @@ public class App {
             targetProduk.setHargaProduk(hargaProduk);
             targetProduk.setDeskripsiProduk(descProduk);
             targetProduk.setStokProduk(stokProduk);
-
 
             System.out.println("Produk berhasil diubah!");
         } else {
@@ -525,24 +593,6 @@ public class App {
         for (Pembeli pembeliOutput : arrayPembeli) {
             if (pembeliOutput != null) {
                 System.out.println(pembeliOutput);
-            }
-        }
-    }
-
-    public static void outputTransaksi() {
-        System.out
-                .println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
-        System.out
-                .println("------------------------------------------------------------------------------------------");
-        for (Transaksi transaksiInit : transaksi) {
-            if (transaksiInit != null) {
-                System.out.println(transaksiInit);
-            }
-        }
-
-        for (Transaksi transaksiOutput : arrayTransaksi) {
-            if (transaksiOutput != null) {
-                System.out.println(transaksiOutput);
             }
         }
     }
@@ -599,9 +649,12 @@ public class App {
         penTiga.getDaftarProduk().add(YellowS);
         arrayPenjual.add(penTiga);
 
-        transaksi[0] = new Transaksi("TRX001", "Reine", "White Blouse", "2023-06-12", 500000);
-        transaksi[1] = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
-        transaksi[2] = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
+        Transaksi tranSatu = new Transaksi("TRX001", "Reine", "White Blouse", "2023-06-12", 500000);
+        arrayTransaksi.add(tranSatu);
+        Transaksi tranDua = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
+        arrayTransaksi.add(tranDua);
+        Transaksi tranTiga = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
+        arrayTransaksi.add(tranTiga);
 
         for (Produk produk : arrayProduk) {
             for (Penjual penjual : arrayPenjual) {
@@ -610,4 +663,5 @@ public class App {
                 }
             }
         }
-} }
+    }
+}
