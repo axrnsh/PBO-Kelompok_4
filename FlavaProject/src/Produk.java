@@ -98,9 +98,9 @@ public class Produk {
         sb.append(String.format("%-11s", stokProduk)).append(" | ");
     
         if (penjual != null) {
-            sb.append(String.format("%-24s", penjual.getNamaPenjual()));
+            sb.append(String.format("%-18s", penjual.getNamaPenjual()));
         } else {
-            sb.append(String.format("%-24s", "<Tidak ada nama penjual>"));
+            sb.append(String.format("%-18s", "<Tidak ada nama penjual>"));
         }
     
         sb.append("|\n");

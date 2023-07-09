@@ -442,7 +442,7 @@ public class App {
         System.out.println(
                 "| ID PRODUK |  NAMA PRODUK  | HARGA PRODUK |     DESKRIPSI PRODUK     | SUBKATEGORI PRODUK | STOK PRODUK |      PENJUAL      |");
         System.out.println(
-                "------------------------------------------------------------------------------------------------------------------------------------");
+                "------------------------------------------------------------------------------------------------------------------------------");
 
         for (Produk produkOutput : arrayProduk) {
             System.out.print(produkOutput);
@@ -798,11 +798,11 @@ public class App {
         arrayProduk.add(BlueJ);
         sktDua.tambahProduk(BlueJ);
         penDua.getDaftarProduk().add(BlueJ);   
-        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru untuk kampus", sktTiga, 20, penTiga);
+        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru buat kampus", sktTiga, 20, penTiga);
         arrayProduk.add(YellowS);
         sktTiga.tambahProduk(YellowS);
         penTiga.getDaftarProduk().add(YellowS);   
-        Produk NailP = new Produk("PK0182", "Nail Polish", 300000, "Glossy tahan lama", sktEmpat, 40, penEmpat);
+        Produk NailP = new Produk("PK0182", "Nail Polish", 300000, "Glossy dan tahan lama", sktEmpat, 40, penEmpat);
         arrayProduk.add(NailP);
         sktEmpat.tambahProduk(NailP);
         penEmpat.getDaftarProduk().add(NailP);
@@ -815,7 +815,7 @@ public class App {
         arrayTransaksi.add(tranSatu);
         Transaksi tranDua = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
         arrayTransaksi.add(tranDua);
-        Transaksi tranTiga = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
+        Transaksi tranTiga = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 300000);
         arrayTransaksi.add(tranTiga);
 
        
