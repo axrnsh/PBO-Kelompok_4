@@ -359,8 +359,8 @@ public class App {
     }
 
     public static void outputPenjual() {
-        System.out.println("| ID PENJUAL | NAMA PENJUAL |      PRODUK      |");
-        System.out.println("-------------------------------------------------");
+        System.out.println("\n| ID PENJUAL | NAMA PENJUAL |      PRODUK      |");
+        System.out.println("------------------------------------------------");
         for (Penjual penjual : arrayPenjual) {
             System.out.println(penjual.toString());
         }
@@ -382,9 +382,9 @@ public class App {
             System.out.print("Masukkan nama penjual baru: ");
             String newNamaPenjual = scanner.nextLine();
             targetPenjual.setNamaPenjual(newNamaPenjual);
-            System.out.println("Data penjual berhasil diubah!");
+            System.out.println("\nData penjual berhasil diubah!");
         } else {
-            System.out.println("Penjual tidak ditemukan!");
+            System.out.println("\nPenjual tidak ditemukan!");
         }
     }
 
