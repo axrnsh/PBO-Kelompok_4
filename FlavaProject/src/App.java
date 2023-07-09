@@ -325,9 +325,6 @@ public class App {
                 System.out.println("Penjual dengan ID tersebut tidak ditemukan!");
             }
         }
-
-        Produk newProduk = new Produk(idProduk, namaProduk, hargaProduk, descProduk, null, stokProduk, daftarPenjual);
-        arrayProduk.add(newProduk);
     
         arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, null, stokProduk, daftarPenjual));
     }
