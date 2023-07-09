@@ -96,8 +96,10 @@ public class App {
                                             outputPembeli();
                                             break;
                                         case "15":
+                                            editDataPembeli();
                                             break;
                                         case "16":
+                                            hapusDataPembeli();
                                             break;
                                         case "17":
                                             inputTransaksi();
@@ -397,7 +399,7 @@ public class App {
         System.out.print("Stok produk  \t: ");
         int stokProduk = scanner.nextInt();
         scanner.nextLine();
-        
+
         // Prompt for sub kategori
         System.out.print("ID Sub Kategori \t: ");
         String idSubKategori = scanner.nextLine();
@@ -406,7 +408,7 @@ public class App {
             System.out.println("Sub kategori dengan ID tersebut tidak ditemukan!");
             return;
         }
-    
+
         ArrayList<Penjual> daftarPenjual = new ArrayList<Penjual>();
         while (true) {
             System.out.print("ID Penjual (tekan Enter untuk mengakhiri) \t: ");
@@ -421,10 +423,11 @@ public class App {
                 System.out.println("Penjual dengan ID tersebut tidak ditemukan!");
             }
         }
-    
-        arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, subKategori, stokProduk, daftarPenjual));
+
+        arrayProduk
+                .add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, subKategori, stokProduk, daftarPenjual));
     }
-    
+
     public static SubKategori cariSubKategori(String idSubKategori) {
         for (SubKategori subKategori : arraySubKategori) {
             if (subKategori.getIdSubKategori().equals(idSubKategori)) {
@@ -433,7 +436,6 @@ public class App {
         }
         return null;
     }
-    
 
     public static Penjual cariPenjual(String idPenjual) {
         for (Penjual penjual : arrayPenjual) {
@@ -595,6 +597,8 @@ public class App {
 
     public static void inputPembeli() {
         System.out.println("\nInput data berikut!");
+        System.out.println("Masukkan ID Pembeli \t: ");
+        String idPembeli = scanner.nextLine();
         System.out.print("Nama pembeli \t: ");
         String namaPembeli = scanner.nextLine();
         System.out.print("Transaksi \t: ");
@@ -602,22 +606,68 @@ public class App {
         System.out.print("Alamat pembeli \t: ");
         String alamatPembeli = scanner.nextLine();
 
-        // arrayPembeli.add(new Pembeli(namaPembeli, daftarTransaksi, alamatPembeli));
+        // arrayPembeli.add(new Pembeli(idPembeli, namaPembeli, daftarTransaksi,
+        // alamatPembeli));
     }
 
-        public static void outputPembeli() {
-        System.out.println("|   NAMA PEMBELI   |   PRODUK DIBELI   |      ALAMAT PEMBELI     |");
-        System.out.println("------------------------------------------------------------------");
-        for (Pembeli pembeliInit : pembeli) {
-            if (pembeliInit != null) {
-                System.out.println(pembeliInit);
+    public static void outputPembeli() {
+        System.out.println("|   ID Pembeli   |   NAMA PEMBELI   |   PRODUK DIBELI   |      ALAMAT PEMBELI     |");
+        System.out.println("-----------------------------------------------------------------------------------");
+        for (Pembeli pembeli : arrayPembeli) {
+            System.out.println(pembeli.toString());
+        }
+    }
+
+    public static void editDataPembeli() {
+        outputPembeli();
+        System.out.print("\nMasukkan ID Pembeli yang akan diedit: ");
+        String idPembeli = scanner.nextLine();
+
+        Pembeli targetPembeli = null;
+        for (Pembeli pembeli : arrayPembeli) {
+            if (pembeli.getIdPembeli().equals(idPembeli)) {
+                targetPembeli = pembeli;
+                break;
             }
         }
 
-        for (Pembeli pembeliOutput : arrayPembeli) {
-            if (pembeliOutput != null) {
-                System.out.println(pembeliOutput);
+        if (targetPembeli != null) {
+            System.out.println("\nEdit data pembeli:");
+            System.out.print("Nama pembeli baru \t: ");
+            String newNamaPembeli = scanner.nextLine();
+            System.out.print("Produk dibeli baru \t: ");
+            String newDaftarTransaksi = scanner.nextLine();
+            System.out.print("Alamat pembeli baru \t: ");
+            String newAlamatPembeli = scanner.nextLine();
+
+            targetPembeli.setNamaPembeli(newNamaPembeli);
+            // targetPembeli.setDaftarTransaksi(newDaftarTransaksi);
+            targetPembeli.setAlamatPembeli(newAlamatPembeli);
+
+            System.out.println("Data pembeli berhasil diubah!");
+        } else {
+            System.out.println("Pembeli tidak ditemukan!");
+        }
+    }
+
+    public static void hapusDataPembeli() {
+        outputPembeli();
+        System.out.print("\nMasukkan ID Pembeli yang akan dihapus: ");
+        String idPembeli = scanner.nextLine();
+
+        Pembeli targetPembeli = null;
+        for (Pembeli pembeli : arrayPembeli) {
+            if (pembeli.getIdPembeli().equals(idPembeli)) {
+                targetPembeli = pembeli;
+                break;
             }
+        }
+
+        if (targetPembeli != null) {
+            arrayPembeli.remove(targetPembeli);
+            System.out.println("Data pembeli berhasil dihapus!");
+        } else {
+            System.out.println("Pembeli tidak ditemukan!");
         }
     }
 

@@ -14,14 +14,12 @@ public class Pembeli {
     public Pembeli() {
     }
 
-
     public Pembeli(String idPembeli, String namaPembeli, ArrayList<Transaksi> daftarTransaksi, String alamatPembeli) {
         this.idPembeli = idPembeli;
         this.namaPembeli = namaPembeli;
         this.daftarTransaksi = daftarTransaksi;
         this.alamatPembeli = alamatPembeli;
     }
-
 
     public String getIdPembeli() {
         return this.idPembeli;
@@ -43,8 +41,8 @@ public class Pembeli {
         return this.daftarTransaksi;
     }
 
-    public void setDaftarTransaksi(ArrayList<Transaksi> daftarTransaksi) {
-        this.daftarTransaksi = daftarTransaksi;
+    public void setDaftarTransaksi(ArrayList<Transaksi> newDaftarTransaksi) {
+        this.daftarTransaksi = newDaftarTransaksi;
     }
 
     public String getAlamatPembeli() {
@@ -54,11 +52,10 @@ public class Pembeli {
     public void setAlamatPembeli(String alamatPembeli) {
         this.alamatPembeli = alamatPembeli;
     }
-   
 
     @Override
     public String toString() {
-        return String.format("| %-16s | %-17s | %-23s |", 
-        namaPembeli, daftarTransaksi, alamatPembeli);
+        return String.format("| %-16s | %-17s | %-23s |",
+                namaPembeli, daftarTransaksi, alamatPembeli);
     }
 }
