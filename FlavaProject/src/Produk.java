@@ -92,19 +92,18 @@ public class Produk {
     public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("| ").append(String.format("%-10s", idProduk)).append(" | ")
-            .append(String.format("%-12s", namaProduk)).append(" | ")
-            .append(String.format("%-12s", hargaProduk)).append(" | ")
-            .append(String.format("%-12s", deskripsiProduk)).append(" | ")
-            .append(String.format("%-12s", subKategori)).append(" | ")
+            .append(String.format("%-15s", namaProduk)).append(" | ")
+            .append(String.format("%,14d", hargaProduk)).append(" | ")
+            .append(String.format("%-22s", deskripsiProduk)).append(" | ")
+            .append(String.format("%-20s", subKategori.getSubKategori())).append(" | ")
             .append(String.format("%-12s", stokProduk)).append(" | ");
 
-
     if (daftarPenjual.isEmpty()) {
-        sb.append(String.format("%-17s", "<Tidak ada nama penjual>"));
+        sb.append(String.format("%-20s", "<Tidak ada nama penjual>"));
     } else {
         for (Penjual penjual : daftarPenjual) {
             if (penjual != null) {
-                sb.append(String.format("%-17s", penjual.getNamaPenjual()));
+                sb.append(String.format("%-20s", penjual.getNamaPenjual()));
             }
         }
     }
@@ -112,4 +111,4 @@ public class Produk {
     return sb.toString();
 }
 
-}
+}    
