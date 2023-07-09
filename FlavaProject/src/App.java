@@ -448,14 +448,31 @@ public class App {
     }
 
     public static void outputProduk() {
-        System.out.println(
-                "|   ID PRODUK   |   NAMA PRODUK   |   HARGA PRODUK   |    DESKRIPSI PRODUK   |   SUBKATEGORI PRODUK   |   STOK PRODUK   |   DAFTARPENJUAL   |");
-        System.out.println(
-                "------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("|   ID PRODUK   |   NAMA PRODUK   |   HARGA PRODUK   |    DESKRIPSI PRODUK   |   SUBKATEGORI PRODUK   |   STOK PRODUK   |   DAFTARPENJUAL   |");
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------");
+    
         for (Produk produkOutput : arrayProduk) {
-            System.out.println(produkOutput);
+            String daftarPenjual = getDaftarPenjualString(produkOutput.getDaftarPenjual());
+            System.out.printf("| %-13s | %-15s | %-,16d | %-22s | %-21s | %-15d | %-18s |%n",
+                    produkOutput.getIdProduk(), produkOutput.getNamaProduk(), produkOutput.getHargaProduk(),
+                    produkOutput.getDeskripsiProduk(), produkOutput.getSubKategori().getSubKategori(),
+                    produkOutput.getStokProduk(), daftarPenjual);
         }
     }
+    
+    private static String getDaftarPenjualString(List<Penjual> daftarPenjual) {
+        if (daftarPenjual.isEmpty()) {
+            return "<Tidak ada penjual>";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (Penjual penjual : daftarPenjual) {
+                sb.append(penjual.getNamaPenjual()).append(", ");
+            }
+            sb.setLength(sb.length() - 2); // Remove trailing comma and space
+            return sb.toString();
+        }
+    }
+    
 
     public static void editProduk() {
         outputProduk();
