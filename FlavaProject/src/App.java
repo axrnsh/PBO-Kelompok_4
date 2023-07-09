@@ -386,38 +386,39 @@ public class App {
     }
 
     public static void inputProduk() {
-        System.out.println("\nInput data berikut!");
-        System.out.print("ID Produk  \t: ");
-        String idProduk = scanner.nextLine();
-        System.out.print("Nama produk  \t: ");
-        String namaProduk = scanner.nextLine();
-        System.out.print("Harga produk  \t: ");
-        int hargaProduk = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Deskripsi produk : ");
-        String descProduk = scanner.nextLine();
-        System.out.print("Stok produk  \t: ");
-        int stokProduk = scanner.nextInt();
-        scanner.nextLine();
+        try {
+            System.out.println("\nInput data berikut!");
+            System.out.print("ID Produk  \t: ");
+            String idProduk = scanner.nextLine();
+            System.out.print("Nama produk  \t: ");
+            String namaProduk = scanner.nextLine();
+            System.out.print("Harga produk  \t: ");
+            int hargaProduk = Integer.parseInt(scanner.nextLine());
+            System.out.print("Deskripsi produk : ");
+            String descProduk = scanner.nextLine();
+            System.out.print("Stok produk  \t: ");
+            int stokProduk = Integer.parseInt(scanner.nextLine());
     
-        // Prompt for sub kategori
-        System.out.print("ID Sub Kategori \t: ");
-        String idSubKategori = scanner.nextLine();
-        SubKategori subKategori = cariSubKategori(idSubKategori);
-        if (subKategori == null) {
-            System.out.println("Sub kategori dengan ID tersebut tidak ditemukan!");
-            return;
+            System.out.print("ID Sub Kategori \t: ");
+            String idSubKategori = scanner.nextLine();
+            SubKategori subKategori = cariSubKategori(idSubKategori);
+            if (subKategori == null) {
+                System.out.println("Sub kategori dengan ID tersebut tidak ditemukan!");
+                return;
+            }
+    
+            System.out.print("ID Penjual \t: ");
+            String idPenjual = scanner.nextLine();
+            Penjual penjual = cariPenjual(idPenjual);
+            if (penjual == null) {
+                System.out.println("Penjual dengan ID tersebut tidak ditemukan!");
+                return;
+            }
+    
+            arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, subKategori, stokProduk, penjual));
+        } catch (NumberFormatException e) {
+            System.out.println("Input harga produk dan stok produk harus berupa angka.");
         }
-    
-        System.out.print("ID Penjual \t: ");
-        String idPenjual = scanner.nextLine();
-        Penjual penjual = cariPenjual(idPenjual);
-        if (penjual == null) {
-            System.out.println("Penjual dengan ID tersebut tidak ditemukan!");
-            return;
-        }
-    
-        arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, subKategori, stokProduk, penjual));
     }
     
     public static SubKategori cariSubKategori(String idSubKategori) {
@@ -798,7 +799,7 @@ public class App {
         arrayProduk.add(BlueJ);
         sktDua.tambahProduk(BlueJ);
         penDua.getDaftarProduk().add(BlueJ);   
-        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru buat kampus", sktTiga, 20, penTiga);
+        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru  kampus", sktTiga, 20, penTiga);
         arrayProduk.add(YellowS);
         sktTiga.tambahProduk(YellowS);
         penTiga.getDaftarProduk().add(YellowS);   
