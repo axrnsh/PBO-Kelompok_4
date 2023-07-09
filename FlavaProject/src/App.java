@@ -648,6 +648,9 @@ public class App {
         Penjual penTiga = new Penjual("P003", "Axel", new ArrayList<Produk>());
         penTiga.getDaftarProduk().add(YellowS);
         arrayPenjual.add(penTiga);
+        Penjual penEmpat = new Penjual("P004", "Jeno", new ArrayList<Produk>());
+        penEmpat.getDaftarProduk().add(NailP);
+        arrayPenjual.add(penEmpat);
 
         Transaksi tranSatu = new Transaksi("TRX001", "Reine", "White Blouse", "2023-06-12", 500000);
         arrayTransaksi.add(tranSatu);
