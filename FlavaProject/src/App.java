@@ -1,12 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.List;
 
 public class App {
     // tolong banget kalau mau edit kerapiannya dijaga
-    static Produk produk[] = new Produk[4];
     static Pembeli pembeli[] = new Pembeli[3];
-    static Penjual penjual[] = new Penjual[3];
     static Transaksi transaksi[] = new Transaksi[3];
 
     public static ArrayList<Kategori> arrayKategori = new ArrayList<Kategori>();
@@ -299,16 +296,16 @@ public class App {
 
     public static void inputProduk() {
         System.out.println("\nInput data berikut!");
-        System.out.print("ID Produk \t: ");
+        System.out.print("ID Produk  \t: ");
         String idProduk = scanner.nextLine();
-        System.out.print("Nama produk \t\t: ");
+        System.out.print("Nama produk  \t: ");
         String namaProduk = scanner.nextLine();
-        System.out.print("Harga produk \t\t: ");
+        System.out.print("Harga produk  \t: ");
         int hargaProduk = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Deskripsi produk \t: ");
+        System.out.print("Deskripsi produk : ");
         String descProduk = scanner.nextLine();
-        System.out.print("Stok produk \t: ");
+        System.out.print("Stok produk  \t: ");
         int stokProduk = scanner.nextInt();
         scanner.nextLine();
 
@@ -449,12 +446,11 @@ public class App {
     }
 
     public static void outputProduk() {
-        System.out.println(
-                "|   ID PRODUK   |   NAMA PRODUK   |   HARGA PRODUK   |    DESKRIPSI PRODUK   |   SUBKATEGORI PRODUK   |   STOK PRODUK   |   DAFTARPENJUAL   |");
-        System.out.println(
-                "------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("| ID PRODUK |  NAMA PRODUK  | HARGA PRODUK |     DESKRIPSI PRODUK     | SUBKATEGORI PRODUK | STOK PRODUK |      DAFTARPENJUAL      |");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        
         for (Produk produkOutput : arrayProduk) {
-            System.out.println(produkOutput);
+            System.out.print(produkOutput);
         }
     }
 
@@ -480,7 +476,7 @@ public class App {
             scanner.nextLine();
             System.out.print("Deskripsi produk \t: ");
             String descProduk = scanner.nextLine();
-            System.out.print("Stok produk \t: ");
+            System.out.print("Stok produk : ");
             int stokProduk = scanner.nextInt();
             scanner.nextLine();
 
@@ -488,6 +484,7 @@ public class App {
             targetProduk.setHargaProduk(hargaProduk);
             targetProduk.setDeskripsiProduk(descProduk);
             targetProduk.setStokProduk(stokProduk);
+
 
             System.out.println("Produk berhasil diubah!");
         } else {
@@ -509,7 +506,6 @@ public class App {
         }
 
         if (targetProduk != null) {
-            // Remove the target product from the arrayProduk ArrayList
             arrayProduk.remove(targetProduk);
             System.out.println("Produk berhasil dihapus!");
         } else {
@@ -572,15 +568,15 @@ public class App {
                 "Nail Care");
         arraySubKategori.add(sktEmpat);
 
-        Produk WhiteB = new Produk("PK0099", "White Blouse", 5000000, "Baju baru yang bagus", sktSatu, 0,
+        Produk WhiteB = new Produk("PK0099", "White Blouse", 5000000, "Baju baru yang bagus", sktSatu, 10,
                 new ArrayList<Penjual>());
         arrayProduk.add(WhiteB);
         sktSatu.tambahProduk(WhiteB);
-        Produk BlueJ = new Produk("PK0010", "Blue Jeans", 2000000, "Celana bekas namun masih bagus", sktDua, 50,
+        Produk BlueJ = new Produk("PK0010", "Blue Jeans", 2000000, "Celana bekas namun bagus", sktDua, 50,
                 new ArrayList<Penjual>());
         arrayProduk.add(BlueJ);
         sktDua.tambahProduk(BlueJ);
-        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru yang cocok dipakai untuk hangout",
+        Produk YellowS = new Produk("PK0018", "Yellow Sun", 6000000, "Sepatu baru untuk kampus",
                 sktTiga, 20, new ArrayList<Penjual>());
         arrayProduk.add(YellowS);
         sktTiga.tambahProduk(YellowS);
@@ -607,14 +603,11 @@ public class App {
         transaksi[1] = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
         transaksi[2] = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
 
-    // Assign penjuals to products in arrayProduk
-    for (Produk produk : arrayProduk) {
-        for (Penjual penjual : arrayPenjual) {
-            if (penjual.getDaftarProduk().contains(produk)) {
-                produk.getDaftarPenjual().add(penjual);
+        for (Produk produk : arrayProduk) {
+            for (Penjual penjual : arrayPenjual) {
+                if (penjual.getDaftarProduk().contains(produk)) {
+                    produk.getDaftarPenjual().add(penjual);
+                }
             }
         }
-    }
-}
-
-}
+} }

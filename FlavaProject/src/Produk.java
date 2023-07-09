@@ -24,7 +24,6 @@ public class Produk {
         this.daftarPenjual = daftarPenjual != null ? daftarPenjual : new ArrayList<>();
 }
 
-
     public Produk(String string) {
     }
 
@@ -83,32 +82,28 @@ public class Produk {
     public void setDaftarPenjual (ArrayList<Penjual> daftarPenjual) {
         this.daftarPenjual = daftarPenjual;
     }
-
+   
     public Produk() {
         daftarPenjual = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("| ").append(String.format("%-10s", idProduk)).append(" | ")
-            .append(String.format("%-15s", namaProduk)).append(" | ")
-            .append(String.format("%,14d", hargaProduk)).append(" | ")
-            .append(String.format("%-22s", deskripsiProduk)).append(" | ")
-            .append(String.format("%-20s", subKategori.getSubKategori())).append(" | ")
-            .append(String.format("%-12s", stokProduk)).append(" | ");
-
-    if (daftarPenjual.isEmpty()) {
-        sb.append(String.format("%-20s", "<Tidak ada nama penjual>"));
-    } else {
-        for (Penjual penjual : daftarPenjual) {
-            if (penjual != null) {
-                sb.append(String.format("%-20s", penjual.getNamaPenjual()));
-            }
+        StringBuilder sb = new StringBuilder();
+        sb.append("| ").append(String.format("%-9s", idProduk)).append(" | ")
+                .append(String.format("%-13s", namaProduk)).append(" | ")
+                .append(String.format("%,12d", hargaProduk)).append(" | ")
+                .append(String.format("%-24s", deskripsiProduk)).append(" | ")
+                .append(String.format("%-18s", subKategori.getSubKategori())).append(" | ")
+                .append(String.format("%-11s", stokProduk)).append(" | ");
+    
+        if (daftarPenjual.isEmpty()) {
+            sb.append(String.format("%-24s", "<Tidak ada nama penjual>"));
+        } else {
+            sb.append(String.format("%-24s", daftarPenjual.get(0).getNamaPenjual()));
         }
+    
+        sb.append("|\n");
+        return sb.toString();
     }
-    sb.append("|");
-    return sb.toString();
 }
-
-}    
