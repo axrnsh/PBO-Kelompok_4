@@ -100,7 +100,7 @@ public class Produk {
 
 
     if (daftarPenjual.isEmpty()) {
-        sb.append(String.format("%-17s", "<Tidak ada produk>"));
+        sb.append(String.format("%-17s", "<Tidak ada nama penjual>"));
     } else {
         for (Penjual penjual : daftarPenjual) {
             if (penjual != null) {

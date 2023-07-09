@@ -606,5 +606,14 @@ public class App {
         transaksi[1] = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
         transaksi[2] = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
 
+    // Assign penjuals to products in arrayProduk
+    for (Produk produk : arrayProduk) {
+        for (Penjual penjual : arrayPenjual) {
+            if (penjual.getDaftarProduk().contains(produk)) {
+                produk.getDaftarPenjual().add(penjual);
+            }
+        }
     }
+}
+
 }
