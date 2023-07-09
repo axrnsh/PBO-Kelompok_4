@@ -55,13 +55,13 @@ public class App {
 
                                     switch (pilihanLagi) {
                                         case "1":
-                                            inputKat();
+                                            inputKategori();
                                             break;
                                         case "2":
                                             outputKategori();
                                             break;
                                         case "3":
-                                            editKategori();
+                                            editKat();
                                             break;
                                         case "4":
                                             deleteKategori();
@@ -135,29 +135,6 @@ public class App {
         scanner.close();
     }
 
-    public static void inputKat() {
-        IKategori newKategori = new IKategori();
-        newKategori.showMenu();
-        System.out.print("\nPilihan: ");
-
-        String pilihlah;
-        pilihlah = scanner.nextLine();
-
-        switch (pilihlah) {
-            case "1":
-                inputKategori();
-                break;
-            case "2":
-                produkKeKat();
-                break;
-            case "0":
-                break;
-            default:
-                System.out.println("Masukkan angka yang valid");
-                break;
-        }
-    }
-
     public static void inputKategori() {
         System.out.println("\nInput data berikut!");
         System.out.print("ID kategori produk \t: ");
@@ -175,6 +152,73 @@ public class App {
         arraySubKategori.add(new SubKategori(idkat, kat, idskt, skt));
 
         System.out.println("Input berhasil!");
+    }
+
+    public static void outputKategori() {
+        System.out.println(
+                "| ID KATEGORI | KATEGORI PRODUK | ID SUB KATE | SUB KATEGORI PRODUK |        PRODUK        |");
+        System.out.println(
+                "--------------------------------------------------------------------------------------------");
+        for (SubKategori subkategori : arraySubKategori) {
+            System.out.println(subkategori.toString());
+        }
+    }
+
+    public static void editKat() {
+        IKategori newKategori = new IKategori();
+        newKategori.showMenu();
+        System.out.print("\nPilihan: ");
+
+        String pilihlah;
+        pilihlah = scanner.nextLine();
+
+        switch (pilihlah) {
+            case "1":
+                editKategori();
+                break;
+            case "2":
+                produkKeKat();
+                break;
+            case "0":
+                break;
+            default:
+                System.out.println("Masukkan angka yang valid");
+                break;
+        }
+    }
+
+    public static void editKategori() {
+        outputKategori();
+        System.out.print("\nMasukkan ID Kategori yang akan diedit: ");
+        String idKategori = scanner.nextLine();
+
+        Kategori targetKategori = null;
+        ArrayList<SubKategori> subKategoriToUpdate = new ArrayList<>();
+
+        for (Kategori kategori : arrayKategori) {
+            if (kategori.getIdKategori().equals(idKategori)) {
+                targetKategori = kategori;
+                break;
+            }
+        }
+        if (targetKategori != null) {
+            System.out.print("Masukkan nama Kategori baru: ");
+            String newNamaKategori = scanner.nextLine();
+            targetKategori.setKategori(newNamaKategori);
+            for (SubKategori subKategori : arraySubKategori) {
+                if (subKategori.getIdKategori().equals(idKategori)) {
+                    subKategoriToUpdate.add(subKategori);
+                }
+            }
+            for (SubKategori subKategori : subKategoriToUpdate) {
+                System.out.print("Masukkan nama Sub Kategori baru untuk " + subKategori.getSubKategori() + ": ");
+                String newNamaSubKategori = scanner.nextLine();
+                subKategori.setSubKategori(newNamaSubKategori);
+            }
+            System.out.println("Kategori dan subkategori berhasil diubah!");
+        } else {
+            System.out.println("Kategori tidak ditemukan!");
+        }
     }
 
     public static void produkKeKat() {
@@ -218,50 +262,6 @@ public class App {
             System.out.println("Produk berhasil ditambahkan ke sub kategori!");
         } else {
             System.out.println("Kategori, sub kategori, atau produk tidak ditemukan!");
-        }
-    }
-
-    public static void outputKategori() {
-        System.out.println(
-                "| ID KATEGORI | KATEGORI PRODUK | ID SUB KATE | SUB KATEGORI PRODUK |        PRODUK        |");
-        System.out.println(
-                "--------------------------------------------------------------------------------------------");
-        for (SubKategori subkategori : arraySubKategori) {
-            System.out.println(subkategori.toString());
-        }
-    }
-
-    public static void editKategori() {
-        outputKategori();
-        System.out.print("Masukkan ID Kategori yang akan diedit: ");
-        String idKategori = scanner.nextLine();
-
-        Kategori targetKategori = null;
-        ArrayList<SubKategori> subKategoriToUpdate = new ArrayList<>();
-
-        for (Kategori kategori : arrayKategori) {
-            if (kategori.getIdKategori().equals(idKategori)) {
-                targetKategori = kategori;
-                break;
-            }
-        }
-        if (targetKategori != null) {
-            System.out.print("Masukkan nama Kategori baru: ");
-            String newNamaKategori = scanner.nextLine();
-            targetKategori.setKategori(newNamaKategori);
-            for (SubKategori subKategori : arraySubKategori) {
-                if (subKategori.getIdKategori().equals(idKategori)) {
-                    subKategoriToUpdate.add(subKategori);
-                }
-            }
-            for (SubKategori subKategori : subKategoriToUpdate) {
-                System.out.print("Masukkan nama Sub Kategori baru untuk " + subKategori.getSubKategori() + ": ");
-                String newNamaSubKategori = scanner.nextLine();
-                subKategori.setSubKategori(newNamaSubKategori);
-            }
-            System.out.println("Kategori dan subkategori berhasil diubah!");
-        } else {
-            System.out.println("Kategori tidak ditemukan!");
         }
     }
 
@@ -602,4 +602,5 @@ public class App {
         transaksi[1] = new Transaksi("TRX002", "Moana", "Yellow Sun", "2023-06-15", 600000);
         transaksi[2] = new Transaksi("TRX003", "Jisoo", "Nail Polish", "2023-06-20", 150000);
 
-    } }
+    } 
+}
