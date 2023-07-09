@@ -22,7 +22,7 @@ public class Login {
                 String nama = data[3];
 
                 if (username.equals(usernm) && password.equals(pass)) {
-                    System.out.println("\nLogin berhasil! Selamat datang, " + nama + "!");
+                    System.out.println("Login berhasil! Selamat datang, " + nama + "!");
                     scanner.close();
                     return true;
                 }

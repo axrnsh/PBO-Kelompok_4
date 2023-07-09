@@ -7,7 +7,6 @@ public class UserPembeli extends User implements Menu {
         System.out.println(" 2. Tampilkan produk");
         System.out.println(" 3. Input transaksi");
         System.out.println(" 4. Tampilkan transaksi");
-        System.out.println(" 5. Tampilkan profil");
         System.out.println(" 0. Logout");
     }
 }

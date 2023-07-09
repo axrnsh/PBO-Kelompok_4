@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class App {
     // tolong banget kalau mau edit kerapiannya dijaga
     static Pembeli pembeli[] = new Pembeli[3];
-    static Transaksi transaksi[] = new Transaksi[3];
 
     public static ArrayList<Kategori> arrayKategori = new ArrayList<Kategori>();
     public static ArrayList<SubKategori> arraySubKategori = new ArrayList<SubKategori>();
@@ -16,15 +15,16 @@ public class App {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
+        clearScreen();
         init();
         boolean loggedIn = false;
         boolean selesai = false;
 
         do {
-            System.out.println("\nSelamat datang di Flava!\n");
+            System.out.println("Selamat datang di Flava!");
             System.out.println("1. Login");
             System.out.println("2. Keluar");
-            System.out.print("Pilihan: ");
+            System.out.print("\nPilihan: ");
 
             String pilih;
             pilih = scanner.nextLine();
@@ -32,11 +32,12 @@ public class App {
             switch (pilih) {
                 case "1":
                     if (!loggedIn) {
-                        // cuma bisa login sebagai admin untuk saat ini
-                        System.out.print("\nUsername: ");
+                        clearScreen();
+                        System.out.print("Username: ");
                         String username = scanner.nextLine();
                         System.out.print("Password: ");
                         String password = scanner.nextLine();
+                        clearScreen();
 
                         if (Login.login(username, password)) {
                             loggedIn = true;
@@ -105,8 +106,10 @@ public class App {
                                             outputTransaksi();
                                             break;
                                         case "19":
+                                            editTransaksi();
                                             break;
                                         case "20":
+                                            hapusDataTransaksi();
                                             break;
                                         case "0":
                                             System.out.println("Logout berhasil!");
@@ -116,6 +119,88 @@ public class App {
                                             System.out.println("Masukkan angka yang valid");
                                             break;
                                     }
+                                }
+
+                                else if (role.equals("penjual")) {
+                                    UserPenjual penjualLogin = new UserPenjual();
+                                    penjualLogin.showMenu();
+                                    System.out.print("\nPilihan: ");
+
+                                    String pilihanLagi;
+                                    pilihanLagi = scanner.nextLine();
+
+                                    switch (pilihanLagi) {
+                                        case "1":
+                                            inputKategori();
+                                            break;
+                                        case "2":
+                                            outputKategori();
+                                            break;
+                                        case "3":
+                                            editKat();
+                                            break;
+                                        case "4":
+                                            deleteKategori();
+                                            break;
+                                        case "5":
+                                            inputProduk();
+                                            break;
+                                        case "6":
+                                            outputProduk();
+                                            break;
+                                        case "7":
+                                            editProduk();
+                                            break;
+                                        case "8":
+                                            deleteProduk();
+                                            break;
+                                        case "9":
+                                            outputTransaksi();
+                                            break;
+                                        case "0":
+                                            System.out.println("Logout berhasil!");
+                                            loggedIn = false;
+                                            break;
+                                        default:
+                                            System.out.println("Masukkan angka yang valid");
+                                            break;
+                                    }
+                                }
+
+                                else if (role.equals("pembeli")) {
+                                    UserPembeli pembeliLogin = new UserPembeli();
+                                    pembeliLogin.showMenu();
+                                    System.out.print("\nPilihan: ");
+
+                                    String pilihanLagi;
+                                    pilihanLagi = scanner.nextLine();
+
+                                    switch (pilihanLagi) {
+                                        case "1":
+                                            outputKategori();
+                                            break;
+                                        case "2":
+                                            outputProduk();
+                                            break;
+                                        case "3":
+                                            inputTransaksi();
+                                            break;
+                                        case "4":
+                                            outputTransaksi();
+                                            break;
+                                        case "0":
+                                            System.out.println("Logout berhasil!");
+                                            loggedIn = false;
+                                            break;
+                                        default:
+                                            System.out.println("Masukkan angka yang valid");
+                                            break;
+                                    }
+                                }
+
+                                else {
+                                    System.out.println("Posisi tidak valid");
+                                    loggedIn = false;
                                 }
                             } while (loggedIn);
                         }
@@ -134,7 +219,8 @@ public class App {
     }
 
     public static void inputKategori() {
-        System.out.println("\nInput data berikut!");
+        clearScreen();
+        System.out.println("Input data berikut!");
         System.out.print("ID kategori produk \t: ");
         String idkat = scanner.nextLine();
         System.out.print("Kategori produk \t: ");
@@ -149,10 +235,12 @@ public class App {
 
         arraySubKategori.add(new SubKategori(idkat, kat, idskt, skt));
 
+        clearScreen();
         System.out.println("Input berhasil!");
     }
 
     public static void outputKategori() {
+        clearScreen();
         System.out.println(
                 "| ID KATEGORI | KATEGORI PRODUK | ID SUB KATE | SUB KATEGORI PRODUK |        PRODUK        |");
         System.out.println(
@@ -163,6 +251,7 @@ public class App {
     }
 
     public static void editKat() {
+        clearScreen();
         IKategori newKategori = new IKategori();
         newKategori.showMenu();
         System.out.print("\nPilihan: ");
@@ -265,7 +354,7 @@ public class App {
 
     public static void deleteKategori() {
         outputKategori();
-        System.out.println("Warning: Menghapus kategori akan menghapus sub kategori di dalamnya juga");
+        System.out.println("Warning: Menghapus kategori akan menghapus sub kategori di dalamnya juga\n");
         System.out.print("Masukkan ID Kategori yang akan dihapus: ");
         String idKategori = scanner.nextLine();
 
@@ -334,6 +423,75 @@ public class App {
             }
         }
         return null;
+    }
+
+    public static void outputProduk() {
+        System.out.println(
+                "| ID PRODUK |  NAMA PRODUK  | HARGA PRODUK |     DESKRIPSI PRODUK     | SUBKATEGORI PRODUK | STOK PRODUK |      DAFTARPENJUAL      |");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------------");
+
+        for (Produk produkOutput : arrayProduk) {
+            System.out.print(produkOutput);
+        }
+    }
+
+    public static void editProduk() {
+        outputProduk();
+        System.out.print("\nMasukkan ID Produk yang akan diedit: ");
+        String idProduk = scanner.nextLine();
+
+        Produk targetProduk = null;
+        for (Produk produk : arrayProduk) {
+            if (produk.getIdProduk().equals(idProduk)) {
+                targetProduk = produk;
+                break;
+            }
+        }
+
+        if (targetProduk != null) {
+            System.out.println("\nEdit data produk:");
+            System.out.print("Nama produk \t\t: ");
+            String namaProduk = scanner.nextLine();
+            System.out.print("Harga produk \t\t: ");
+            int hargaProduk = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Deskripsi produk \t: ");
+            String descProduk = scanner.nextLine();
+            System.out.print("Stok produk : ");
+            int stokProduk = scanner.nextInt();
+            scanner.nextLine();
+
+            targetProduk.setNamaProduk(namaProduk);
+            targetProduk.setHargaProduk(hargaProduk);
+            targetProduk.setDeskripsiProduk(descProduk);
+            targetProduk.setStokProduk(stokProduk);
+
+            System.out.println("Produk berhasil diubah!");
+        } else {
+            System.out.println("Produk tidak ditemukan!");
+        }
+    }
+
+    public static void deleteProduk() {
+        outputProduk();
+        System.out.print("\nMasukkan ID Produk yang akan dihapus: ");
+        String idProduk = scanner.nextLine();
+
+        Produk targetProduk = null;
+        for (Produk produk : arrayProduk) {
+            if (produk.getIdProduk().equals(idProduk)) {
+                targetProduk = produk;
+                break;
+            }
+        }
+
+        if (targetProduk != null) {
+            arrayProduk.remove(targetProduk);
+            System.out.println("Produk berhasil dihapus!");
+        } else {
+            System.out.println("Produk tidak ditemukan!");
+        }
     }
 
     public static void inputPenjual() {
@@ -428,6 +586,22 @@ public class App {
         // arrayPembeli.add(new Pembeli(namaPembeli, daftarTransaksi, alamatPembeli));
     }
 
+        public static void outputPembeli() {
+        System.out.println("|   NAMA PEMBELI   |   PRODUK DIBELI   |      ALAMAT PEMBELI     |");
+        System.out.println("------------------------------------------------------------------");
+        for (Pembeli pembeliInit : pembeli) {
+            if (pembeliInit != null) {
+                System.out.println(pembeliInit);
+            }
+        }
+
+        for (Pembeli pembeliOutput : arrayPembeli) {
+            if (pembeliOutput != null) {
+                System.out.println(pembeliOutput);
+            }
+        }
+    }
+
     public static void inputTransaksi() {
         System.out.println("\nInput data berikut!");
         System.out.print("Id transaksi \t: ");
@@ -512,88 +686,16 @@ public class App {
         }
     }
 
-    public static void outputProduk() {
-        System.out.println(
-                "| ID PRODUK |  NAMA PRODUK  | HARGA PRODUK |     DESKRIPSI PRODUK     | SUBKATEGORI PRODUK | STOK PRODUK |      DAFTARPENJUAL      |");
-        System.out.println(
-                "------------------------------------------------------------------------------------------------------------------------------------");
-
-        for (Produk produkOutput : arrayProduk) {
-            System.out.print(produkOutput);
-        }
-    }
-
-    public static void editProduk() {
-        outputProduk();
-        System.out.print("\nMasukkan ID Produk yang akan diedit: ");
-        String idProduk = scanner.nextLine();
-
-        Produk targetProduk = null;
-        for (Produk produk : arrayProduk) {
-            if (produk.getIdProduk().equals(idProduk)) {
-                targetProduk = produk;
-                break;
+    public static void clearScreen() {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\u001b[2J\u001b[H");
+                System.out.flush();
             }
-        }
-
-        if (targetProduk != null) {
-            System.out.println("\nEdit data produk:");
-            System.out.print("Nama produk \t\t: ");
-            String namaProduk = scanner.nextLine();
-            System.out.print("Harga produk \t\t: ");
-            int hargaProduk = scanner.nextInt();
-            scanner.nextLine();
-            System.out.print("Deskripsi produk \t: ");
-            String descProduk = scanner.nextLine();
-            System.out.print("Stok produk : ");
-            int stokProduk = scanner.nextInt();
-            scanner.nextLine();
-
-            targetProduk.setNamaProduk(namaProduk);
-            targetProduk.setHargaProduk(hargaProduk);
-            targetProduk.setDeskripsiProduk(descProduk);
-            targetProduk.setStokProduk(stokProduk);
-
-            System.out.println("Produk berhasil diubah!");
-        } else {
-            System.out.println("Produk tidak ditemukan!");
-        }
-    }
-
-    public static void deleteProduk() {
-        outputProduk();
-        System.out.print("\nMasukkan ID Produk yang akan dihapus: ");
-        String idProduk = scanner.nextLine();
-
-        Produk targetProduk = null;
-        for (Produk produk : arrayProduk) {
-            if (produk.getIdProduk().equals(idProduk)) {
-                targetProduk = produk;
-                break;
-            }
-        }
-
-        if (targetProduk != null) {
-            arrayProduk.remove(targetProduk);
-            System.out.println("Produk berhasil dihapus!");
-        } else {
-            System.out.println("Produk tidak ditemukan!");
-        }
-    }
-
-    public static void outputPembeli() {
-        System.out.println("|   NAMA PEMBELI   |   PRODUK DIBELI   |      ALAMAT PEMBELI     |");
-        System.out.println("------------------------------------------------------------------");
-        for (Pembeli pembeliInit : pembeli) {
-            if (pembeliInit != null) {
-                System.out.println(pembeliInit);
-            }
-        }
-
-        for (Pembeli pembeliOutput : arrayPembeli) {
-            if (pembeliOutput != null) {
-                System.out.println(pembeliOutput);
-            }
+        } catch (Exception e) {
+            System.out.println("Gagal melakukan clear screen: " + e.getMessage());
         }
     }
 

@@ -12,7 +12,6 @@ public class UserPenjual extends User implements Menu {
         System.out.println(" 7. Edit produk");
         System.out.println(" 8. Hapus produk");
         System.out.println(" 9. Tampilkan transaksi");
-        System.out.println("10. Tampilkan profil");
         System.out.println(" 0. Logout");
         System.out.print("\nPilihan: ");
     }
