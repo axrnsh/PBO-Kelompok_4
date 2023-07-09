@@ -2,8 +2,6 @@
  * class ini berfungsi untuk menyimpan informasi pada produk
  */
 
-import java.util.ArrayList;
-
 public class Produk {
     private String idProduk;
     private String namaProduk;
@@ -11,18 +9,18 @@ public class Produk {
     private String deskripsiProduk;
     private SubKategori subKategori;
     private int stokProduk;
-    private ArrayList<Penjual> daftarPenjual;
+    private Penjual penjual;
 
     public Produk(String idProduk, String namaProduk, int hargaProduk, String deskripsiProduk,
-            SubKategori subKategori, int stokProduk, ArrayList<Penjual> daftarPenjual) {
+                  SubKategori subKategori, int stokProduk, Penjual penjual) {
         this.idProduk = idProduk;
         this.namaProduk = namaProduk;
         this.hargaProduk = hargaProduk;
         this.deskripsiProduk = deskripsiProduk;
         this.subKategori = subKategori;
         this.stokProduk = stokProduk;
-        this.daftarPenjual = daftarPenjual != null ? daftarPenjual : new ArrayList<>();
-}
+        this.penjual = penjual;
+    }
 
     public Produk(String string) {
     }
@@ -75,41 +73,37 @@ public class Produk {
         this.stokProduk = stokProduk;
     }
 
-    public ArrayList<Penjual> getDaftarPenjual() {
-        return this.daftarPenjual;
+    public Penjual getPenjual() {
+        return penjual;
     }
 
-    public void setDaftarPenjual (ArrayList<Penjual> daftarPenjual) {
-        this.daftarPenjual = daftarPenjual;
-    }
-   
-    public Produk() {
-        daftarPenjual = new ArrayList<>();
+    public void setPenjual(Penjual penjual) {
+        this.penjual = penjual;
     }
 
     @Override
-public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("| ").append(String.format("%-9s", idProduk)).append(" | ")
-            .append(String.format("%-13s", namaProduk)).append(" | ")
-            .append(String.format("%,12d", hargaProduk)).append(" | ")
-            .append(String.format("%-24s", deskripsiProduk)).append(" | ");
-
-    if (subKategori != null) {
-        sb.append(String.format("%-18s", subKategori.getSubKategori())).append(" | ");
-    } else {
-        sb.append(String.format("%-18s", "<Tidak ada sub kategori>")).append(" | ");
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("| ").append(String.format("%-9s", idProduk)).append(" | ")
+                .append(String.format("%-13s", namaProduk)).append(" | ")
+                .append(String.format("%,12d", hargaProduk)).append(" | ")
+                .append(String.format("%-24s", deskripsiProduk)).append(" | ");
+    
+        if (subKategori != null) {
+            sb.append(String.format("%-18s", subKategori.getSubKategori())).append(" | ");
+        } else {
+            sb.append(String.format("%-18s", "<Tidak ada sub kategori>")).append(" | ");
+        }
+    
+        sb.append(String.format("%-11s", stokProduk)).append(" | ");
+    
+        if (penjual != null) {
+            sb.append(String.format("%-24s", penjual.getNamaPenjual()));
+        } else {
+            sb.append(String.format("%-24s", "<Tidak ada nama penjual>"));
+        }
+    
+        sb.append("|\n");
+        return sb.toString();
     }
-
-    sb.append(String.format("%-11s", stokProduk)).append(" | ");
-
-    if (daftarPenjual.isEmpty()) {
-        sb.append(String.format("%-24s", "<Tidak ada nama penjual>"));
-    } else {
-        sb.append(String.format("%-24s", daftarPenjual.get(0).getNamaPenjual()));
-    }
-
-    sb.append("|\n");
-    return sb.toString();
-}
-}
+            }    
