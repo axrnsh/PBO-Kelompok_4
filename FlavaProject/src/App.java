@@ -389,18 +389,18 @@ public class App {
         clearScreen();
         try {
             System.out.println("Input data berikut!");
-            System.out.print("ID Produk  \t: ");
+            System.out.print("ID Produk        : ");
             String idProduk = scanner.nextLine();
-            System.out.print("Nama produk  \t: ");
+            System.out.print("Nama produk      : ");
             String namaProduk = scanner.nextLine();
-            System.out.print("Harga produk  \t: ");
+            System.out.print("Harga produk     : ");
             int hargaProduk = Integer.parseInt(scanner.nextLine());
             System.out.print("Deskripsi produk : ");
             String descProduk = scanner.nextLine();
-            System.out.print("Stok produk  \t: ");
+            System.out.print("Stok produk      : ");
             int stokProduk = Integer.parseInt(scanner.nextLine());
     
-            System.out.print("ID Sub Kategori \t: ");
+            System.out.print("ID Sub Kategori  : ");
             String idSubKategori = scanner.nextLine();
             SubKategori subKategori = cariSubKategori(idSubKategori);
             if (subKategori == null) {
@@ -408,7 +408,7 @@ public class App {
                 return;
             }
     
-            System.out.print("ID Penjual \t: ");
+            System.out.print("ID Penjual       : ");
             String idPenjual = scanner.nextLine();
             Penjual penjual = cariPenjual(idPenjual);
             if (penjual == null) {
