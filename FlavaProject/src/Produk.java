@@ -22,9 +22,6 @@ public class Produk {
         this.penjual = penjual;
     }
 
-    public Produk(String string) {
-    }
-
     public String getIdProduk() {
         return idProduk;
     }
