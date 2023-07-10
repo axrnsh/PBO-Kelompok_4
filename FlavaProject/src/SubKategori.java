@@ -5,9 +5,6 @@ public class SubKategori extends Kategori {
     private String subKategori;
     private ArrayList<Produk> produk = new ArrayList<Produk>();
 
-    public SubKategori() {
-    }
-
     public SubKategori(String idKategori, String kategori, String idSubKategori, String subKategori) {
         super(idKategori, kategori);
         this.idSubKategori = idSubKategori;
