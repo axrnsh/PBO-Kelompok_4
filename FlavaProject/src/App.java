@@ -386,8 +386,9 @@ public class App {
     }
 
     public static void inputProduk() {
+        clearScreen();
         try {
-            System.out.println("\nInput data berikut!");
+            System.out.println("Input data berikut!");
             System.out.print("ID Produk  \t: ");
             String idProduk = scanner.nextLine();
             System.out.print("Nama produk  \t: ");
@@ -417,7 +418,7 @@ public class App {
     
             arrayProduk.add(new Produk(idProduk, namaProduk, hargaProduk, descProduk, subKategori, stokProduk, penjual));
         } catch (NumberFormatException e) {
-            System.out.println("Input harga produk dan stok produk harus berupa angka.");
+            System.out.println("Input harga produk dan stok produk harus berupa angka: " + e);
         }
     }
     
@@ -440,6 +441,7 @@ public class App {
     }
 
     public static void outputProduk() {
+        clearScreen();
         System.out.println(
                 "| ID PRODUK |  NAMA PRODUK  | HARGA PRODUK |     DESKRIPSI PRODUK     | SUBKATEGORI PRODUK | STOK PRODUK |      PENJUAL      |");
         System.out.println(
@@ -468,13 +470,23 @@ public class App {
             System.out.print("Nama produk \t\t: ");
             String namaProduk = scanner.nextLine();
             System.out.print("Harga produk \t\t: ");
-            int hargaProduk = scanner.nextInt();
-            scanner.nextLine();
+            int hargaProduk = 0;
+            try {
+                hargaProduk = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Input harga produk harus berupa angka: " + e);
+                return;
+            }
             System.out.print("Deskripsi produk \t: ");
             String descProduk = scanner.nextLine();
-            System.out.print("Stok produk : ");
-            int stokProduk = scanner.nextInt();
-            scanner.nextLine();
+            System.out.print("Stok produk \t\t: ");
+            int stokProduk = 0;
+            try {
+                stokProduk = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Input stok produk harus berupa angka: " + e);
+                return;
+            }
 
             targetProduk.setNamaProduk(namaProduk);
             targetProduk.setHargaProduk(hargaProduk);
@@ -509,6 +521,7 @@ public class App {
     }
 
     public static void inputPenjual() {
+        clearScreen();
         System.out.println("\nSilakan input data berikut!");
         System.out.print("ID Penjual \t: ");
         String idPenjual = scanner.nextLine();
@@ -529,7 +542,8 @@ public class App {
     }
 
     public static void outputPenjual() {
-        System.out.println("\n| ID PENJUAL | NAMA PENJUAL |      PRODUK      |");
+        clearScreen();
+        System.out.println("| ID PENJUAL | NAMA PENJUAL |      PRODUK      |");
         System.out.println("------------------------------------------------");
         for (Penjual penjual : arrayPenjual) {
             System.out.println(penjual.toString());
@@ -589,8 +603,9 @@ public class App {
     }
 
     public static void inputPembeli() {
-        System.out.println("\nInput data berikut!");
-        System.out.println("Masukkan ID Pembeli \t: ");
+        clearScreen();
+        System.out.println("Input data berikut!");
+        System.out.print("Masukkan ID Pembeli \t: ");
         String idPembeli = scanner.nextLine();
         System.out.print("Nama pembeli \t: ");
         String namaPembeli = scanner.nextLine();
@@ -603,13 +618,14 @@ public class App {
         // alamatPembeli));
     }
 
-        public static void outputPembeli() {
+    public static void outputPembeli() {
+        clearScreen();
         System.out.println("|   ID Pembeli   |   NAMA PEMBELI   |   PRODUK DIBELI   |      ALAMAT PEMBELI     |");
         System.out.println("-----------------------------------------------------------------------------------");
         for (Pembeli pembeli : arrayPembeli) {
             System.out.println(pembeli.toString());
             }
-        }
+    }
 
     public static void editDataPembeli() {
         outputPembeli();
@@ -665,7 +681,8 @@ public class App {
     }
 
     public static void inputTransaksi() {
-        System.out.println("\nInput data berikut!");
+        clearScreen();
+        System.out.println("Input data berikut!");
         System.out.print("Id transaksi \t: ");
         String idTransaksi = scanner.nextLine();
         System.out.print("Nama pembeli \t: ");
@@ -675,13 +692,19 @@ public class App {
         System.out.print("Tanggal \t: ");
         String tanggal = scanner.nextLine();
         System.out.print("Total \t\t: ");
-        int totalTransaksi = scanner.nextInt();
-        scanner.nextLine();
+        int totalTransaksi = 0;
+        try {
+            totalTransaksi = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Input total transaksi harus berupa angka: " + e);
+            return;
+        }
 
         arrayTransaksi.add(new Transaksi(idTransaksi, pembeliTransaksi, produkTransaksi, tanggal, totalTransaksi));
     }
 
     public static void outputTransaksi() {
+        clearScreen();
         System.out
                 .println("|  ID TRANSAKSI  |   NAMA PEMBELI   |      PRODUK      |   TANGGAL   |       TOTAL       |");
         System.out
@@ -713,8 +736,13 @@ public class App {
             System.out.print("Tanggal \t\t: ");
             String tanggal = scanner.nextLine();
             System.out.print("Harga \t\t\t: ");
-            int harga = scanner.nextInt();
-            scanner.nextLine();
+            int harga = 0;
+            try {
+                harga = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Input harga harus berupa angka: " + e);
+                return;
+            }
 
             targetTransaksi.setNamaPembeliProduk(namaPembeliProduk);
             targetTransaksi.setNamaProduk(namaProduk);
